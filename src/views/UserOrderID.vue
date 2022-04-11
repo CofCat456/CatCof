@@ -2,9 +2,9 @@
   <div class="container">
     <div class="mx-5 my-3"></div>
     <div class="row justify-content-center">
-      <div class="col-12">
+      <div class="col-11 mx-5 my-3">
         <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
-          <ol class="breadcrumb d-flex justify-content-end mx-5 px-4">
+          <ol class="breadcrumb d-flex justify-content-end">
             <li class="breadcrumb-item">
               <router-link to="/">首頁</router-link>
             </li>
@@ -27,7 +27,7 @@
       <div class="container">
         <div class="row px-md-1 px-lg-5 justify-content-center">
           <div class="col-lg-9 col-md-12 px-3">
-            <section class="mb-5 px-5 px-md-5 py-5 rounded shadow bg-white">
+            <section class="mb-5 px-md-5 px-md-3 px-3 py-5 rounded shadow bg-white">
               <h3 class="h5 text-center fw-bold mt-3">訂單編號</h3>
               <p class="text-center text-danger fw-bold mb-4 pb-3 fs-5">
                 {{ this.order.id }}
@@ -41,20 +41,20 @@
                   <tr>
                     <th
                       scope="row"
-                      class="fs-6 px-2 px-md-3 fw-bold border"
-                      width="30%"
+                      class="fs-6 px-3 fw-bold border"
+                      width="35%"
                     >
                       姓名
                     </th>
-                    <td class="px-2 px-md-3 border" width="70%">
+                    <td class="px-3 border" width="70%">
                       {{ this.order.user['name'] }}
                     </td>
                   </tr>
                   <tr>
                     <th
                       scope="row"
-                      class="fs-6 px-2 px-md-3 fw-bold border"
-                      width="30%"
+                      class="fs-6 px-3 fw-bold border"
+                      width="35%"
                     >
                       電話
                     </th>
@@ -65,50 +65,50 @@
                   <tr>
                     <th
                       scope="row"
-                      class="fs-6 px-2 px-md-3 fw-bold border"
-                      width="30%"
+                      class="fs-6 px-3 fw-bold border"
+                      width="35%"
                     >
                       E-mail
                     </th>
-                    <td class="px-2 px-md-3 border" width="70%">
+                    <td class="px-3 border" width="70%">
                       {{ this.order.user['email'] }}
                     </td>
                   </tr>
                   <tr>
                     <th
                       scope="row"
-                      class="fs-6 px-2 px-md-3 fw-bold border"
-                      width="30%"
+                      class="fs-6 px-3 fw-bold border"
+                      width="35%"
                     >
                       地址
                     </th>
-                    <td class="px-2 px-md-3 border" width="70%">
+                    <td class="px-3 border" width="70%">
                       {{ this.order.user['address'] }}
                     </td>
                   </tr>
                   <tr>
                     <th
                       scope="row"
-                      class="fs-6 px-2 px-md-3 fw-bold border"
-                      width="30%"
+                      class="fs-6 px-3 fw-bold border"
+                      width="35%"
                     >
                       付款方式
                     </th>
-                    <td class="px-2 px-md-3 border" width="70%">
+                    <td class="px-3 border" width="70%">
                       {{ this.order.user['payment'] }}
                     </td>
                   </tr>
                   <tr>
                     <th
                       scope="row"
-                      class="fs-6 px-2 px-md-3 fw-bold border"
-                      width="30%"
+                      class="fs-6 px-3 fw-bold border"
+                      width="35%"
                     >
                       備註
                     </th>
                     <td
                       v-if="this.order.user['remark']"
-                      class="px-2 px-md-3 border"
+                      class="px-3 border"
                       width="70%"
                     >
                       {{ this.order.user['remark'] }}
@@ -171,7 +171,7 @@
               </p>
             </section>
           </div>
-          <div class="col-10 d-flex justify-content-center mb-2 mb-md-5">
+          <div class="col-10 d-flex justify-content-center mb-5">
             <router-link
               to="/User/ProductList"
               class="btn btn-custom-Orange px-3 py-1"

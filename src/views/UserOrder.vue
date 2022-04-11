@@ -2,9 +2,9 @@
   <div class="container">
     <div class="mx-5 my-3"></div>
     <div class="row justify-content-center">
-      <div class="col-12">
+      <div class="col-11 mx-5 my-3">
         <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
-          <ol class="breadcrumb d-flex justify-content-end mx-5 px-4">
+          <ol class="breadcrumb d-flex justify-content-end">
             <li class="breadcrumb-item">
               <router-link to="/">首頁</router-link>
             </li>
@@ -29,7 +29,7 @@
         <div
           class="col-12 mb-5 px-lg-0 px-xl-5 d-flex flex-wrap justify-content-center align-items-center"
         >
-          <div class="col-lg-6 col-12 mb-lg-0 mb-sm-5 px-3">
+          <div class="col-lg-6 col-12 mb-lg-0 mb-5 px-3">
             <div class="p-3 p-sm-5 mx-auto rounded bg-white shadow-sm">
               <h3 class="text-center mb-4 fs-5">購物明細</h3>
               <table class="table text-center mb-5">
@@ -181,16 +181,16 @@
             </div>
           </div>
         </div>
-        <div class="col-10 d-flex justify-content-between mb-2 mb-md-5">
+        <div class="col-10 d-flex justify-content-between mb-2 mb-5">
           <router-link
             to="/User/cart"
-            class="btn btn-custom-Blue px-1 px-sm-2 px-md-4 py-2"
+            class="btn btn-custom-Blue px-1g-4 px-2 py-2"
             ><i class="bi bi-caret-left me-1"></i>返 回 購 物 車</router-link
           >
 
           <button
             type="submit"
-            class="btn btn-custom-Orange px-1 px-sm-2 px-md-4 py-2"
+            class="btn btn-custom-Orange px-lg-4 px-2 py-2"
             :disabled="Object.keys(errors).length !== 0"
           >
             送 出 訂 單

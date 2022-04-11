@@ -2,9 +2,9 @@
   <div class="container">
     <div class="mx-5 my-3"></div>
     <div class="row justify-content-center">
-      <div class="col-12">
+      <div class="col-11 mx-5 my-3">
         <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
-          <ol class="breadcrumb d-flex justify-content-end mx-5 px-4">
+          <ol class="breadcrumb d-flex justify-content-end">
             <li class="breadcrumb-item">
               <router-link to="/">首頁</router-link>
             </li>
@@ -15,11 +15,11 @@
         </nav>
       </div>
       <shopProcess status="確認"></shopProcess>
-      <div class="col-lg-10 col-md-12 my-5">
+      <div class="col-lg-10 col-md-12 col-11 my-5">
         <h1 class="fw-bold text-center mb-4">購物車</h1>
         <main
           v-if="!this.cart.carts || this.cart.carts.length !== 0"
-          class="mx-auto bg-white px-md-5 px-2 py-5 text-center rounded-3 shadow"
+          class="mx-auto bg-white px-md-5 px-3 py-5 text-center rounded-3 shadow"
         >
           <table class="table position-relative">
             <thead>
@@ -34,10 +34,10 @@
               <tr v-for="item in cart.carts" :key="item.id">
                 <td class="text-start">
                   <div class="row align-items-center">
-                    <div class="col-4">
+                    <div class="col-4 d-md-block d-none">
                       <img :src="item.product.imageUrl" :alt="item.product.title + '的商品照片'" />
                     </div>
-                    <p class="col-md-8 m-0 px-md-2 fs-6 fw-bold">
+                    <p class="col-md-8 m-0 px-md-2 fw-bold">
                       {{ item.product.title }}
                     </p>
                   </div>
@@ -130,7 +130,7 @@
                 }}
               </p>
             </div>
-            <div class="col-10 col-md-6 col-lg-5">
+            <div class="col-md-10 col-11  col-md-6 col-lg-5">
               <div class="input-group input-group-sm">
                 <input
                   type="text"
@@ -163,22 +163,22 @@
       </div>
       <div
         v-if="!this.cart.carts || this.cart.carts.length !== 0"
-        class="col-10 d-flex justify-content-between mb-2 mb-md-5"
+        class="col-md-10 col-11 d-flex justify-content-between mb-5"
       >
         <router-link
           to="/User/ProductList"
-          class="btn btn-custom-Blue px-1 px-sm-2 px-md-4 py-2"
+          class="btn btn-custom-Blue px-md-4 py-2"
           ><i class="bi bi-caret-left me-1"></i>繼 續 購 物</router-link
         >
         <button
-          class="btn btn-outline-danger px-1 px-sm-2 px-md-4 py-2"
+          class="btn btn-outline-danger px-md-4 py-2"
           @click="deleteAllCart()"
         >
           清 空 購 物 車
         </button>
         <router-link
           to="/User/Order"
-          class="btn btn-custom-Orange px-1 px-sm-2 px-md-4 py-2"
+          class="btn btn-custom-Orange px-md-4 py-2"
           >填 寫 訂 單<i class="bi bi-caret-right ms-1"></i
         ></router-link>
       </div>
@@ -190,6 +190,12 @@
 .btn {
   font-weight: 700;
   line-height: 1.7;
+}
+
+@media screen and (max-width: 414px){
+  .btn{
+    padding: 0.5rem 0.2rem;
+  }
 }
 
 /* 表格內容 */

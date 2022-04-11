@@ -53,7 +53,7 @@ a:hover {
   span,
   li,
   input,
-  table td,
+  table tbody > *,
   table th {
     font-size: 0.875rem;
   }
