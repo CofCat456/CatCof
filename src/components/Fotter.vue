@@ -100,7 +100,7 @@ img {
 
 @media screen and (max-width: 414px) {
   .information {
-    width: 75vw;
+    width: 85vw;
   }
 }
 

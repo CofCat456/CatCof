@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg w-100" :class="{ navBg: isScroll }">
     <div class="container-fluid px-5">
-      <router-link to="/" class="nav-link fs-5 title mt-1">
+      <router-link to="/" class="nav-link fs-5 title mt-md-1">
         <img src="../assets/雜/CofShopLogo.png" alt="CoffeeShop Logo" />
       </router-link>
       <button
@@ -57,6 +57,12 @@
 <style scoped>
 .navbar {
   transition: all 0.4s ease-in-out;
+}
+
+@media screen and (max-width: 414px) {
+  .nav-link {
+    padding: 0;
+  }
 }
 
 .nav-item {
