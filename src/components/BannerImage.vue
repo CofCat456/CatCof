@@ -54,7 +54,7 @@
 
 @media screen and (max-width: 414px) {
   .swiper >>> .swiper-slide{
-    height: 420px;
+    height: 400px;
   }
 }
 
