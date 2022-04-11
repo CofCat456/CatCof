@@ -2,23 +2,30 @@
   <section class="py-lg-5 py-md-3">
     <div class="container-fluid my-lg-5 my-md-2">
       <div class="row d-flex justify-content-center">
-        <div class="col-lg-11 col-md-12 my-2 px-5">
+        <div class="col-lg-11 col-md-12 my-2 px-md-5 px-4">
           <span class="d-flex align-items-sm-end">
             <h1 class="me-2 font-en">Hot Products</h1>
           </span>
         </div>
-        <div v-if="Hproduct.length > 1" class="col-9 my-4 px-4 d-flex">
+        <div
+          v-if="Hproduct.length > 1"
+          class="col-md-9 col-12 my-4 px-4 d-flex"
+        >
           <swiper
             :slidesPerView="4"
             :spaceBetween="40"
             :breakpoints="{
+              '1024': {
+                slidesPerView: 4,
+                spaceBetween: 20
+              },
               '768': {
                 slidesPerView: 2,
                 spaceBetween: 40
               },
-              '1024': {
-                slidesPerView: 4,
-                spaceBetween: 20
+              '414': {
+                slidesPerView: 2,
+                spaceBetween: 15
               }
             }"
             class="mySwiper"
@@ -53,18 +60,22 @@
             </swiper-slide>
           </swiper>
         </div>
-        <div class="col-9 my-4 px-4 d-flex">
+        <div class="col-md-9 col-12 my-4 px-4 d-flex">
           <swiper
             :slidesPerView="4"
             :spaceBetween="40"
             :breakpoints="{
+              '1024': {
+                slidesPerView: 4,
+                spaceBetween: 20
+              },
               '768': {
                 slidesPerView: 2,
                 spaceBetween: 40
               },
-              '1024': {
-                slidesPerView: 4,
-                spaceBetween: 20
+              '414': {
+                slidesPerView: 2,
+                spaceBetween: 15
               }
             }"
             class="mySwiper"
@@ -172,7 +183,7 @@
             -->
           </swiper>
         </div>
-        <div class="col-9 text-center mt-5">
+        <div class="col-md-9 col-12 text-center mt-md-5 mt-3 px-4">
           <router-link to="/User/ProductList" class="spButton">
             <i class="bi bi-chevron-right px-1"></i>列表展示
           </router-link>
@@ -186,6 +197,12 @@
 @import '~swiper/swiper.min.css';
 h1 {
   font-size: 3rem;
+}
+
+@media screen and (max-width: 414px) {
+  h1 {
+    font-size: 2.2rem;
+  }
 }
 
 /* 畫面高度 */
@@ -209,7 +226,6 @@ h1 {
   border-radius: 7px;
   overflow: hidden;
 }
-
 .swiper >>> .swiper-slide img {
   width: 100%;
   height: 200px;
@@ -217,6 +233,18 @@ h1 {
   object-fit: cover;
   object-position: center;
   transition: all 0.4s linear;
+}
+
+@media screen and (max-width: 414px) {
+  .swiper >>> .swiper-slide .imgBox {
+    width: 100%;
+    height: 120px;
+  }
+  .swiper >>> .swiper-slide img {
+    width: 100%;
+    height: 120px;
+    margin-bottom: 0.2rem;
+  }
 }
 
 .swiper >>> .swiper-slide:hover img {
@@ -233,17 +261,6 @@ h1 {
 
 .text .unit {
   font-size: 0.4rem;
-}
-
-.spButton {
-  padding: 1rem 6.5rem;
-  font-size: 0.6rem;
-  color: #24395b;
-  background: transparent;
-  text-align: center;
-  border: 1px solid #24395b;
-  border-radius: 5px;
-  transition: all 0.6s;
 }
 
 .bi-chevron-right::before {

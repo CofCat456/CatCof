@@ -134,7 +134,7 @@
           <button
             class="btn btn-outline-danger w-100 px-1 px-sm-2 px-md-4 py-2"
             @click="DeleteAllCollects()"
-            :disabled="this.collects.length < 1 "
+            :disabled="this.collects.length < 1"
           >
             清 空 收 藏
           </button>
@@ -164,11 +164,18 @@ ul {
   width: 70px;
   margin: 0px;
   padding: 1rem 0rem;
-  bottom: 25px;
-  right: 20px;
+  bottom: 5%;
+  right: 2%;
   background-color: rgba(36, 57, 91, 1);
   border-radius: 20px;
   z-index: 100000000000000;
+}
+
+@media screen and (max-width: 768px) {
+  .btn.custom-ul {
+    bottom: 10%;
+    right: 5%;
+  }
 }
 
 .love {

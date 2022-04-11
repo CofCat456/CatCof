@@ -15,7 +15,7 @@
         </nav>
       </div>
       <shopProcess status="確認"></shopProcess>
-      <div class="col-10 my-5">
+      <div class="col-lg-10 col-md-12 my-5">
         <h1 class="fw-bold text-center mb-4">購物車</h1>
         <main
           v-if="!this.cart.carts || this.cart.carts.length !== 0"
@@ -35,9 +35,9 @@
                 <td class="text-start">
                   <div class="row align-items-center">
                     <div class="col-4">
-                      <img :src="item.product.imageUrl" alt="" />
+                      <img :src="item.product.imageUrl" :alt="item.product.title + '的商品照片'" />
                     </div>
-                    <p class="col-8 m-0 fs-6 fw-bold">
+                    <p class="col-md-8 m-0 px-md-2 fs-6 fw-bold">
                       {{ item.product.title }}
                     </p>
                   </div>

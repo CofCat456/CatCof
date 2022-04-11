@@ -2,13 +2,13 @@
   <section class="py-5">
     <div class="container-fluid mt-5">
       <div class="row d-flex justify-content-center">
-        <div class="col-lg-10 col-md-12  my-2 px-5">
+        <div class="col-lg-11 col-md-12 my-2 px-md-5 px-4">
           <span class="d-flex align-items-sm-end">
             <h1 class="me-2 font-en">Interview</h1>
           </span>
         </div>
-        <div class="col-9 my-4 d-flex flex-wrap">
-          <div class="item col-lg-4 col-md-12 px-4">
+        <div class="col-md-9 col-12 my-4 px-4 d-flex flex-wrap">
+          <div class="item col-lg-4 col-12 px-4">
             <img src="../assets/雜/001.jpg" />
             <div class="text mt-3">
               <p class="font-en fs-5">2021.5.5</p>
@@ -16,7 +16,7 @@
               <p class="tag mt-1">#tag測試</p>
             </div>
           </div>
-          <div class="item col-lg-4 col-md-12 px-4">
+          <div class="item col-lg-4 col-12 px-4">
             <img src="../assets/雜/001.jpg" />
             <div class="text mt-3">
               <p class="font-en fs-5">2021.5.5</p>
@@ -24,7 +24,7 @@
               <p class="tag mt-1">#tag測試</p>
             </div>
           </div>
-          <div class="item col-lg-4 col-md-12 px-4">
+          <div class="item col-lg-4 col-12 px-4">
             <img src="../assets/雜/001.jpg" />
             <div class="text mt-3">
               <p class="font-en fs-5">2021.5.5</p>
@@ -33,7 +33,7 @@
             </div>
           </div>
         </div>
-        <div class="col-9 text-center mt-5">
+        <div class="col-md-9 col-12 text-center mt-5">
           <button class="spButton">
             <i class="bi bi-chevron-right px-1"></i>列表展示
           </button>
@@ -46,6 +46,12 @@
 <style scoped>
 h1 {
   font-size: 3rem;
+}
+
+@media screen and (max-width: 414px) {
+  h1 {
+    font-size: 2.2rem;
+  }
 }
 
 .item {
@@ -76,17 +82,6 @@ h1 {
 .text > .tag {
   font-size: 0.8rem;
   color: #999;
-}
-
-.spButton {
-  padding: 1rem 6.5rem;
-  font-size: 0.6rem;
-  color: #24395b;
-  background: transparent;
-  text-align: center;
-  border: 1px solid #24395b;
-  border-radius: 5px;
-  transition: all 0.6s;
 }
 
 .bi-chevron-right::before {

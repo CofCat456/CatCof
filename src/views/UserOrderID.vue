@@ -127,21 +127,21 @@
                     <th
                       scope="row"
                       class="px-2 px-md-3 border fw-bold"
-                      width="60%"
+                      width="40%"
                     >
                       品名
                     </th>
                     <th
                       scope="row"
                       class="px-2 px-md-3 border fw-bold"
-                      width="10%"
+                      width="20%"
                     >
                       數量
                     </th>
                     <th
                       scope="row"
                       class="px-2 px-md-3 border fw-bold"
-                      width="20%"
+                      width="30%"
                     >
                       金額
                     </th>

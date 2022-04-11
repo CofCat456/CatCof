@@ -11,7 +11,7 @@
       disableOnInteraction: false
     }"
     :modules="modules"
-    class="mySwiper mt-4 mb-5 mx-0"
+    class="mySwiper mt-4 mb-md-5 mb-0 mx-0"
   >
     <swiper-slide
       v-for="img in imgData"
@@ -31,25 +31,31 @@
 /* 畫面高度 */
 .swiper {
   max-width: 93%;
-  height: 83vh;
-  /* height: 83vh; */
   right: -7%;
-}
-
-@media screen and (max-width:768px){
-  .swiper{
-    height: 50vh;
-  }
 }
 
 /* 背景圖 */
 .swiper >>> .swiper-slide {
+  width: 100%;
+  height: 780px;
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
   position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .swiper >>> .swiper-slide{
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .swiper >>> .swiper-slide{
+    height: 450px;
+  }
 }
 
 /* 圖片文字 */
@@ -69,17 +75,18 @@
   color: #fff;
 }
 
-@media screen and (max-width: 1000px) {
-  .bigText h1 {
-    font-size: 1.8rem;
-  }
-}
-
 @media screen and (max-width: 768px) {
   .bigText h1 {
     font-size: 1.8rem;
   }
 }
+
+@media screen and (max-width: 414px) {
+  .bigText h1 {
+    font-size: 1.2rem;
+  }
+}
+
 </style>
 
 <script>

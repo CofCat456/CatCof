@@ -1,7 +1,7 @@
 <template>
   <NavbarMain class="sticky-top"></NavbarMain>
   <BannerImage></BannerImage>
-  <section class="pt-5">
+  <section class="pt-md-5 pt-0">
     <Introduce1></Introduce1>
   </section>
   <Introduce2 :Hproduct="Hproduct"></Introduce2>

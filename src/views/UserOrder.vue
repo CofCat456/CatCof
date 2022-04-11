@@ -27,9 +27,9 @@
         class="d-flex flex-column align-items-center"
       >
         <div
-          class="col-12 mb-5 px-lg-0 px-xl-5 d-flex justify-content-center align-items-center"
+          class="col-12 mb-5 px-lg-0 px-xl-5 d-flex flex-wrap justify-content-center align-items-center"
         >
-          <div class="col-6 px-3">
+          <div class="col-lg-6 col-12 mb-lg-0 mb-sm-5 px-3">
             <div class="p-3 p-sm-5 mx-auto rounded bg-white shadow-sm">
               <h3 class="text-center mb-4 fs-5">購物明細</h3>
               <table class="table text-center mb-5">
@@ -70,7 +70,7 @@
               </p>
             </div>
           </div>
-          <div class="col-6 px-3">
+          <div class="col-lg-6 col-12 px-3">
             <!-- 姓名 -->
             <div class="mb-3">
               <label for="name" class="form-label"

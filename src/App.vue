@@ -83,11 +83,36 @@ tbody td {
 }
 
 tbody img {
+  width: 100%;
+  height: auto;
   max-width: 80px;
 }
 
 tbody p {
   letter-spacing: 2px;
+}
+
+.spButton {
+  padding: 1rem 6.5rem;
+  font-size: 0.6rem;
+  color: #24395b;
+  background: transparent;
+  text-align: center;
+  border: 1px solid #24395b;
+  border-radius: 5px;
+  transition: all 0.6s;
+}
+
+@media screen and (max-width: 768px) {
+  .spButton {
+    padding: 1rem 14rem;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .spButton {
+    padding: 1rem 8rem;
+  }
 }
 
 .col-xs-1,

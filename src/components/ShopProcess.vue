@@ -1,5 +1,5 @@
 <template>
-  <div class="col-4 d-flex flex-column align-items-center">
+  <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center">
     <img src="../assets/雜/CofShopLogo.png" alt="" />
     <div class="process mt-4 d-flex">
       <div :class="[['enter d-flex mx-3'], this.status === '確認' && 'active']">

@@ -3,11 +3,11 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-11">
-          <div class="wrap d-flex">
+          <div class="wrap d-md-flex d-block">
             <div class="logo me-lg-5 me-md-0">
               <img src="../assets/雜/CofShopLogo.png" alt="貓咖啡 Logo" />
             </div>
-            <div class="information ms-5 my-3">
+            <div class="information ms-md-5 ms-0 my-3">
               <div class="addres mb-4">
                 <p>地址 : 新北市鶯歌區國慶街99號3樓</p>
                 <p>電話 : 02-8677-3851</p>
@@ -23,10 +23,14 @@
                 Copyright © 2022 CofCat All right reserved
               </p>
             </div>
-            <ul class="link">
-              <li><router-link to="/User/ProductList">關於我們</router-link></li>
+            <ul class="link d-md-block d-none">
+              <li>
+                <router-link to="/User/ProductList">關於我們</router-link>
+              </li>
               <li><router-link to="/User/ProductList">還在想</router-link></li>
-              <li><router-link to="/User/ProductList">產品列表</router-link></li>
+              <li>
+                <router-link to="/User/ProductList">產品列表</router-link>
+              </li>
               <li><router-link to="">使用者登入</router-link></li>
               <li><router-link to="">購物車</router-link></li>
             </ul>
@@ -52,8 +56,20 @@ footer {
   }
 }
 
+@media screen and (max-width: 414px) {
+  footer {
+    margin-top: 0px;
+  }
+}
+
 .wrap {
   padding: 110px 0 70px;
+}
+
+@media screen and (max-width: 414px) {
+  .wrap {
+  padding: 20px 0px;
+}
 }
 
 h1 {
@@ -80,6 +96,12 @@ img {
 
 .information {
   width: 24vw;
+}
+
+@media screen and (max-width: 414px) {
+  .information {
+    width: 75vw;
+  }
 }
 
 .connectText svg {
