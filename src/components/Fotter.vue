@@ -14,12 +14,12 @@
               </div>
               <p>營業時間 : 13:00-22:00</p>
               <p>營業日 : 週一 ～ 週六</p>
-              <div class="connectText fs-5 mt-4">
+              <div class="connectText fs-5 mt-md-4 mt-2">
                 <font-awesome-icon :icon="['fab', 'facebook']" />
                 <font-awesome-icon :icon="['fab', 'instagram']" />
                 <font-awesome-icon :icon="['fab', 'github']" />
               </div>
-              <p class="mt-lg-5 mt-md-3 pt-lg-5 pt-md-3">
+              <p class="mt-lg-5 mt-3 pt-lg-5 pt-md-3">
                 Copyright © 2022 CofCat All right reserved
               </p>
             </div>
