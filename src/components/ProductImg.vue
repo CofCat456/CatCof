@@ -3,11 +3,11 @@
     <img :src="mainImg" :class="[imgAnimate === 'fadeIn' && 'fade-in']" />
   </div>
   <div class="col-12 secondary">
-    <div class="row px-lg-2 px-md-4">
+    <div class="row px-lg-2 px-4">
       <div
         v-for="item in productimages"
         :key="item"
-        class="col-3 px-md-2"
+        class="col-3 px-1"
         @click="getImg(item)"
       >
         <img :src="item" alt="" />
@@ -25,17 +25,18 @@ img {
 
 .main {
   width: 100%;
+  height: auto;
   border-radius: 20px;
   overflow: hidden;
 }
 
 .main img {
   width: 100%;
-  height: 360px;
 }
 
 .secondary img {
-  height: 85px;
+  width: 100%;
+  height: auto;
   transition: all 0.4s;
   cursor: pointer;
 }

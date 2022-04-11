@@ -2,9 +2,9 @@
   <section>
     <div class="container-fluid">
       <div class="row d-flex justify-content-center">
-        <div class="col-11 mx-5 mt-4 mb-5">
+        <div class="col-11 mx-5 mt-4 mb-md-5 mb-2">
           <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
-            <ol class="breadcrumb d-flex justify-content-end">
+            <ol class="breadcrumb d-flex justify-content-md-end">
               <li class="breadcrumb-item">
                 <router-link to="/">首頁</router-link>
               </li>
@@ -22,11 +22,11 @@
             </ol>
           </nav>
         </div>
-        <div class="col-lg-9 col-md-10 d-flex flex-wrap justify-content-center">
-          <div class="col-lg-6 col-md-12 px-4">
+        <div class="col-lg-9 col-md-10 col-12 d-flex flex-wrap justify-content-center">
+          <div class="col-lg-6 col-md-12 mb-md-0 mb-3 px-4">
             <ProductImg :images="product.images"></ProductImg>
           </div>
-          <div class="col-lg-6 col-md-12 mt-lg-0 mt-md-3 px-lg-4 px-md-5 productText">
+          <div class="col-lg-6 col-md-12 col-9  mt-lg-0 mt-md-3 px-lg-4 px-md-5 productText">
             <div class="d-lg-none d-md-flex mt-3 mb-2">
               <p
                 v-for="tag in product.CategoryArray"
@@ -45,7 +45,7 @@
               {{ product.title }}
             </h2>
             <h1>{{ $filters.currency(product.price) }} 元</h1>
-            <div class="productCart mt-4 px-5 py-4 bgBlue">
+            <div class="productCart mt-4 px-md-5 py-md-4 px-4 py-3 bgBlue">
               <h6 class="mb-1">購買數量</h6>
               <div class="input-group mb-3">
                 <span class="input-group-btn">
@@ -102,7 +102,7 @@
     </div>
     <div class="container mt-lg-5 mt-md-0 pt-5">
       <div class="row justify-content-center px-4">
-        <div class="col-lg-7 col-md-10 pt-1 productDescribe">
+        <div class="col-lg-7 col-10 pt-1 productDescribe">
           <div class="stitle mb-4 px-1 pb-2">
             <h1>{{ product.stitle }}</h1>
           </div>
@@ -203,7 +203,7 @@
       </div>
     </div>
   </section>
-  <div :class="['productitem', isMove && 'move']">
+  <div :class="['productitem d-md-block d-none', isMove && 'move']">
     <p class="mb-1">{{ product.title }}</p>
     <p class="fs-5 text-center">{{ $filters.currency(product.price) }} 元</p>
     <div
