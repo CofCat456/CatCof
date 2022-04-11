@@ -164,17 +164,24 @@ ul {
   width: 70px;
   margin: 0px;
   padding: 1rem 0rem;
-  bottom: 5%;
   right: 2%;
+  bottom: 5%;
   background-color: rgba(36, 57, 91, 1);
   border-radius: 20px;
   z-index: 100000000000000;
 }
 
 @media screen and (max-width: 768px) {
-  .btn.custom-ul {
-    bottom: 10%;
+  .btn-custom-ul {
+    right: 3%;
+    bottom: 31%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .btn-custom-ul {
     right: 5%;
+    bottom: 22%;
   }
 }
 
