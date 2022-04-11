@@ -9,7 +9,7 @@
         </div>
         <div
           v-if="Hproduct.length > 1"
-          class="col-md-9 col-12 my-4 px-4 d-flex"
+          class="col-md-9 col-11 my-4 px-4 d-flex"
         >
           <swiper
             :slidesPerView="4"
@@ -60,7 +60,7 @@
             </swiper-slide>
           </swiper>
         </div>
-        <div class="col-md-9 col-12 my-4 px-4 d-flex">
+        <div class="col-md-9 col-11 my-4 px-4 d-flex">
           <swiper
             :slidesPerView="4"
             :spaceBetween="40"
@@ -257,10 +257,6 @@ h1 {
 
 .text > h6 {
   letter-spacing: 0.5px;
-}
-
-.text .unit {
-  font-size: 0.4rem;
 }
 
 .bi-chevron-right::before {

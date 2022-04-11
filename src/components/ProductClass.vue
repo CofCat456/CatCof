@@ -8,7 +8,7 @@
             <p class="py-md-3 py-1 fs-6 fw-bold">類別一覽</p>
           </span>
         </div>
-        <div class="col-md-10 col-11 my-3 d-flex flex-wrap">
+        <div class="col-md-10 col-11 mt-3 mb-lg-5 mb-md-2 d-flex flex-wrap">
           <div
             class="item col-lg-3 col-6 my-3 px-lg-4 px-md-3 px-2"
             @click="getProductCategory('咖啡豆')"
@@ -60,6 +60,12 @@ h1 {
   font-size: 3rem;
 }
 
+@media screen and (max-width: 414px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+}
+
 .item {
   overflow: hidden;
 }
@@ -95,12 +101,6 @@ h1 {
 @media screen and (max-width: 768px) {
   .item > p {
     font-size: 1rem;
-  }
-}
-
-@media screen and (max-width: 414px) {
-  h1 {
-    font-size: 1.4rem;
   }
 }
 </style>

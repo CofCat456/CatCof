@@ -2,9 +2,9 @@
   <section>
     <div class="container my-5 pb-5">
       <div class="row d-flex justify-content-center">
-        <div class="col-lg-11 col-md-12 my-4">
-          <span class="d-flex align-items-sm-end">
-            <h1 class="me-3 font-en">Category</h1>
+        <div class="col-lg-11 col-12 my-2 px-md-5 px-4">
+          <span class="d-flex align-items-end">
+            <h1 class="me-md-3 me-2 font-en">Category</h1>
             <span class="py-3 fw-bold d-flex">
               <p>「</p>
               <p class="clrPink">{{ CategoryText }}</p>
@@ -12,11 +12,11 @@
             </span>
           </span>
         </div>
-        <div class="col-11 col-md-10 mt-3 mb-lg-5 mb-md-2 d-flex flex-wrap">
+        <div class="col-md-10 col-11 mt-3 mb-lg-5 mb-md-2 d-flex flex-wrap">
           <div
             v-for="item in product"
             :key="item.title"
-            class="item col-lg-3 col-md-6 px-4 px-md-3 mb-lg-5 mb-md-3"
+            class="item col-lg-3 col-md-6 col-12 px-4 px-md-3 mb-lg-5 mb-md-3 mb-4"
             @click="getProductId(item.id)"
           >
             <div class="overflow-hidden imgBox">
@@ -57,9 +57,9 @@ h1 {
   font-size: 3rem;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 }
 
@@ -92,9 +92,6 @@ h1 {
   color: #fff;
 }
 
-.text .unit {
-  font-size: 0.4rem;
-}
 </style>
 
 <script>

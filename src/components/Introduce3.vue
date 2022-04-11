@@ -8,7 +8,7 @@
           </span>
         </div>
         <div class="col-md-9 col-12 my-4 px-4 d-flex flex-wrap">
-          <div class="item col-lg-4 col-12 px-4">
+          <div class="item col-lg-4 col-12 mb-lg-5 mb-3 px-md-3 px-4">
             <img src="../assets/雜/001.jpg" />
             <div class="text mt-3">
               <p class="font-en fs-5">2021.5.5</p>
@@ -16,7 +16,7 @@
               <p class="tag mt-1">#tag測試</p>
             </div>
           </div>
-          <div class="item col-lg-4 col-12 px-4">
+          <div class="item col-lg-4 col-12 mb-lg-5 mb-3 px-md-3 px-4">
             <img src="../assets/雜/001.jpg" />
             <div class="text mt-3">
               <p class="font-en fs-5">2021.5.5</p>
@@ -24,7 +24,7 @@
               <p class="tag mt-1">#tag測試</p>
             </div>
           </div>
-          <div class="item col-lg-4 col-12 px-4">
+          <div class="item col-lg-3 col-12 mb-lg-5 mb-3 px-md-3 px-4">
             <img src="../assets/雜/001.jpg" />
             <div class="text mt-3">
               <p class="font-en fs-5">2021.5.5</p>
