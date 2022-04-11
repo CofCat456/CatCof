@@ -2,14 +2,14 @@
   <section>
     <div class="container my-5">
       <div class="row d-flex justify-content-center">
-        <div class="col-lg-11 col-md-12 d-flex">
-          <div class="col-6 px-lg-4 px-md-2 position-relative">
+        <div class="col-lg-11 col-12 my-2 px-md-5 px-4">
+          <div class="col-md-6 col-12 mb-md-0 mb-3 px-lg-4 px-md-2 position-relative">
             <div class="imgframe">
               <img src="../assets/bg/bg-003.jpg" />
             </div>
             <p>關於咖啡</p>
           </div>
-          <div class="col-6 px-lg-4 px-md-2 position-relative">
+          <div class="col-md-6 col-12 px-lg-4 px-md-2 position-relative">
             <div class="imgframe">
               <img src="../assets/bg/bg-003.jpg" />
             </div>
@@ -42,6 +42,12 @@ img {
   position: relative;
   object-fit: cover;
   z-index: -1;
+}
+
+@media screen and (max-width:414px){
+  img {
+    height: 135px;
+  }
 }
 
 p {

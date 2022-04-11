@@ -2,9 +2,9 @@
   <section class="py-lg-5 py-md-3">
     <div class="container-fluid my-lg-5 my-md-2">
       <div class="row d-flex justify-content-center">
-        <div class="col-lg-11 col-md-12 my-2 px-md-5 px-4">
+        <div class="col-lg-11 col-12 my-2 px-md-5 px-4">
           <span class="d-flex align-items-sm-end">
-            <h1 class="me-2 font-en">Hot Products</h1>
+            <h1 class="me-md-3 me-2 font-en">Hot Products</h1>
           </span>
         </div>
         <div
