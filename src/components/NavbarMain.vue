@@ -82,6 +82,13 @@
   transition: all 0.6s ease;
 }
 
+@media screen and (max-width: 414px) {
+  .title img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
 .nav-text::after {
   content: '';
   display: block;
