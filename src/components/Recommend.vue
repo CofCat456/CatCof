@@ -49,7 +49,7 @@ h1 {
   font-size: 3rem;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   h1 {
     font-size: 2rem;
   }

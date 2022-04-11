@@ -15,7 +15,7 @@
       </div>
       <div class="row my-5 px-0">
         <div
-          class="col-lg-6 col-md-12 order-lg-1 order-md-2 d-flex flex-column justify-content-center align-items-center"
+          class="col-lg-6 col-12 order-lg-1 order-2 d-flex flex-column justify-content-center align-items-center px-md-0 px-4"
         >
           <div class="wrap">
             <h1 class="text-start font-en">Online Store</h1>
@@ -34,7 +34,7 @@
           </div>
         </div>
         <div
-          class="col-lg-6 col-md-11 offset-lg-0 offset-md-1 order-lg-1 order-md-1 mb-lg-0 mb-md-5"
+          class="col-lg-6 col-11 offset-lg-0 offset-1 order-lg-1 order-1 mb-lg-0 mb-5"
         >
           <img src="../assets/bg/bg-001.jpg" class="img-fluid" alt="..." />
         </div>
@@ -47,10 +47,8 @@
 </template>
 
 <style scoped>
-.wrap .text h1 {
-  margin-bottom: 7rem;
+.wrap > h1 {
   font-size: 3rem;
-  font-weight: 700;
 }
 
 @media screen and (max-width: 768px) {
@@ -62,6 +60,15 @@
   .wrap .text h2 {
     font-size: 1rem;
   }
+}
+
+@media screen and (max-width: 414px) {
+  .wrap > h1 {
+  font-size: 1.2rem;
+}
+}
+.wrap .text h1 {
+  margin-bottom: 2rem;
 }
 
 .img-fluid {
