@@ -22,11 +22,15 @@
             </ol>
           </nav>
         </div>
-        <div class="col-lg-9 col-md-10 col-12 d-flex flex-wrap justify-content-center">
+        <div
+          class="col-lg-9 col-md-10 col-12 d-flex flex-wrap justify-content-center"
+        >
           <div class="col-lg-6 col-md-12 mb-md-0 mb-3 px-4">
             <ProductImg :images="product.images"></ProductImg>
           </div>
-          <div class="col-lg-6 col-md-12 col-9  mt-lg-0 mt-md-3 px-lg-4 px-md-5 productText">
+          <div
+            class="col-lg-6 col-md-12 col-9 mt-lg-0 mt-md-3 px-lg-4 px-md-5 productText"
+          >
             <div class="d-lg-none d-md-flex mt-3 mb-2">
               <p
                 v-for="tag in product.CategoryArray"
@@ -235,8 +239,8 @@ input[type='number']::-webkit-inner-spin-button {
   }
 
   .productText h1 {
-  font-size: 1.4rem;
-}
+    font-size: 1.4rem;
+  }
 }
 
 .tag {
@@ -328,6 +332,12 @@ input[type='number']::-webkit-inner-spin-button {
 .stitle h1 {
   font-size: 1.5rem;
   font-weight: 700;
+}
+
+@media screen and (min-width: 390px) {
+  .stitle h1 {
+    font-size: 1.2rem;
+  }
 }
 
 .productDetail img {
