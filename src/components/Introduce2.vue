@@ -75,7 +75,7 @@
               },
               '390': {
                 slidesPerView: 1,
-                spaceBetween: 50
+                spaceBetween: 30
               }
             }"
             class="mySwiper px-4 px-md-3 mb-lg-5 mb-md-3 mb-4"

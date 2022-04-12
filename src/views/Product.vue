@@ -264,8 +264,8 @@ input[type='number']::-webkit-inner-spin-button {
 }
 
 .form-control {
-  border-top-width: 1.5px;
-  border-bottom-width: 1.5px;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
   border-left-width: 0ox !important;
   border-right-width: 0px !important;
   border-color: #24395b !important;
@@ -284,7 +284,7 @@ input[type='number']::-webkit-inner-spin-button {
 }
 
 .btn-custom-Blue {
-  border: solid #24395b;
+  border: 1px solid #24395b;
   color: #24395b !important ;
   background: #fff;
 }
