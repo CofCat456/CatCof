@@ -9,7 +9,7 @@
         </div>
         <div
           v-if="Hproduct.length > 1"
-          class="col-md-9 col-11 my-4 px-4 d-flex"
+          class="col-md-10 col-11 mt-3 mb-lg-5 mb-md-2 d-flex flex-wrap"
         >
           <swiper
             :slidesPerView="4"
@@ -24,11 +24,11 @@
                 spaceBetween: 40
               },
               '390': {
-                slidesPerView: 2,
-                spaceBetween: 15
+                slidesPerView: 1,
+                spaceBetween: 50
               }
             }"
-            class="mySwiper"
+            class="mySwiper px-4 px-md-3 mb-lg-5 mb-md-3 mb-4"
           >
             <swiper-slide
               v-for="item in product1"
@@ -60,7 +60,7 @@
             </swiper-slide>
           </swiper>
         </div>
-        <div class="col-md-9 col-11 my-4 px-4 d-flex">
+        <div class="col-md-10 col-11 mt-3 mb-lg-5 mb-md-2 d-flex flex-wrap">
           <swiper
             :slidesPerView="4"
             :spaceBetween="40"
@@ -74,11 +74,11 @@
                 spaceBetween: 40
               },
               '390': {
-                slidesPerView: 2,
-                spaceBetween: 15
+                slidesPerView: 1,
+                spaceBetween: 50
               }
             }"
-            class="mySwiper"
+            class="mySwiper px-4 px-md-3 mb-lg-5 mb-md-3 mb-4"
           >
             <swiper-slide>
               <div class="imgBox">
