@@ -108,7 +108,6 @@ tbody p {
     padding: 1rem 14rem;
   }
 }
-
 @media screen and (max-width: 414px) {
   .spButton {
     padding: 1rem 8rem;

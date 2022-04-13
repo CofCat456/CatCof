@@ -87,7 +87,7 @@
               </div>
               <h6
                 v-if="!is_collect"
-                class="love text-center text-dark"
+                class="love p-2 text-center text-dark"
                 @click="addCollectList(product)"
               >
                 <i class="bi bi-heart"></i> 加入收藏名單
@@ -299,7 +299,7 @@ input[type='number']::-webkit-inner-spin-button {
 }
 
 .btn-custom-contrary-Blue {
-  border: solid #24395b;
+  border: 1px solid #24395b;
   color: #fff !important;
   background-color: #24395b;
 }
@@ -310,7 +310,7 @@ input[type='number']::-webkit-inner-spin-button {
 }
 
 .love {
-  transition: all 0.4;
+  transition: all 0.4 ease;
   cursor: pointer;
 }
 

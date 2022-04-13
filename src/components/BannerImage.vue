@@ -36,7 +36,7 @@
 
 /* 背景圖 */
 .swiper >>> .swiper-slide {
-  width: 100%;
+  max-width: 100%;
   height: 780px;
   background-repeat: no-repeat;
   background-position: center top;
@@ -54,7 +54,8 @@
 
 @media screen and (max-width: 414px) {
   .swiper >>> .swiper-slide{
-    height: 400px;
+    padding-bottom: 100%;
+    height: auto;
   }
 }
 
@@ -107,7 +108,7 @@ export default {
   },
   data() {
     return {
-      imgData: ['bg-001.jpg', 'bg-002.jpg', 'bg-003.jpg']
+      imgData: ['bg-001.jpeg', 'bg-002.jpeg', 'bg-003.jpeg']
     };
   },
   methods: {

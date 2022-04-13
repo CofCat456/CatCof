@@ -36,7 +36,7 @@
         <div
           class="col-lg-6 col-11 offset-lg-0 offset-1 order-lg-1 order-1 mb-lg-0 mb-5"
         >
-          <img src="../assets/bg/bg-001.jpg" class="img-fluid" alt="..." />
+          <img src="../assets/bg/bg-001.jpeg" class="img-fluid" alt="..." />
         </div>
       </div>
     </div>
