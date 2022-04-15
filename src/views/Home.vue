@@ -2,9 +2,14 @@
   <NavbarMain class="sticky-top"></NavbarMain>
   <BannerImage></BannerImage>
   <section class="pt-md-5 pt-0">
-    <Introduce1></Introduce1>
+    <OnlintStore></OnlintStore>
   </section>
-  <Introduce2 :Hproduct="Hproduct"></Introduce2>
+  <HotProduct
+    EnTitle="Hot Products"
+    :Product="Hproduct"
+    spButton="true"
+    isFluid="true"
+  ></HotProduct>
   <Introduce3></Introduce3>
   <Fotter></Fotter>
   <FixedButton></FixedButton>
@@ -48,8 +53,8 @@
 <script>
 import BannerImage from '../components/BannerImage.vue';
 import NavbarMain from '../components/NavbarMain.vue';
-import Introduce1 from '../components/Introduce1.vue';
-import Introduce2 from '../components/Introduce2.vue';
+import OnlintStore from '../components/ProductOnlintStore.vue';
+import HotProduct from '../components/ProductCard.vue';
 import Introduce3 from '../components/Introduce3.vue';
 import Fotter from '../components/Fotter.vue';
 import FixedButton from '../components/FixedButton.vue';
@@ -60,8 +65,8 @@ export default {
   components: {
     BannerImage,
     NavbarMain,
-    Introduce1,
-    Introduce2,
+    OnlintStore,
+    HotProduct,
     Introduce3,
     Fotter,
     FixedButton

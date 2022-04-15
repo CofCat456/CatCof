@@ -2,7 +2,7 @@
   <section class="py-5">
     <div class="container-fluid mt-5">
       <div class="row d-flex justify-content-center">
-        <div class="col-lg-11 col-md-12 my-2 px-md-5 px-4">
+        <div class="col-md-10 col-11 my-2 px-md-5 px-4">
           <span class="d-flex align-items-sm-end">
             <h1 class="me-2 font-en">Interview</h1>
           </span>

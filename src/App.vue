@@ -103,6 +103,21 @@ tbody p {
   transition: all 0.6s;
 }
 
+.spButton .bi-chevron-right::before {
+  color: #24395b;
+  font-size: 0.4rem;
+  transition: color 0.6s;
+}
+
+.spButton:hover {
+  color: #fff;
+  background: #24395b;
+}
+
+.spButton:hover .bi-chevron-right::before {
+  color: #fff;
+}
+
 @media screen and (max-width: 768px) {
   .spButton {
     padding: 1rem 14rem;

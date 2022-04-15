@@ -3,15 +3,17 @@
     <div class="container my-5">
       <div class="row d-flex justify-content-center">
         <div class="col-lg-11 col-12 d-flex flex-wrap my-2 px-md-5 px-4">
-          <div class="col-md-6 col-12 mb-md-0 mb-3 px-lg-4 px-md-2 position-relative">
+          <div
+            class="col-md-6 col-12 mb-md-0 mb-3 px-lg-4 px-md-2 position-relative"
+          >
             <div class="imgframe">
-              <img src="../assets/bg/bg-003.jpeg" />
+              <img src="../assets/bg/bg-003.jpg" />
             </div>
             <p>關於咖啡</p>
           </div>
           <div class="col-md-6 col-12 px-lg-4 px-md-2 position-relative">
             <div class="imgframe">
-              <img src="../assets/bg/bg-003.jpeg" />
+              <img src="../assets/bg/bg-003.jpg" />
             </div>
             <p>關於咖啡</p>
           </div>
@@ -29,7 +31,7 @@
   background: rgb(0, 0, 0, 0.3);
   opacity: 1;
   cursor: pointer;
-  transition: all .4s;
+  transition: all 0.4s;
 }
 
 .imgframe:hover {
@@ -44,7 +46,7 @@ img {
   z-index: -1;
 }
 
-@media screen and (max-width:414px){
+@media screen and (max-width: 414px) {
   img {
     height: 135px;
   }

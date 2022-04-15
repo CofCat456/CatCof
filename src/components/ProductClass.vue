@@ -1,53 +1,22 @@
 <template>
   <section>
-    <div class="container my-5">
-      <div class="row d-flex justify-content-center">
-        <div class="col-lg-11 col-12 my-2 px-md-5 px-4">
+    <div class="container my-5 py-5">
+      <div class="row d-flex justify-content-center px-5">
+        <div class="col-12 my-1 px-4">
           <span class="d-flex align-items-end">
             <h1 class="me-md-3 me-2 font-en">Category</h1>
             <p class="py-md-3 py-1 fs-6 fw-bold">類別一覽</p>
           </span>
         </div>
-        <div class="col-md-10 col-11 mt-3 mb-lg-5 mb-md-2 d-flex flex-wrap">
+        <div class="col-11 mt-2 mb-lg-5 mb-md-2 px-1 d-flex flex-wrap">
           <div
-            class="item col-lg-3 col-6 my-3 px-lg-4 px-md-3 px-2"
-            @click="getProductCategory('咖啡豆')"
+            v-for="item in productCategoryList"
+            :key="item.title"
+            class="item col-lg-3 col-6 my-3 px-3"
+            @click="getProductCategory(item.title)"
           >
-            <img src="../assets/雜/coffeeBeans.jpg" />
-            <p class="ps-4 py-3">咖啡豆</p>
-          </div>
-          <div
-            class="item col-lg-3 col-6 my-3 px-lg-4 px-md-3 px-2"
-            @click="getProductCategory('冷萃咖啡')"
-          >
-            <img src="../assets/雜/ColdBrew.jpeg" />
-            <p class="px-3 py-3">冷萃咖啡</p>
-          </div>
-          <div class="item col-lg-3 col-6 my-3 px-lg-4 px-md-3 px-2">
-            <img src="../assets/雜/001.jpg" />
-            <p class="px-3 py-3">測試用文字</p>
-          </div>
-          <div class="item col-lg-3 col-6 my-3 px-lg-4 px-md-3 px-2">
-            <img src="../assets/雜/001.jpg" />
-            <p class="px-3 py-3">測試用文字</p>
-          </div>
-        </div>
-        <div class="col-11 col-md-10 my-3 d-flex flex-wrap">
-          <div class="item col-lg-3 col-6 my-3 px-lg-4 px-md-3 px-2">
-            <img src="../assets/雜/001.jpg" />
-            <p class="px-3 py-3">測試用文字</p>
-          </div>
-          <div class="item col-lg-3 col-6 my-3 px-lg-4 px-md-3 px-2">
-            <img src="../assets/雜/001.jpg" />
-            <p class="px-3 py-3">測試用文字</p>
-          </div>
-          <div class="item col-lg-3 col-6 my-3 px-lg-4 px-md-3 px-2">
-            <img src="../assets/雜/001.jpg" />
-            <p class="px-3 py-3">測試用文字</p>
-          </div>
-          <div class="item col-lg-3 col-6 my-3 px-lg-4 px-md-3 px-2">
-            <img src="../assets/雜/001.jpg" />
-            <p class="px-3 py-3">測試用文字</p>
+            <img :src="item.src" />
+            <p class="ps-4 py-3">{{ item.title }}</p>
           </div>
         </div>
       </div>
@@ -107,6 +76,44 @@ h1 {
 
 <script>
 export default {
+  data() {
+    return {
+      productCategoryList: [
+        {
+          title: '咖啡豆',
+          src: require('../assets/雜/coffeeBeans.jpg')
+        },
+        {
+          title: '冷萃咖啡',
+          src: require('../assets/雜/ColdBrew.jpeg')
+        },
+        {
+          title: '冷萃咖啡',
+          src: require('../assets/雜/ColdBrew.jpeg')
+        },
+        {
+          title: '冷萃咖啡',
+          src: require('../assets/雜/ColdBrew.jpeg')
+        },
+        {
+          title: '冷萃咖啡',
+          src: require('../assets/雜/ColdBrew.jpeg')
+        },
+        {
+          title: '冷萃咖啡',
+          src: require('../assets/雜/ColdBrew.jpeg')
+        },
+        {
+          title: '冷萃咖啡',
+          src: require('../assets/雜/ColdBrew.jpeg')
+        },
+        {
+          title: '冷萃咖啡',
+          src: require('../assets/雜/ColdBrew.jpeg')
+        }
+      ]
+    };
+  },
   methods: {
     getProductCategory(id) {
       this.$router.push(`/User/category/${id}`);

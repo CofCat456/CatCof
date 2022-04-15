@@ -18,7 +18,12 @@
       </div>
     </div>
   </div>
-  <Category :Cproduct="product" :Category="Category"></Category>
+  <Category
+    EnTitle="Category"
+    ChTitle="分類列表"
+    :Product="Cproduct"
+    :CategoryText="Category"
+  ></Category>
   <aboutProduct></aboutProduct>
 </template>
 
@@ -36,7 +41,7 @@
 </style>
 
 <script>
-import Category from '../components/Category.vue';
+import Category from '../components/ProductCard.vue';
 import aboutProduct from '../components/AboutProduct.vue';
 import { dealCategory } from '@/methods/filters';
 
@@ -47,7 +52,7 @@ export default {
   },
   data() {
     return {
-      product: [],
+      Cproduct: [],
       Category: ''
     };
   },
@@ -55,8 +60,8 @@ export default {
     getProducts() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
       this.$http.get(url).then((res) => {
-        this.product = dealCategory(Object.values(res.data.products));
-        this.product = this.product.filter(
+        this.Cproduct = dealCategory(Object.values(res.data.products));
+        this.Cproduct = this.Cproduct.filter(
           (item) => item.unit === this.Category
         );
       });

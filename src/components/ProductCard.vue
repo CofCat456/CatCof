@@ -1,22 +1,40 @@
 <template>
   <section>
-    <div class="container my-5 pb-5">
+    <div :class="[['my-5 py-5'], isFluid ? 'container-fluid' : 'container']">
       <div class="row d-flex justify-content-center">
-        <div class="col-lg-11 col-12 my-2 px-md-5 px-4">
-          <span class="d-flex align-items-end">
-            <h1 class="me-md-3 me-2 font-en">Category</h1>
-            <span class="py-3 fw-bold d-flex">
+        <div
+          :class="[
+            isFluid
+              ? ['col-md-10 col-11 mt-2 mb-0 px-md-5 px-4']
+              : ['col-11 my-1 px-4']
+          ]"
+        >
+          <span class="d-flex align-items-center">
+            <h1 class="me-md-3 me-2 font-en">{{ EnTitle }}</h1>
+            <p
+              v-if="typeof CategoryText === 'undefined'"
+              class="py-md-3 py-1 fw-bold"
+            >
+              {{ ChTitle }}
+            </p>
+            <span v-else class="py-3 fw-bold d-flex">
               <p>「</p>
               <p class="clrPink">{{ CategoryText }}</p>
               <p>」分類列表</p>
             </span>
           </span>
         </div>
-        <div class="col-md-10 col-11 mt-3 mb-lg-5 mb-md-2 d-flex flex-wrap">
+        <div
+          :class="[
+            isFluid
+              ? ['col-lg-9 col-md-10 col-12 mt-2 mb-4 px-4 d-flex flex-wrap']
+              : ['col-11 mt-2 mb-lg-5 px-5 mb-md-2 d-flex flex-wrap']
+          ]"
+        >
           <div
-            v-for="item in product"
+            v-for="item in Product"
             :key="item.title"
-            class="item col-lg-3 col-md-6 col-12 px-4 px-md-3 mb-lg-5 mb-md-3 mb-4"
+            class="item col-lg-3 col-6 my-3 px-2"
             @click="getProductId(item.id)"
           >
             <div class="overflow-hidden imgBox">
@@ -47,6 +65,14 @@
             </div>
           </div>
         </div>
+        <div
+          v-if="spButton"
+          class="col-md-9 col-12 text-center mt-md-3 mt-3 px-4"
+        >
+          <router-link to="/User/ProductList" class="spButton">
+            <i class="bi bi-chevron-right px-1"></i>列表展示
+          </router-link>
+        </div>
       </div>
     </div>
   </section>
@@ -62,7 +88,6 @@ h1 {
     font-size: 2.2rem;
   }
 }
-
 .item {
   overflow: hidden;
   margin-bottom: 4rem;
@@ -86,39 +111,50 @@ h1 {
   opacity: 0.8;
 }
 
-.tag p {
-  padding: 1px 10px;
-  font-size: 0.6rem;
+.spButton:hover {
   color: #fff;
+  background: #24395b;
 }
 
+.spButton:hover .bi-chevron-right::before {
+  color: #fff;
+}
 </style>
 
 <script>
 export default {
-  props: ['Cproduct', 'Category'],
+  props: {
+    isFluid: {
+      type: Boolean
+    },
+    EnTitle: {
+      type: String
+    },
+    ChTitle: {
+      type: String
+    },
+    Product: {
+      type: [Object, Array],
+      required: true
+    },
+    CategoryText: {
+      type: String
+    },
+    spButton: {
+      type: Boolean,
+      default: false
+    }
+  },
+  // props: ['EnTitle', 'ChTitle', 'product', 'CategoryText', 'spButton'],
   data() {
     return {
-      product: [],
-      CategoryText: ''
+      productList: []
     };
-  },
-  watch: {
-    Cproduct() {
-      this.product = [...this.Cproduct];
-    },
-    Category() {
-      this.CategoryText = this.Category;
-    }
   },
   methods: {
     getProductId(id) {
       this.$router.push(`/User/product/${id}`);
     }
-  },
-  mounted() {
-    this.product = [...this.Cproduct];
-    this.CategoryText = this.Category;
   }
 };
 </script>

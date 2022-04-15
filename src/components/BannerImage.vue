@@ -47,13 +47,13 @@
 }
 
 @media screen and (max-width: 768px) {
-  .swiper >>> .swiper-slide{
+  .swiper >>> .swiper-slide {
     height: 500px;
   }
 }
 
 @media screen and (max-width: 414px) {
-  .swiper >>> .swiper-slide{
+  .swiper >>> .swiper-slide {
     padding-bottom: 100%;
     height: auto;
   }
@@ -87,7 +87,6 @@
     font-size: 1.2rem;
   }
 }
-
 </style>
 
 <script>
@@ -108,7 +107,7 @@ export default {
   },
   data() {
     return {
-      imgData: ['bg-001.jpeg', 'bg-002.jpeg', 'bg-003.jpeg']
+      imgData: ['bg-001.jpg', 'bg-002.jpg', 'bg-003.jpg']
     };
   },
   methods: {
