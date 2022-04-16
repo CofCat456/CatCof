@@ -236,12 +236,6 @@ tbody p {
 .router-link {
   cursor: pointer;
 }
-
-//產品
-.text .unit {
-  font-size: 0.8rem;
-  color: #999;
-}
 </style>
 
 <script>

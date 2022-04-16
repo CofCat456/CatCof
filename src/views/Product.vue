@@ -31,7 +31,7 @@
           <div
             class="col-lg-6 col-md-12 col-9 mt-lg-0 mt-md-3 px-lg-4 px-md-5 productText"
           >
-            <div class="d-lg-none d-md-flex mt-3 mb-2">
+            <div class="d-flex mt-3 mb-2">
               <p
                 v-for="tag in product.CategoryArray"
                 :key="tag"
@@ -80,7 +80,7 @@
                 </span>
               </div>
               <div
-                class="btn btn-custom-contrary-Blue w-100 mb-2 text-center"
+                class="btn btn-custom-contrary-Blue w-100 mb-2 py-2 text-center"
                 @click="addCart(product.id)"
               >
                 添加到購物車
@@ -244,7 +244,7 @@ input[type='number']::-webkit-inner-spin-button {
 }
 
 .tag {
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 
 .productCart {
@@ -285,28 +285,6 @@ input[type='number']::-webkit-inner-spin-button {
   border-top-left-radius: 0px !important;
   border-bottom-left-radius: 0px !important;
   border-left-width: 0px !important;
-}
-
-.btn-custom-Blue {
-  border: 1px solid #24395b;
-  color: #24395b !important ;
-  background: #fff;
-}
-
-.btn-custom-Blue:hover {
-  color: #fff !important;
-  background-color: #24395b;
-}
-
-.btn-custom-contrary-Blue {
-  border: 1px solid #24395b;
-  color: #fff !important;
-  background-color: #24395b;
-}
-
-.btn-custom-contrary-Blue:hover {
-  color: #24395b !important ;
-  background: #fff;
 }
 
 .love {

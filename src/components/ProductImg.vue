@@ -36,7 +36,8 @@ img {
 
 .secondary img {
   width: 100%;
-  height: auto;
+  height: 75px;
+  object-fit: cover;
   transition: all 0.4s;
   cursor: pointer;
 }

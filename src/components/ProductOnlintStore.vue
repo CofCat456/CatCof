@@ -11,7 +11,7 @@
           <div
             v-for="item in productCategoryList"
             :key="item.title"
-            class="item col-lg-4 col-12 mb-lg-0 mb-md-5 mb-3 px-md-3 px-5"
+            class="item col-lg-4 col-12 mb-lg-0 mb-md-5 mb-3 px-xl-4 px-md-3 px-5"
             @click="this.getProductCategory(item.title)"
           >
             <div class="overflow-hidden imgBox">

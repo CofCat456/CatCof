@@ -4,9 +4,8 @@
       <div class="row d-flex justify-content-center">
         <div
           :class="[
-            isFluid
-              ? ['col-md-10 col-11 mt-2 mb-0 px-md-5 px-4']
-              : ['col-11 my-1 px-4']
+            ['mt-1 mb-3 px-4'],
+            isFluid ? ['col-md-10 col-11 px-md-5'] : ['col-11']
           ]"
         >
           <span class="d-flex align-items-center">
@@ -26,15 +25,16 @@
         </div>
         <div
           :class="[
+            ['mt-2 d-flex flex-wrap'],
             isFluid
-              ? ['col-lg-9 col-md-10 col-12 mt-2 mb-4 px-4 d-flex flex-wrap']
-              : ['col-11 mt-2 mb-lg-5 px-5 mb-md-2 d-flex flex-wrap']
+              ? ['col-lg-9 col-md-10 col-12 mb-4 px-4']
+              : ['col-11 mb-lg-5 px-5 mb-md-2']
           ]"
         >
           <div
             v-for="item in Product"
             :key="item.title"
-            class="item col-lg-3 col-6 my-3 px-2"
+            class="item col-lg-3 col-6 mb-5 pb-3 px-3"
             @click="getProductId(item.id)"
           >
             <div class="overflow-hidden imgBox">
@@ -61,7 +61,7 @@
               <div v-else class="mb-3"></div>
               <h6>{{ item.title }}</h6>
               <h6>TWD {{ $filters.currency(item.price) }} 元</h6>
-              <p class="unit">#{{ item.unit }}</p>
+              <p class="unit mt-2">#{{ item.unit }}</p>
             </div>
           </div>
         </div>

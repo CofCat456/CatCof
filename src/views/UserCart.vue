@@ -35,7 +35,10 @@
                 <td class="text-start">
                   <div class="row align-items-center">
                     <div class="col-4 d-md-block d-none">
-                      <img :src="item.product.imageUrl" :alt="item.product.title + '的商品照片'" />
+                      <img
+                        :src="item.product.imageUrl"
+                        :alt="item.product.title + '的商品照片'"
+                      />
                     </div>
                     <p class="col-md-8 m-0 px-md-2 fw-bold">
                       {{ item.product.title }}
@@ -130,7 +133,7 @@
                 }}
               </p>
             </div>
-            <div class="col-md-10 col-11  col-md-6 col-lg-5">
+            <div class="col-md-10 col-11 col-md-6 col-lg-5">
               <div class="input-group input-group-sm">
                 <input
                   type="text"
@@ -176,9 +179,7 @@
         >
           清 空 購 物 車
         </button>
-        <router-link
-          to="/User/Order"
-          class="btn btn-custom-Orange px-md-4 py-2"
+        <router-link to="/User/Order" class="btn btn-custom-Orange px-md-4 py-2"
           >填 寫 訂 單<i class="bi bi-caret-right ms-1"></i
         ></router-link>
       </div>
@@ -192,8 +193,8 @@
   line-height: 1.7;
 }
 
-@media screen and (max-width: 414px){
-  .btn{
+@media screen and (max-width: 414px) {
+  .btn {
     padding: 0.5rem 0.2rem;
   }
 }
@@ -209,36 +210,6 @@ main {
   border-width: 1px 0;
   border-style: solid;
   border-color: #ced4da;
-}
-
-.btn-red {
-  padding: 5px;
-  color: rgba(220, 53, 69, 0.3);
-  transition: all 0.5s;
-}
-
-.btn-red:hover {
-  color: #dc3545;
-}
-
-.btn-custom-Blue {
-  border: 1px solid #24395b;
-  color: #24395b !important ;
-}
-
-.btn-custom-Blue:hover {
-  color: #fff !important;
-  background-color: #24395b;
-}
-
-.btn-custom-Orange {
-  color: #fff;
-  background-color: #24395b;
-}
-
-.btn-custom-Orange:hover {
-  color: #000;
-  background-color: #ff9800;
 }
 </style>
 

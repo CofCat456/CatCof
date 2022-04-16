@@ -48,6 +48,11 @@
   background: #998675;
   box-shadow: 0 2px 4px rgba(205, 97, 8, 0.3);
 }
+
+.text .unit {
+  font-size: 0.8rem;
+  color: #999;
+}
 </style>
 
 <script>

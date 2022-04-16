@@ -45,6 +45,7 @@ h1 {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   object-fit: cover;
+  object-position: bottom center;
   transition: all 0.4s;
   cursor: pointer;
 }
@@ -81,15 +82,15 @@ export default {
       productCategoryList: [
         {
           title: '咖啡豆',
-          src: require('../assets/雜/coffeeBeans.jpg')
+          src: require('../assets/Class/coffeeBeans.jpg')
+        },
+        {
+          title: '濾掛咖啡',
+          src: require('../assets/Class/filtercoffee.jpg')
         },
         {
           title: '冷萃咖啡',
-          src: require('../assets/雜/ColdBrew.jpeg')
-        },
-        {
-          title: '冷萃咖啡',
-          src: require('../assets/雜/ColdBrew.jpeg')
+          src: require('../assets/Class/ColdBrew.jpg')
         },
         {
           title: '冷萃咖啡',
