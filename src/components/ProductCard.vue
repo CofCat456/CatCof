@@ -141,8 +141,7 @@ export default {
       type: String
     },
     spButton: {
-      type: Boolean,
-      default: false
+      type: Boolean
     }
   },
   // props: ['EnTitle', 'ChTitle', 'product', 'CategoryText', 'spButton'],

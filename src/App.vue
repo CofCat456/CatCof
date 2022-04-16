@@ -71,6 +71,11 @@ a:hover {
   padding: 0.75rem 0.5rem;
 }
 
+img {
+  object-fit: cover;
+  object-position: center center;
+}
+
 thead tr th,
 thead tr td {
   font-size: 20px;

@@ -4,12 +4,7 @@
   <section class="pt-md-5 pt-0">
     <OnlintStore></OnlintStore>
   </section>
-  <HotProduct
-    EnTitle="Hot Products"
-    :Product="Hproduct"
-    spButton="true"
-    isFluid="true"
-  ></HotProduct>
+  <HotProduct EnTitle="Hot Products" :Product="Hproduct" isFluid></HotProduct>
   <Introduce3></Introduce3>
   <Fotter></Fotter>
   <FixedButton></FixedButton>

@@ -23,13 +23,13 @@
           </nav>
         </div>
         <div
-          class="col-lg-9 col-md-10 col-12 d-flex flex-wrap justify-content-center"
+          class="col-lg-7 col-md-10 col-12 d-flex flex-wrap justify-content-center"
         >
-          <div class="col-lg-6 col-md-12 mb-md-0 mb-3 px-4">
+          <div class="col-lg-6 col-md-12 mb-md-0 mb-3 px-2">
             <ProductImg :images="product.images"></ProductImg>
           </div>
           <div
-            class="col-lg-6 col-md-12 col-9 mt-lg-0 mt-md-3 px-lg-4 px-md-5 productText"
+            class="col-lg-6 col-md-12 col-9 mt-lg-0 mt-md-3 px-md-4 productText"
           >
             <div class="d-flex mt-3 mb-2">
               <p
@@ -320,8 +320,6 @@ input[type='number']::-webkit-inner-spin-button {
 
 .productDetail img {
   width: 100%;
-  object-fit: cover;
-  object-position: center center;
   border-radius: 20px;
 }
 

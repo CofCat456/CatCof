@@ -130,9 +130,9 @@ export default {
       this.$http[httpMethod](api, { data: this.tempProduct }).then((res) => {
         productkComponent.hideModel();
         if (httpMethod === 'post') {
-          this.$httpMessageState(res, '新增產品');
+          this.$httpMessageState(res, `新增產品${item.title}`);
         } else {
-          this.$httpMessageState(res, '更新產品');
+          this.$httpMessageState(res, `更新產品${item.title}`);
         }
         if (res.data.success) {
           this.getProducts();
