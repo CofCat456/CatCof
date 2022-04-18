@@ -1,4 +1,4 @@
-<template v-if="this.productimages.length < 0">
+<template v-if="this.productimages">
   <div class="col-12 mb-4 main">
     <img :src="mainImg" :class="[imgAnimate === 'fadeIn' && 'fade-in']" />
   </div>

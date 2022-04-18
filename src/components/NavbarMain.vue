@@ -21,30 +21,40 @@
         <div class="mx-auto"></div>
         <ul class="navbar-nav">
           <li>
-            <router-link to="" class="nav-link nav-text  mx-lg-3  my-lg-0 p-lg-0 my-1 p-3 fw-bold"
+            <router-link
+              to=""
+              class="nav-link nav-text mx-lg-3 my-lg-0 p-lg-0 my-1 p-3 fw-bold"
               >關於</router-link
             >
           </li>
           <li>
-            <router-link to="" class="nav-link nav-text   mx-lg-3  my-lg-0 p-lg-0 my-1 p-3 fw-bold"
+            <router-link
+              to=""
+              class="nav-link nav-text mx-lg-3 my-lg-0 p-lg-0 my-1 p-3 fw-bold"
               >還在想</router-link
             >
           </li>
           <li>
             <router-link
               to="/User/ProductList"
-              class="nav-link nav-text  mx-lg-3  my-lg-0 p-lg-0 my-1 p-3 fw-bold"
+              class="nav-link nav-text mx-lg-3 my-lg-0 p-lg-0 my-1 p-3 fw-bold"
             >
               商品列表
             </router-link>
           </li>
           <li>
-            <router-link to="/Login" class="nav-link nav-text  mx-lg-3  my-lg-0 p-lg-0 my-1 p-3 fw-bold">
+            <router-link
+              to="/Login"
+              class="nav-link nav-text mx-lg-3 my-lg-0 p-lg-0 my-1 p-3 fw-bold"
+            >
               使用者登入
             </router-link>
           </li>
           <li>
-            <router-link to="/User/cart" class="nav-link nav-text  mx-lg-3  my-lg-0 p-lg-0 my-1 p-3 fw-bold">
+            <router-link
+              to="/User/cart"
+              class="nav-link nav-text mx-lg-3 my-lg-0 p-lg-0 my-1 p-3 fw-bold"
+            >
               購物車
             </router-link>
           </li>
@@ -60,7 +70,7 @@
 }
 
 @media screen and (max-width: 414px) {
-  .nav-text{
+  .nav-text {
   }
 }
 
@@ -172,10 +182,9 @@ export default {
   methods: {
     handleScroll() {
       if (window.pageYOffset > 20) {
-        this.isScroll = true;
-      } else {
-        this.isScroll = false;
+        return (this.isScroll = true);
       }
+      this.isScroll = false;
     }
   },
   mounted() {

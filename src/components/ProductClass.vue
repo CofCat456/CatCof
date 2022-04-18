@@ -93,24 +93,8 @@ export default {
           src: require('../assets/Class/ColdBrew.jpg')
         },
         {
-          title: '冷萃咖啡',
-          src: require('../assets/雜/ColdBrew.jpeg')
-        },
-        {
-          title: '冷萃咖啡',
-          src: require('../assets/雜/ColdBrew.jpeg')
-        },
-        {
-          title: '冷萃咖啡',
-          src: require('../assets/雜/ColdBrew.jpeg')
-        },
-        {
-          title: '冷萃咖啡',
-          src: require('../assets/雜/ColdBrew.jpeg')
-        },
-        {
-          title: '冷萃咖啡',
-          src: require('../assets/雜/ColdBrew.jpeg')
+          title: '精品禮盒',
+          src: require('../assets/Class/BoutiqueGift.jpg')
         }
       ]
     };

@@ -80,17 +80,17 @@ export default {
       productCategoryList: [
         {
           title: '咖啡豆',
-          src: require('../assets/雜/coffeeBeans.jpg'),
+          src: require('../assets/store/coffeeBeans.jpg'),
           text: '我們正在烘焙咖啡，餘味悠長，沒有令人不快的味道，並且具有長時間留在口中的甜味和濃郁感。這是一種每天喝都不會膩的味道，而不是第一口的影響。'
         },
         {
           title: '冷萃咖啡',
-          src: require('../assets/雜/coffeeBeans.jpg'),
+          src: require('../assets/store/ColdBrew.jpg'),
           text: '我們正在烘焙咖啡，餘味悠長，沒有令人不快的味道，並且具有長時間留在口中的甜味和濃郁感。這是一種每天喝都不會膩的味道，而不是第一口的影響。'
         },
         {
           title: '冷萃咖啡',
-          src: require('../assets/雜/coffeeBeans.jpg'),
+          src: require('../assets/store/BoutiqueGift.jpg'),
           text: '我們正在烘焙咖啡，餘味悠長，沒有令人不快的味道，並且具有長時間留在口中的甜味和濃郁感。這是一種每天喝都不會膩的味道，而不是第一口的影響。'
         }
       ]

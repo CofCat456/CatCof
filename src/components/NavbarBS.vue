@@ -168,10 +168,9 @@ export default {
     },
     handleScroll() {
       if (window.pageYOffset > 20) {
-        this.isScroll = true;
-      } else {
-        this.isScroll = false;
+        return (this.isScroll = true);
       }
+      this.isScroll = false;
     }
   },
   mounted() {

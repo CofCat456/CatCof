@@ -6,7 +6,7 @@
           <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
             <ol class="breadcrumb d-flex justify-content-end">
               <li class="breadcrumb-item">
-                <router-link to="/">首頁</router-link>
+                <router-link to="/"><i class="bi bi-house"></i></router-link>
               </li>
               <li class="breadcrumb-item active colorBlue" aria-current="page">
                 產品列表

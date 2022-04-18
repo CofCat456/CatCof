@@ -118,16 +118,6 @@ export default {
     },
     updateOrder(item) {
       this.tempOrder = item;
-      // const Email = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
-      // const PhoneNumber = /^(09)[0-9]{8}$/;
-
-      // if (!Email.test(this.tempOrder.user.email)) {
-      //   this.tempOrder.user.email = 'error@gmail.com';
-      // }
-
-      // if (!PhoneNumber.test(this.tempOrder.user.phone)) {
-      //   this.tempOrder.user.phone = '0900000000';
-      // }
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/order/${item.id}`;
       const OrderComponent = this.$refs.OrderModal;
       this.$http.put(api, { data: this.tempOrder }).then((res) => {

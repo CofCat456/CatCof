@@ -6,7 +6,7 @@
           <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
             <ol class="breadcrumb d-flex justify-content-md-end">
               <li class="breadcrumb-item">
-                <router-link to="/">首頁</router-link>
+                <router-link to="/"><i class="bi bi-house"></i></router-link>
               </li>
               <li class="breadcrumb-item">
                 <router-link to="/User/ProductList">產品列表</router-link>
@@ -23,9 +23,10 @@
           </nav>
         </div>
         <div
-          class="col-lg-7 col-md-10 col-12 d-flex flex-wrap justify-content-center"
+          v-if="product"
+          class="col-lg-9 col-md-10 col-12 d-flex flex-wrap justify-content-center"
         >
-          <div class="col-lg-6 col-md-12 mb-md-0 mb-3 px-2">
+          <div class="col-lg-6 col-md-12 mb-md-0 mb-3 px-3">
             <ProductImg :images="product.images"></ProductImg>
           </div>
           <div
@@ -106,7 +107,7 @@
     </div>
     <div class="container mt-lg-5 mt-md-0 pt-5">
       <div class="row justify-content-center px-4">
-        <div class="col-lg-7 col-10 pt-1 productDescribe">
+        <div class="col-lg-6 col-10 pt-1 productDescribe">
           <div class="stitle mb-4 px-1 pb-2">
             <h1>{{ product.stitle }}</h1>
           </div>
@@ -119,15 +120,26 @@
               {{ product.description }}
             </p>
           </div>
-          <div v-if="product.images" class="productDetail">
+          <div
+            v-if="
+              product.unit === '咖啡豆' ||
+              product.unit === '濾掛咖啡' ||
+              product.unit === '冷萃咖啡'
+            "
+            class="productDetail"
+          >
             <h5 class="my-4 py-1 fw-bold">細節</h5>
-            <img :src="product.images[1]" alt="" />
+            <img
+              v-if="product.images && product.images[1] !== 'undefined'"
+              :src="product.images[1]"
+              alt="{{ product.title }}的照片"
+            />
             <div class="mt-4 mb-4 pt-2 pb-1">
               <p v-if="typeof product.country !== 'undefined'">
                 原產國 : {{ product.country }}
               </p>
-              <p v-if="typeof product.area !== 'string'">
-                產區 : {{ typeof product.area }}
+              <p v-if="typeof product.area !== 'undefined'">
+                產區 : {{ product.area }}
               </p>
               <p v-if="typeof product.altitude !== 'undefined'">
                 海拔 : {{ product.altitude }}
@@ -139,7 +151,7 @@
                 土壤種類 : {{ product.Soli }}
               </p>
               <p v-if="typeof product.refined !== 'undefined'">
-                精煉 : {{ product.refined }}
+                處理法 : {{ product.refined }}
               </p>
               <p v-if="typeof product.roast !== 'undefined'">
                 烘烤程度 : {{ product.roast }}
@@ -203,6 +215,73 @@
               </p>
             </div>
           </div>
+          <div v-else class="productDetail">
+            <h5 class="my-4 py-1 fw-bold">禮盒內容</h5>
+            <div v-for="(item, index) in product.detail" :key="item">
+              <div class="my-2">
+                <p
+                  @click="getProductId(product.link[index])"
+                  class="text-decoration-underline"
+                >
+                  {{ product.detail[index] }}
+                </p>
+              </div>
+              <img
+                v-if="
+                  product.images && product.images[index + 1] !== 'undefined'
+                "
+                :src="product.images[index + 1]"
+                alt="{{ product.detail[index] }}的照片"
+              />
+              <div class="mt-4 mb-4 pt-2 pb-1">
+                <p v-if="typeof product.country !== 'undefined'">
+                  原產國 : {{ product.country[index] }}
+                </p>
+                <p v-if="typeof product.area !== 'undefined'">
+                  產區 : {{ product.area[index] }}
+                </p>
+                <p v-if="typeof product.altitude !== 'undefined'">
+                  海拔 : {{ product.altitude[index] }}
+                </p>
+                <p v-if="typeof product.Variety !== 'undefined'">
+                  品種 : {{ product.Variety[index] }}
+                </p>
+                <p
+                  v-if="
+                    typeof product.Soli !== 'undefined' && !product.Soli === ''
+                  "
+                >
+                  土壤種類 : {{ product.Soli[index] }}
+                </p>
+                <p v-if="typeof product.refined !== 'undefined'">
+                  處理法 : {{ product.refined[index] }}
+                </p>
+                <p v-if="typeof product.roast !== 'undefined'">
+                  烘烤程度 : {{ product.roast[index] }}
+                </p>
+              </div>
+            </div>
+            <h5 class="my-4 py-1 fw-bold">關於禮盒</h5>
+            <div class="mb-2">
+              <img
+                v-if="product.images && product.images[3] !== 'undefined'"
+                :src="product.images[3]"
+                alt="{{ product.title }}的照片"
+              />
+              <p class="giftbox my-1">{{ product.giftbox }}</p>
+            </div>
+            <img
+              v-if="product.images && product.images[4] !== 'undefined'"
+              :src="product.images[4]"
+              alt="{{ product.title }}的照片"
+              class="mb-2"
+            />
+            <div class="my-4 py-1">
+              <p>
+                {{ product.stext }}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -241,10 +320,6 @@ input[type='number']::-webkit-inner-spin-button {
   .productText h1 {
     font-size: 1.4rem;
   }
-}
-
-.tag {
-  font-size: 0.8rem;
 }
 
 .productCart {
@@ -312,7 +387,11 @@ input[type='number']::-webkit-inner-spin-button {
   font-weight: 700;
 }
 
-@media screen and (min-width: 390px) {
+.giftbox {
+  font-size: 0.6rem;
+}
+
+@media screen and (max-width: 390px) {
   .stitle h1 {
     font-size: 1.2rem;
   }
@@ -362,13 +441,18 @@ export default {
       is_collect: false
     };
   },
+  watch: {
+    $route: function() {
+      this.getProducts();
+    }
+  },
   methods: {
     getProducts() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${this.$route.params.productId}`;
       this.$http.get(url).then((res) => {
         if (res.data.success) {
-          this.product.push(res.data.product);
-          this.product = dealCategory(this.product)[0];
+          this.product = res.data.product;
+          this.product = dealCategory([res.data.product])[0];
           this.isCollect(this.product);
         }
       });
@@ -378,18 +462,15 @@ export default {
     },
     handleScroll() {
       if (window.pageYOffset > 480) {
-        this.isMove = true;
-      } else {
-        this.isMove = false;
+        return (this.isMove = true);
       }
+      this.isMove = false;
     },
     addproductNumber() {
       this.productNumber++;
     },
     subproductNumber() {
-      if (this.productNumber <= 1) {
-        return;
-      }
+      if (this.productNumber <= 1) return;
       this.productNumber--;
     },
     addCart(id) {
@@ -459,6 +540,9 @@ export default {
       this.$http.get(url).then((response) => {
         this.product = response.data.product;
       });
+    },
+    getProductId(id) {
+      this.$router.push(`/User/product/${id}`);
     }
   },
   created() {

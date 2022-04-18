@@ -95,9 +95,6 @@ h1 {
 
 .item img {
   width: 100%;
-  height: 165px;
-  object-fit: cover;
-  object-position: center;
   transition: all 0.4s;
   cursor: pointer;
 }

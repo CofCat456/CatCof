@@ -56,6 +56,7 @@
     ref="productModal"
     :product="tempProduct"
     @update-product="updateProduct"
+    @dealWith-product="dealWithProducts"
   ></ProductModal>
   <DeleteModel
     ref="deleteModal"
@@ -130,12 +131,79 @@ export default {
       this.$http[httpMethod](api, { data: this.tempProduct }).then((res) => {
         productkComponent.hideModel();
         if (httpMethod === 'post') {
-          this.$httpMessageState(res, `新增產品${item.title}`);
+          this.$httpMessageState(res, `新增 ${item.title} 產品`);
         } else {
-          this.$httpMessageState(res, `更新產品${item.title}`);
+          this.$httpMessageState(res, `更新 ${item.title} 產品`);
         }
         if (res.data.success) {
           this.getProducts();
+        }
+      });
+    },
+    dealWithProducts(item) {
+      const NewTemp = item;
+      this.$swal({
+        title: '確定要進行轉換',
+        text: '請確認轉換模式',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '多種咖啡',
+        cancelButtonText: '一般模式'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          if (!Array.isArray(NewTemp.altitude)) {
+            NewTemp.altitude = item.altitude.split(',');
+          }
+          if (!Array.isArray(NewTemp.detail)) {
+            NewTemp.detail = item.detail.split(',');
+          }
+          if (!Array.isArray(NewTemp.link)) {
+            NewTemp.link = item.link.split(',');
+          }
+          if (!Array.isArray(NewTemp.roast)) {
+            NewTemp.roast = item.roast.split(',');
+          }
+          if (!Array.isArray(NewTemp.Soli)) {
+            NewTemp.Soli = item.Soli.split(',');
+          }
+          if (!Array.isArray(NewTemp.refined)) {
+            NewTemp.refined = item.refined.split(',');
+          }
+          if (!Array.isArray(NewTemp.area)) {
+            NewTemp.area = item.area.split(',');
+          }
+          if (!Array.isArray(NewTemp.country)) {
+            NewTemp.country = item.country.split(',');
+          }
+          this.updateProduct(NewTemp);
+        } else {
+          if (Array.isArray(NewTemp.altitude)) {
+            NewTemp.altitude = item.altitude.toString();
+          }
+          if (Array.isArray(NewTemp.detail)) {
+            NewTemp.detail = item.detail.toString();
+          }
+          if (Array.isArray(NewTemp.link)) {
+            NewTemp.link = item.link.toString();
+          }
+          if (Array.isArray(NewTemp.roast)) {
+            NewTemp.roast = item.roast.toString();
+          }
+          if (Array.isArray(NewTemp.Soli)) {
+            NewTemp.Soli = item.Soli.toString();
+          }
+          if (Array.isArray(NewTemp.refined)) {
+            NewTemp.refined = item.refined.toString();
+          }
+          if (Array.isArray(NewTemp.area)) {
+            NewTemp.area = item.area.toString();
+          }
+          if (Array.isArray(NewTemp.country)) {
+            NewTemp.country = item.country.toString();
+          }
+          this.updateProduct(NewTemp);
         }
       });
     },

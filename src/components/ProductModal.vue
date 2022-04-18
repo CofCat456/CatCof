@@ -150,16 +150,6 @@
                 ></textarea>
               </div>
               <div class="mb-3">
-                <label for="description" class="form-label">商品附加內容</label>
-                <textarea
-                  type="text"
-                  class="form-control"
-                  id="description"
-                  placeholder="請輸入商品附加內容"
-                  v-model="tempProduct.bonus"
-                ></textarea>
-              </div>
-              <div class="mb-3">
                 <label for="stitle" class="form-label">小標題</label>
                 <input
                   type="text"
@@ -190,7 +180,7 @@
                 />
               </div>
               <div class="mb-3">
-                <label for="stext" class="form-label">產品內容</label>
+                <label for="stext" class="form-label">產品內容/關於禮盒</label>
                 <textarea
                   type="text"
                   class="form-control"
@@ -200,94 +190,114 @@
                 ></textarea>
               </div>
               <div class="mb-3">
+                <label for="giftbox" class="form-label">禮盒介紹</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="giftbox"
+                  placeholder="請輸入禮盒介紹"
+                  v-model="tempProduct.giftbox"
+                />
+              </div>
+              <div class="mb-3">
                 <label for="detail" class="form-label">多種咖啡細節</label>
-                <textarea
+                <input
                   type="text"
                   class="form-control"
                   id="detail"
                   placeholder="請輸入多種咖啡細節"
                   v-model="tempProduct.detail"
-                ></textarea>
+                />
+              </div>
+              <div class="mb-3">
+                <label for="link" class="form-label">多種產品連結</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="link"
+                  placeholder="請輸入多種產品ID"
+                  v-model="tempProduct.link"
+                />
               </div>
               <div class="mb-3">
                 <label for="Element" class="form-label">混合成分</label>
-                <textarea
+                <input
                   type="text"
                   class="form-control"
                   id="Element"
                   placeholder="請輸入混合成分"
                   v-model="tempProduct.Element"
-                ></textarea>
+                />
               </div>
               <div class="mb-3">
                 <label for="country" class="form-label">原產國</label>
-                <textarea
+                <input
                   type="text"
                   class="form-control"
                   id="country"
                   placeholder="請輸入原產國"
                   v-model="tempProduct.country"
-                ></textarea>
+                />
               </div>
               <div class="mb-3">
                 <label for="area" class="form-label">產區</label>
-                <textarea
+                <input
                   type="text"
                   class="form-control"
                   id="area"
                   placeholder="請輸入產區"
                   v-model="tempProduct.area"
-                ></textarea>
+                />
               </div>
               <div class="mb-3">
                 <label for="altitude" class="form-label">海拔</label>
-                <textarea
+                <input
                   type="text"
                   class="form-control"
                   id="altitude"
                   placeholder="請輸入平均"
                   v-model="tempProduct.altitude"
-                ></textarea>
+                />
               </div>
               <div class="mb-3">
                 <label for="Variety" class="form-label">品種</label>
-                <textarea
+                <input
                   type="text"
                   class="form-control"
                   id="Variety"
                   placeholder="請輸入品種"
                   v-model="tempProduct.Variety"
-                ></textarea>
+                />
               </div>
               <div class="mb-3">
                 <label for="Soli" class="form-label">土壤種類</label>
-                <textarea
+                <input
                   type="text"
                   class="form-control"
                   id="Soli"
                   placeholder="請輸入品種"
                   v-model="tempProduct.Soli"
-                ></textarea>
+                />
               </div>
               <div class="mb-3">
-                <label for="refined" class="form-label">精煉</label>
-                <textarea
+                <label for="refined" class="form-label">處理法</label>
+                <input
                   type="text"
                   class="form-control"
                   id="refined"
-                  placeholder="請輸入精煉"
+                  placeholder="請輸入處理法"
                   v-model="tempProduct.refined"
-                ></textarea>
+                />
               </div>
               <div class="mb-3">
                 <label for="roast" class="form-label">烘培程度</label>
-                <textarea
+                <input
                   type="text"
                   class="form-control"
                   id="roast"
                   placeholder="請輸入烘培程度"
                   v-model="tempProduct.roast"
-                ></textarea>
+                />
               </div>
               <div class="row gx-2">
                 <div class="mb-3 col">
@@ -341,6 +351,7 @@
                     :true-value="1"
                     :false-value="0"
                     id="is_enabled"
+                    :checked="tempProduct.is_enabled === 1"
                     v-model="tempProduct.is_enabled"
                   />
                   <label class="form-check-label" for="is_enabled">
@@ -352,6 +363,13 @@
           </div>
         </div>
         <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-info"
+            @click="$emit('dealWith-product', tempProduct)"
+          >
+            多種咖啡模式
+          </button>
           <button
             type="button"
             class="btn btn-outline-secondary"

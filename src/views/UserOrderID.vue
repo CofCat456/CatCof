@@ -27,7 +27,9 @@
       <div class="container">
         <div class="row px-md-1 px-lg-5 justify-content-center">
           <div class="col-lg-9 col-md-12 px-3">
-            <section class="mb-5 px-md-5 px-md-3 px-3 py-5 rounded shadow bg-white">
+            <section
+              class="mb-5 px-md-5 px-md-3 px-3 py-5 rounded shadow bg-white"
+            >
               <h3 class="h5 text-center fw-bold mt-3">訂單編號</h3>
               <p class="text-center text-danger fw-bold mb-4 pb-3 fs-5">
                 {{ this.order.id }}
@@ -203,7 +205,7 @@
 
 <script>
 import shopProcess from '../components/ShopProcess.vue';
-import { filterFreight } from '@/methods/order';
+import { checkFrieht, filterFreight } from '@/methods/order';
 
 export default {
   components: {
@@ -224,18 +226,8 @@ export default {
         this.order.products = [
           ...filterFreight(Object.values(this.order.products))
         ];
-        this.order.isFreight = this.checkFrieht(this.order);
+        this.order.isFreight = checkFrieht(this.order);
       });
-    },
-    checkFrieht(order) {
-      let isFreight = true;
-      if (
-        order.total >= 6000 ||
-        order.products.some((e) => e.product.CategoryArray.includes('免運費'))
-      ) {
-        isFreight = false;
-      }
-      return isFreight;
     }
   },
   mounted() {
