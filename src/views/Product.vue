@@ -123,17 +123,26 @@
           <div
             v-if="
               product.unit === '咖啡豆' ||
-              product.unit === '濾掛咖啡' ||
-              product.unit === '冷萃咖啡'
+              product.unit === '冷萃咖啡' ||
+              product.unit === '濾掛咖啡'
             "
             class="productDetail"
           >
             <h5 class="my-4 py-1 fw-bold">細節</h5>
-            <img
-              v-if="product.images && product.images[1] !== 'undefined'"
-              :src="product.images[1]"
-              alt="{{ product.title }}的照片"
-            />
+            <div v-if="product.unit === '濾掛咖啡'">
+              <img
+                v-if="product.images && product.images[0] !== 'undefined'"
+                :src="product.images[0]"
+                :alt="product.title + 的照片"
+              />
+            </div>
+            <div v-else>
+              <img
+                v-if="product.images && product.images[1] !== 'undefined'"
+                :src="product.images[1]"
+                alt="{{ product.title }}的照片"
+              />
+            </div>
             <div class="mt-4 mb-4 pt-2 pb-1">
               <p v-if="typeof product.country !== 'undefined'">
                 原產國 : {{ product.country }}
