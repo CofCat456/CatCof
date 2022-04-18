@@ -1,4 +1,12 @@
 <template>
+  <Loading :active="isLoading">
+    <div class="loadingio-spinner-ripple-3xq5u6jldre">
+      <div class="ldio-dwik2dnj2i">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </Loading>
   <div class="container">
     <div class="mx-5 my-3"></div>
     <div class="row justify-content-center">
@@ -232,24 +240,30 @@ export default {
       cart: {},
       freight: 300,
       code: '',
-      is_UseCoupon: false
+      is_UseCoupon: false,
+      isLoading: false
     };
   },
   methods: {
     getCart() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
+      this.isLoading = true;
       this.$http.get(url).then((res) => {
-        if (res.data.data.carts.length < 1) {
-          localStorage.removeItem('CouponCode');
+        if (res.data.success) {
+          this.isLoading = false;
+          if (res.data.data.carts.length < 1) {
+            localStorage.removeItem('CouponCode');
+          }
+          this.cart = { ...res.data.data };
+          this.cart.carts = [...filterFreight(res.data.data.carts)];
+          this.cart.isFreight = checkFrieht(res.data.data);
+          this.checkCoupon(getLocalStorage('CouponCode'));
         }
-        this.cart = { ...res.data.data };
-        this.cart.carts = [...filterFreight(res.data.data.carts)];
-        this.cart.isFreight = checkFrieht(res.data.data);
-        this.checkCoupon(getLocalStorage('CouponCode'));
       });
     },
     minusCart(item) {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${item.id}`;
+      this.isLoading = true;
 
       if (item.qty <= 1) {
         this.$swal({
@@ -267,20 +281,23 @@ export default {
       this.$http
         .put(url, { data: cart })
         .then((res) => {
-          this.$swal({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 1000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', this.$swal.stopTimer);
-              toast.addEventListener('mouseleave', this.$swal.resumeTimer);
-            },
-            icon: 'success',
-            title: '更新購物車成功!'
-          });
-          this.getCart();
+          if (res.data.success) {
+            this.isLoading = false;
+            this.$swal({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 1000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', this.$swal.stopTimer);
+                toast.addEventListener('mouseleave', this.$swal.resumeTimer);
+              },
+              icon: 'success',
+              title: '更新購物車成功!'
+            });
+            this.getCart();
+          }
         })
         .catch((err) => {
           this.$swal({
@@ -293,6 +310,7 @@ export default {
     },
     addCart(item) {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${item.id}`;
+      this.isLoading = true;
       const cart = {
         product_id: item.product_id,
         qty: ++item.qty
@@ -300,20 +318,22 @@ export default {
       this.$http
         .put(url, { data: cart })
         .then((res) => {
-          this.$swal({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 1000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', this.$swal.stopTimer);
-              toast.addEventListener('mouseleave', this.$swal.resumeTimer);
-            },
-            icon: 'success',
-            title: '更新購物車成功!'
-          });
-          this.getCart();
+          if (res.data.success) {
+            this.$swal({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 1000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', this.$swal.stopTimer);
+                toast.addEventListener('mouseleave', this.$swal.resumeTimer);
+              },
+              icon: 'success',
+              title: '更新購物車成功!'
+            });
+            this.getCart();
+          }
         })
         .catch((err) => {
           this.$swal({
@@ -326,24 +346,28 @@ export default {
     },
     deleteCart(item) {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart/${item.id}`;
+      this.isLoading = true;
       this.$http
         .delete(url)
         .then((res) => {
-          this.$swal({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 1500,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', this.$swal.stopTimer);
-              toast.addEventListener('mouseleave', this.$swal.resumeTimer);
-            },
-            icon: 'success',
-            title: '已經移出購物車'
-          });
-          this.getCart();
-          this.emitter.emit('update-cartNumber');
+          if (res.data.success) {
+            this.isLoading = false;
+            this.$swal({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 1500,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', this.$swal.stopTimer);
+                toast.addEventListener('mouseleave', this.$swal.resumeTimer);
+              },
+              icon: 'success',
+              title: '已經移出購物車'
+            });
+            this.getCart();
+            this.emitter.emit('update-cartNumber');
+          }
         })
         .catch((err) => {
           this.$swal({
@@ -371,9 +395,11 @@ export default {
           this.$http
             .delete(url)
             .then((res) => {
-              localStorage.removeItem('CouponCode');
-              this.getCart();
-              this.emitter.emit('update-cartNumber');
+              if (res.data.success) {
+                localStorage.removeItem('CouponCode');
+                this.getCart();
+                this.emitter.emit('update-cartNumber');
+              }
             })
             .catch((err) => {
               this.$swal({
@@ -388,12 +414,14 @@ export default {
     },
     addCoupon(isAdd, code) {
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/coupon`;
+      this.isLoading = true;
       const tempCoupon = {
         code: code
       };
 
       this.$http.post(api, { data: tempCoupon }).then((res) => {
         if (res.data.success) {
+          this.isLoading = false;
           this.cart.final_total = res.data.data.final_total;
           this.is_UseCoupon = true;
           savaLocalStorage('CouponCode', code);

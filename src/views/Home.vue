@@ -1,4 +1,12 @@
 <template>
+  <Loading :active="isLoading">
+    <div class="loadingio-spinner-ripple-3xq5u6jldre">
+      <div class="ldio-dwik2dnj2i">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </Loading>
   <NavbarMain class="sticky-top"></NavbarMain>
   <BannerImage></BannerImage>
   <section class="pt-md-5 pt-0">
@@ -75,7 +83,8 @@ export default {
     return {
       Scroll: 0,
       product: [],
-      Hproduct: []
+      Hproduct: [],
+      isLoading: false
     };
   },
   methods: {
@@ -84,9 +93,13 @@ export default {
     },
     getProducts() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
-      this.$http.get(url).then((response) => {
-        this.product = dealCategory(Object.values(response.data.products));
-        this.Hproduct = filterCategory('熱門', this.product);
+      this.isLoading = true;
+      this.$http.get(url).then((res) => {
+        if (res.data.success) {
+          this.isLoading = false;
+          this.product = dealCategory(Object.values(res.data.products));
+          this.Hproduct = filterCategory('熱門', this.product);
+        }
       });
     }
   },

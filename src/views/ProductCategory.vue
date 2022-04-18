@@ -1,4 +1,12 @@
 <template>
+  <Loading :active="isLoading">
+    <div class="loadingio-spinner-ripple-3xq5u6jldre">
+      <div class="ldio-dwik2dnj2i">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </Loading>
   <div class="container-fluid">
     <div class="row d-flex justify-content-center">
       <div class="col-11 mx-5 my-3">
@@ -53,17 +61,22 @@ export default {
   data() {
     return {
       Cproduct: [],
-      Category: ''
+      Category: '',
+      isLoading: false
     };
   },
   methods: {
     getProducts() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
+      this.isLoading = true;
       this.$http.get(url).then((res) => {
-        this.Cproduct = dealCategory(Object.values(res.data.products));
-        this.Cproduct = this.Cproduct.filter(
-          (item) => item.unit === this.Category
-        );
+        if (res.data.success) {
+          this.isLoading = false;
+          this.Cproduct = dealCategory(Object.values(res.data.products));
+          this.Cproduct = this.Cproduct.filter(
+            (item) => item.unit === this.Category
+          );
+        }
       });
     }
   },

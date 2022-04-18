@@ -1,4 +1,12 @@
 <template>
+  <Loading :active="isLoading">
+    <div class="loadingio-spinner-ripple-3xq5u6jldre">
+      <div class="ldio-dwik2dnj2i">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </Loading>
   <section class="mb-5">
     <div class="container-fluid">
       <div class="row d-flex justify-content-center">
@@ -101,15 +109,20 @@ export default {
   data() {
     return {
       product: [],
-      Rproduct: []
+      Rproduct: [],
+      isLoading: false
     };
   },
   methods: {
     getProducts() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
-      this.$http.get(url).then((response) => {
-        this.product = dealCategory(Object.values(response.data.products));
-        this.Rproduct = filterCategory('推薦', this.product);
+      this.isLoading = true;
+      this.$http.get(url).then((res) => {
+        if (res.data.success) {
+          this.isLoading = false;
+          this.product = dealCategory(Object.values(res.data.products));
+          this.Rproduct = filterCategory('推薦', this.product);
+        }
       });
     }
   },

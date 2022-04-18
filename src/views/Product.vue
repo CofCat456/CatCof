@@ -1,4 +1,12 @@
 <template>
+  <Loading :active="isLoading">
+    <div class="loadingio-spinner-ripple-3xq5u6jldre">
+      <div class="ldio-dwik2dnj2i">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </Loading>
   <section>
     <div class="container-fluid">
       <div class="row d-flex justify-content-center">
@@ -133,14 +141,14 @@
               <img
                 v-if="product.images && product.images[0] !== 'undefined'"
                 :src="product.images[0]"
-                :alt="product.title + 的照片"
+                :alt="product.title + '的照片'"
               />
             </div>
             <div v-else>
               <img
                 v-if="product.images && product.images[1] !== 'undefined'"
                 :src="product.images[1]"
-                alt="{{ product.title }}的照片"
+                :alt="product.title + '的照片'"
               />
             </div>
             <div class="mt-4 mb-4 pt-2 pb-1">
@@ -239,7 +247,7 @@
                   product.images && product.images[index + 1] !== 'undefined'
                 "
                 :src="product.images[index + 1]"
-                :alt="product.detail[index] + 的照片"
+                :alt="product.detail[index] + '的照片'"
               />
               <div class="mt-4 mb-4 pt-2 pb-1">
                 <p v-if="typeof product.country !== 'undefined'">
@@ -274,14 +282,14 @@
               <img
                 v-if="product.images && product.images[3] !== 'undefined'"
                 :src="product.images[3]"
-                alt="{{ product.title }}的照片"
+                :alt="product.title + '的照片'"
               />
               <p class="giftbox my-1">{{ product.giftbox }}</p>
             </div>
             <img
               v-if="product.images && product.images[4] !== 'undefined'"
               :src="product.images[4]"
-              alt="{{ product.title }}的照片"
+              :alt="product.title + '的照片'"
               class="mb-2"
             />
             <div class="my-4 py-1">
@@ -446,19 +454,22 @@ export default {
       product: [],
       productNumber: 1,
       isMove: false,
-      is_collect: false
+      is_collect: false,
+      isLoading: false
     };
   },
   watch: {
     $route: function() {
-      this.getProducts();
+      this.getProduct();
     }
   },
   methods: {
-    getProducts() {
+    getProduct() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${this.$route.params.productId}`;
+      this.isLoading = true;
       this.$http.get(url).then((res) => {
         if (res.data.success) {
+          this.isLoading = false;
           this.product = res.data.product;
           this.product = dealCategory([res.data.product])[0];
           this.isCollect(this.product);
@@ -483,6 +494,7 @@ export default {
     },
     addCart(id) {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
+      this.isLoading = true;
       const cart = {
         product_id: id,
         qty: this.productNumber
@@ -502,20 +514,23 @@ export default {
       this.$http
         .post(url, { data: cart })
         .then((res) => {
-          this.$swal({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 1500,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', this.$swal.stopTimer);
-              toast.addEventListener('mouseleave', this.$swal.resumeTimer);
-            },
-            icon: 'success',
-            title: '加入購物車成功!'
-          });
-          this.emitter.emit('update-cartNumber');
+          if (res.data.success) {
+            this.isLoading = false;
+            this.$swal({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 1500,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', this.$swal.stopTimer);
+                toast.addEventListener('mouseleave', this.$swal.resumeTimer);
+              },
+              icon: 'success',
+              title: '加入購物車成功!'
+            });
+            this.emitter.emit('update-cartNumber');
+          }
         })
         .catch((err) => {
           this.$swal({
@@ -545,13 +560,17 @@ export default {
     },
     updateProduct(id) {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${id}`;
-      this.$http.get(url).then((response) => {
-        this.product = response.data.product;
+      this.isLoading = true;
+      this.$http.get(url).then((res) => {
+        if (res.data.success) {
+          this.isLoading = false;
+          this.product = res.data.product;
+        }
       });
     }
   },
   created() {
-    this.getProducts();
+    this.getProduct();
     window.addEventListener('scroll', this.handleScroll, true);
   },
   mounted() {

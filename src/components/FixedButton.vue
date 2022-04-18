@@ -1,4 +1,5 @@
 <template>
+  <Loading :active="isLoading"></Loading>
   <ul
     class="btn-custom-ul position-fixed d-flex flex-column justify-content-around align-items-center"
   >
@@ -267,18 +268,22 @@ export default {
     return {
       collects: [],
       cartNumber: 0,
-      is_Sign: false
+      is_Sign: false,
+      isLoading: false
     };
   },
   methods: {
     getCart() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
       this.$http.get(url).then((res) => {
-        this.cartNumber = res.data.data.carts.length;
+        if (res.data.success) {
+          this.cartNumber = res.data.data.carts.length;
+        }
       });
     },
     addCart(id, qty, index) {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
+      this.isLoading = true;
       const cart = {
         product_id: id,
         qty: qty
@@ -298,27 +303,30 @@ export default {
       this.$http
         .post(url, { data: cart })
         .then((res) => {
-          this.$swal({
-            toast: true,
-            position: 'top-end',
-            showConfirmButton: false,
-            timer: 1500,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-              toast.addEventListener('mouseenter', this.$swal.stopTimer);
-              toast.addEventListener('mouseleave', this.$swal.resumeTimer);
-            },
-            icon: 'success',
-            title: '加入購物車成功!'
-          });
-          // 刪除收藏
-          this.collects.splice(index, 1);
-          // 更新LocalStorage
-          savaLocalStorage('favoriteList', this.collects);
-          // 更新fixedbutton 購物車數量
-          this.getCart();
-          // 更新購物車頁面
-          this.emitter.emit('update-cart');
+          if (res.data.success) {
+            this.isLoading = false;
+            this.$swal({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 1500,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', this.$swal.stopTimer);
+                toast.addEventListener('mouseleave', this.$swal.resumeTimer);
+              },
+              icon: 'success',
+              title: '加入購物車成功!'
+            });
+            // 刪除收藏
+            this.collects.splice(index, 1);
+            // 更新LocalStorage
+            savaLocalStorage('favoriteList', this.collects);
+            // 更新fixedbutton 購物車數量
+            this.getCart();
+            // 更新購物車頁面
+            this.emitter.emit('update-cart');
+          }
         })
         .catch((err) => {
           this.$swal({

@@ -1,6 +1,13 @@
 <template>
   <ToastMessage></ToastMessage>
-  <Loading :active="isLoading"></Loading>
+  <Loading :active="isLoading">
+    <div class="loadingio-spinner-ripple-3xq5u6jldre">
+      <div class="ldio-dwik2dnj2i">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </Loading>
   <div class="text-end mt-3">
     <button class="btn btn-primary" type="button" @click="openModel(true)">
       增加一個產品
