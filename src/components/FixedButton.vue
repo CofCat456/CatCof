@@ -348,7 +348,7 @@ export default {
     },
     DeleteAllCollects() {
       this.collects = [];
-      savaLocalStorage(this.collects);
+      savaLocalStorage('favoriteList', this.collects);
       this.emitter.emit('update-collect');
       this.$swal({
         toast: true,
@@ -390,7 +390,7 @@ export default {
     });
 
     this.emitter.on('remove-product', (product) => {
-      const collects = getLocalStorage();
+      const collects = getLocalStorage('favoriteList');
       this.collects = Object.values(collects).filter(
         (e) => e.id !== product.id
       );

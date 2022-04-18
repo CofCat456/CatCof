@@ -69,11 +69,6 @@
   transition: all 0.4s ease-in-out;
 }
 
-@media screen and (max-width: 414px) {
-  .nav-text {
-  }
-}
-
 .nav-item {
   margin: 0 1rem;
   transition: all 0.4s;

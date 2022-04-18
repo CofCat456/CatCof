@@ -95,7 +95,7 @@
               </h6>
               <h6
                 v-else
-                class="love text-center text-dark"
+                class="love p-2 text-center text-dark"
                 @click="removeCollectList(product)"
               >
                 <i class="bi bi-heartbreak"></i> 移除收藏名單
@@ -522,6 +522,7 @@ export default {
       return `/User/category/${unit}`;
     },
     addCollectList(product) {
+      console.log(product);
       this.emitter.emit('add-product', product);
       this.isCollect(product);
     },
