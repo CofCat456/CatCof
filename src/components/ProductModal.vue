@@ -417,15 +417,12 @@ export default {
   methods: {
     uploadFile() {
       const uploadedFile = this.$refs.fileInput.files[0];
-      console.dir(uploadedFile);
       const formData = new FormData();
       formData.append('file-to-upload', uploadedFile);
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/upload`;
       this.$http.post(url, formData).then((res) => {
-        console.log(res.data);
         if (res.data) {
           this.tempProduct.imageUrl = res.data.imageUrl;
-          console.log('測試資料', this.tempProduct);
         }
       });
     }
