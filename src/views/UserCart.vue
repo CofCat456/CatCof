@@ -38,6 +38,7 @@
                       <img
                         :src="item.product.imageUrl"
                         :alt="item.product.title + '的商品照片'"
+                        @click="getProductId(item.product.id)"
                       />
                     </div>
                     <p class="col-md-8 m-0 px-md-2 fw-bold">
@@ -188,6 +189,9 @@
 </template>
 
 <style scoped>
+img {
+  cursor: pointer;
+}
 .btn {
   font-weight: 700;
   line-height: 1.7;
@@ -431,6 +435,9 @@ export default {
         this.code = CouponCode;
         this.addCoupon(false, this.code);
       }
+    },
+    getProductId(id) {
+      this.$router.push(`/User/product/${id}`);
     }
   },
   created() {

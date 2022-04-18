@@ -43,6 +43,7 @@ h1 {
 
 .item {
   overflow: hidden;
+  cursor: pointer;
 }
 
 .item p {
@@ -53,7 +54,6 @@ h1 {
   width: 100%;
   object-fit: cover;
   transition: all 0.6s linear;
-  cursor: pointer;
 }
 
 .item .imgBox {

@@ -219,12 +219,11 @@
             <h5 class="my-4 py-1 fw-bold">禮盒內容</h5>
             <div v-for="(item, index) in product.detail" :key="item">
               <div class="my-2">
-                <p
-                  @click="getProductId(product.link[index])"
+                <router-link
                   class="text-decoration-underline"
+                  :to="'/User/product/' + product.link[index]"
+                  >{{ product.detail[index] }}</router-link
                 >
-                  {{ product.detail[index] }}
-                </p>
               </div>
               <img
                 v-if="
@@ -541,9 +540,6 @@ export default {
       this.$http.get(url).then((response) => {
         this.product = response.data.product;
       });
-    },
-    getProductId(id) {
-      this.$router.push(`/User/product/${id}`);
     }
   },
   created() {
