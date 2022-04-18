@@ -5,7 +5,7 @@
         <div class="col-11">
           <div class="wrap d-md-flex d-block">
             <div class="logo me-lg-5 me-md-0">
-              <img src="../assets/雜/CofShopLogo.png" alt="貓咖啡 Logo" />
+              <img src="../assets/Logo/CofShopLogo.png" alt="貓咖啡 Logo" />
             </div>
             <div class="information ms-md-5 ms-0 my-3">
               <div class="addres mb-4">
@@ -68,8 +68,8 @@ footer {
 
 @media screen and (max-width: 414px) {
   .wrap {
-  padding: 20px 0px;
-}
+    padding: 20px 0px;
+  }
 }
 
 h1 {

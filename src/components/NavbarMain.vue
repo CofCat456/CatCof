@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg w-100" :class="{ navBg: isScroll }">
     <div class="container-fluid px-5">
       <router-link to="/" class="nav-link fs-5 title mt-md-1">
-        <img src="../assets/雜/CofShopLogo.png" alt="CoffeeShop Logo" />
+        <img src="../assets/Logo/CofShopLogo.png" alt="CoffeeShop Logo" />
       </router-link>
       <button
         class="navbar-toggler"
