@@ -142,7 +142,6 @@ export default {
       });
     },
     DeleteCoupon(id) {
-      console.log(id);
       const api = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/coupon/${id}`;
       const deleteCouponComponent = this.$refs.deleteModal;
       this.$http.delete(api).then((res) => {

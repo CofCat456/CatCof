@@ -239,7 +239,7 @@
                   product.images && product.images[index + 1] !== 'undefined'
                 "
                 :src="product.images[index + 1]"
-                alt="{{ product.detail[index] }}的照片"
+                :alt="product.detail[index] + 的照片"
               />
               <div class="mt-4 mb-4 pt-2 pb-1">
                 <p v-if="typeof product.country !== 'undefined'">
@@ -530,7 +530,6 @@ export default {
       return `/User/category/${unit}`;
     },
     addCollectList(product) {
-      console.log(product);
       this.emitter.emit('add-product', product);
       this.isCollect(product);
     },

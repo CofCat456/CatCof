@@ -124,7 +124,6 @@ export default {
         OrderComponent.hideModel();
         this.$httpMessageState(res, '更新訂單');
         if (res.data.success) {
-          console.log(res);
           this.getOrderList();
         }
       });
