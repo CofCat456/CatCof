@@ -368,7 +368,9 @@ export default {
   mounted() {
     this.getCart();
     this.checkSign();
-    this.collects = getLocalStorage('favoriteList');
+    if (getLocalStorage('favoriteList') !== null) {
+      this.collects = getLocalStorage('favoriteList');
+    }
     this.emitter.on('add-product', (product) => {
       product.qty = 1;
       this.collects.push(product);

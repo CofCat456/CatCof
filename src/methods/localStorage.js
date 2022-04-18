@@ -3,8 +3,5 @@ export function savaLocalStorage(key, item) {
 }
 
 export function getLocalStorage(key) {
-  if (localStorage.getItem(key) === null) {
-    return [];
-  }
   return JSON.parse(localStorage.getItem(key));
 }

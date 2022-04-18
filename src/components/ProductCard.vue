@@ -95,6 +95,7 @@ h1 {
 
 .item img {
   width: 100%;
+  border-radius: 10px;
   transition: all 0.4s;
   cursor: pointer;
 }
