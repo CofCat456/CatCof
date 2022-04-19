@@ -3,8 +3,8 @@
     <div class="row d-flex justify-content-center">
       <div
         :class="[
-          ['mt-1 mb-3 px-4'],
-          isFluid ? ['col-xxl-10 col-md-12 col-11 px-md-5'] : ['col-11']
+          ['mt-1 mb-3 px-xxl-4 px-md-2 col-md-12'],
+          isFluid ? ['col-xxl-10 px-md-5'] : ['col-xxl-11']
         ]"
       >
         <span class="d-flex align-items-center">

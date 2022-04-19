@@ -11,7 +11,7 @@
         <div
           v-for="item in productCategoryList"
           :key="item.title"
-          class="item col-lg-3 col-6 my-xxl-3 my-md-1 px-xxl-3 px-md-2"
+          class="item col-lg-3 col-6 my-xxl-3 my-md-3 px-xxl-3 px-md-2"
           @click="getProductCategory(item.title)"
         >
           <img :src="item.src" />
