@@ -67,7 +67,7 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "no-console": "error",
+      "no-console": "off",
       "no-debugger": "off",
       "semi": [
         "error",

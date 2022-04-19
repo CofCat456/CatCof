@@ -137,99 +137,177 @@
             class="productDetail"
           >
             <h5 class="my-4 py-1 fw-bold">細節</h5>
-            <div v-if="product.unit === '濾掛咖啡'">
-              <img
-                v-if="product.images && product.images[0] !== 'undefined'"
-                :src="product.images[0]"
-                :alt="product.title + '的照片'"
-              />
+            <div v-if="product.detail">
+              <div v-for="(item, index) in product.detail" :key="item">
+                <div class="my-2">
+                  <router-link
+                    class="text-decoration-underline"
+                    :to="'/User/product/' + product.link[index]"
+                    >{{ product.detail[index] }}</router-link
+                  >
+                </div>
+                <img
+                  v-if="
+                    product.images && product.images[index + 1] !== 'undefined'
+                  "
+                  :src="product.images[index + 1]"
+                  :alt="item + '的照片'"
+                />
+                <div class="mt-4 mb-4 pt-2 pb-1">
+                  <p
+                    v-if="
+                      product.country[index] !== undefined &&
+                      product.country[index] !== '無'
+                    "
+                  >
+                    原產國 : {{ product.country[index] }}
+                  </p>
+                  <p
+                    v-if="
+                      product.area[index] !== undefined &&
+                      product.area[index] !== '無'
+                    "
+                  >
+                    產區 : {{ product.area[index] }}
+                  </p>
+                  <p
+                    v-if="
+                      product.altitude[index] !== undefined &&
+                      product.altitude[index] !== '無'
+                    "
+                  >
+                    海拔 : {{ product.altitude[index] }}
+                  </p>
+                  <p
+                    v-if="
+                      product.Variety[index] !== undefined &&
+                      product.Variety[index] !== '無'
+                    "
+                  >
+                    品種 : {{ product.Variety[index] }}
+                  </p>
+                  <p
+                    v-if="
+                      product.Soli[index] !== undefined &&
+                      product.Soli[index] !== '無'
+                    "
+                  >
+                    土壤種類 : {{ product.Soli[index] }}
+                  </p>
+                  <p
+                    v-if="
+                      product.refined[index] !== undefined &&
+                      product.refined[index] !== '無'
+                    "
+                  >
+                    處理法 : {{ product.refined[index] }}
+                  </p>
+                  <p
+                    v-if="
+                      product.roast[index] !== undefined &&
+                      product.roast[index] !== '無'
+                    "
+                  >
+                    烘烤程度 : {{ product.roast[index] }}
+                  </p>
+                </div>
+              </div>
             </div>
             <div v-else>
-              <img
-                v-if="product.images && product.images[1] !== 'undefined'"
-                :src="product.images[1]"
-                :alt="product.title + '的照片'"
-              />
-            </div>
-            <div class="mt-4 mb-4 pt-2 pb-1">
-              <p v-if="typeof product.country !== 'undefined'">
-                原產國 : {{ product.country }}
-              </p>
-              <p v-if="typeof product.area !== 'undefined'">
-                產區 : {{ product.area }}
-              </p>
-              <p v-if="typeof product.altitude !== 'undefined'">
-                海拔 : {{ product.altitude }}
-              </p>
-              <p v-if="typeof product.Variety !== 'undefined'">
-                品種 : {{ product.Variety }}
-              </p>
-              <p v-if="typeof product.Soli !== 'undefined'">
-                土壤種類 : {{ product.Soli }}
-              </p>
-              <p v-if="typeof product.refined !== 'undefined'">
-                處理法 : {{ product.refined }}
-              </p>
-              <p v-if="typeof product.roast !== 'undefined'">
-                烘烤程度 : {{ product.roast }}
-              </p>
-            </div>
-            <div class="mb-4 pb-1">
-              <span v-if="typeof product.bitter !== 'undefined'">
-                <p class="me-1">苦味</p>
-                <i
-                  v-for="star in product.bitter"
-                  :key="star"
-                  class="bi bi-star-fill"
-                ></i>
-                <i
-                  v-for="star in 5 - product.bitter"
-                  :key="star"
-                  class="bi bi-star"
-                ></i>
-              </span>
-              <span v-if="typeof product.sour !== 'undefined'">
-                <p class="me-1">酸味</p>
-                <i
-                  v-for="star in product.sour"
-                  :key="star"
-                  class="bi bi-star-fill"
-                ></i>
-                <i
-                  v-for="star in 5 - product.sour"
-                  :key="star"
-                  class="bi bi-star"
-                ></i> </span
-              ><span v-if="typeof product.sweet !== 'undefined'">
-                <p class="me-1">甜味</p>
-                <i
-                  v-for="star in product.sweet"
-                  :key="star"
-                  class="bi bi-star-fill"
-                ></i>
-                <i
-                  v-for="star in 5 - product.sweet"
-                  :key="star"
-                  class="bi bi-star"
-                ></i> </span
-              ><span v-if="typeof product.rich !== 'undefined'">
-                <p class="me-1">濃郁</p>
-                <i
-                  v-for="star in product.rich"
-                  :key="star"
-                  class="bi bi-star-fill"
-                ></i>
-                <i
-                  v-for="star in 5 - product.rich"
-                  :key="star"
-                  class="bi bi-star"
-                ></i>
-              </span>
-            </div>
-            <div>
-              <p>
-                {{ product.stext }}
-              </p>
+              <div v-if="product.unit === '濾掛咖啡'">
+                <img
+                  v-if="product.images && product.images[0] !== undefined"
+                  :src="product.images[0]"
+                  :alt="product.title + '的照片'"
+                />
+              </div>
+              <div v-else>
+                <img
+                  v-if="product.images && product.images[1] !== undefined"
+                  :src="product.images[1]"
+                  :alt="product.title + '的照片'"
+                />
+              </div>
+              <div class="mt-4 mb-4 pt-2 pb-1">
+                <p v-if="product.country !== undefined">
+                  原產國 : {{ product.country }}
+                </p>
+                <p v-if="product.area !== undefined">
+                  產區 : {{ product.area }}
+                </p>
+                <p v-if="product.altitude !== undefined">
+                  海拔 : {{ product.altitude }}
+                </p>
+                <p v-if="product.Variety !== undefined">
+                  品種 : {{ product.Variety }}
+                </p>
+                <p v-if="product.Soli !== undefined">
+                  土壤種類 : {{ product.Soli }}
+                </p>
+                <p v-if="product.refined !== undefined">
+                  處理法 : {{ product.refined }}
+                </p>
+                <p v-if="product.roast !== undefined">
+                  烘烤程度 : {{ product.roast }}
+                </p>
+              </div>
+              <div class="mb-4 pb-1">
+                <span v-if="product.bitter !== undefined">
+                  <p class="me-1">苦味</p>
+                  <i
+                    v-for="star in product.bitter"
+                    :key="star"
+                    class="bi bi-star-fill"
+                  ></i>
+                  <i
+                    v-for="star in 5 - product.bitter"
+                    :key="star"
+                    class="bi bi-star"
+                  ></i>
+                </span>
+                <span v-if="product.sour !== undefined">
+                  <p class="me-1">酸味</p>
+                  <i
+                    v-for="star in product.sour"
+                    :key="star"
+                    class="bi bi-star-fill"
+                  ></i>
+                  <i
+                    v-for="star in 5 - product.sour"
+                    :key="star"
+                    class="bi bi-star"
+                  ></i> </span
+                ><span v-if="product.sweet !== undefined">
+                  <p class="me-1">甜味</p>
+                  <i
+                    v-for="star in product.sweet"
+                    :key="star"
+                    class="bi bi-star-fill"
+                  ></i>
+                  <i
+                    v-for="star in 5 - product.sweet"
+                    :key="star"
+                    class="bi bi-star"
+                  ></i> </span
+                ><span v-if="product.rich !== undefined">
+                  <p class="me-1">濃郁</p>
+                  <i
+                    v-for="star in product.rich"
+                    :key="star"
+                    class="bi bi-star-fill"
+                  ></i>
+                  <i
+                    v-for="star in 5 - product.rich"
+                    :key="star"
+                    class="bi bi-star"
+                  ></i>
+                </span>
+              </div>
+              <div>
+                <p>
+                  {{ product.stext }}
+                </p>
+              </div>
             </div>
           </div>
           <div v-else class="productDetail">
@@ -243,36 +321,30 @@
                 >
               </div>
               <img
-                v-if="
-                  product.images && product.images[index + 1] !== 'undefined'
-                "
+                v-if="product.images && product.images[index + 1] !== undefined"
                 :src="product.images[index + 1]"
                 :alt="product.detail[index] + '的照片'"
               />
               <div class="mt-4 mb-4 pt-2 pb-1">
-                <p v-if="typeof product.country !== 'undefined'">
+                <p v-if="product.country !== undefined">
                   原產國 : {{ product.country[index] }}
                 </p>
-                <p v-if="typeof product.area !== 'undefined'">
+                <p v-if="product.area !== undefined">
                   產區 : {{ product.area[index] }}
                 </p>
-                <p v-if="typeof product.altitude !== 'undefined'">
+                <p v-if="product.altitude !== undefined">
                   海拔 : {{ product.altitude[index] }}
                 </p>
-                <p v-if="typeof product.Variety !== 'undefined'">
+                <p v-if="product.Variety !== undefined">
                   品種 : {{ product.Variety[index] }}
                 </p>
-                <p
-                  v-if="
-                    typeof product.Soli !== 'undefined' && !product.Soli === ''
-                  "
-                >
+                <p v-if="product.Soli !== undefined && !product.Soli === ''">
                   土壤種類 : {{ product.Soli[index] }}
                 </p>
-                <p v-if="typeof product.refined !== 'undefined'">
+                <p v-if="product.refined !== undefined">
                   處理法 : {{ product.refined[index] }}
                 </p>
-                <p v-if="typeof product.roast !== 'undefined'">
+                <p v-if="product.roast !== undefined">
                   烘烤程度 : {{ product.roast[index] }}
                 </p>
               </div>
@@ -280,14 +352,14 @@
             <h5 class="my-4 py-1 fw-bold">關於禮盒</h5>
             <div class="mb-2">
               <img
-                v-if="product.images && product.images[3] !== 'undefined'"
+                v-if="product.images && product.images[3] !== undefined"
                 :src="product.images[3]"
                 :alt="product.title + '的照片'"
               />
               <p class="giftbox my-1">{{ product.giftbox }}</p>
             </div>
             <img
-              v-if="product.images && product.images[4] !== 'undefined'"
+              v-if="product.images && product.images[4] !== undefined"
               :src="product.images[4]"
               :alt="product.title + '的照片'"
               class="mb-2"
@@ -473,6 +545,7 @@ export default {
           this.product = res.data.product;
           this.product = dealCategory([res.data.product])[0];
           this.isCollect(this.product);
+          console.log(this.product);
         }
       });
     },

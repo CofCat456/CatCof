@@ -159,28 +159,43 @@ export default {
         cancelButtonText: '一般模式'
       }).then((result) => {
         if (result.isConfirmed) {
-          if (!Array.isArray(NewTemp.altitude)) {
+          if (
+            !Array.isArray(NewTemp.altitude) &&
+            NewTemp.altitude !== undefined
+          ) {
             NewTemp.altitude = item.altitude.split(',');
           }
-          if (!Array.isArray(NewTemp.detail)) {
+          if (
+            !Array.isArray(NewTemp.Variety) &&
+            NewTemp.Variety !== undefined
+          ) {
+            NewTemp.Variety = item.Variety.split(',');
+          }
+          if (!Array.isArray(NewTemp.detail) && NewTemp.detail !== undefined) {
             NewTemp.detail = item.detail.split(',');
           }
-          if (!Array.isArray(NewTemp.link)) {
+          if (!Array.isArray(NewTemp.link) && NewTemp.link !== undefined) {
             NewTemp.link = item.link.split(',');
           }
-          if (!Array.isArray(NewTemp.roast)) {
+          if (!Array.isArray(NewTemp.roast) && NewTemp.roast !== undefined) {
             NewTemp.roast = item.roast.split(',');
           }
-          if (!Array.isArray(NewTemp.Soli)) {
+          if (!Array.isArray(NewTemp.Soli) && NewTemp.Soli !== undefined) {
             NewTemp.Soli = item.Soli.split(',');
           }
-          if (!Array.isArray(NewTemp.refined)) {
+          if (
+            !Array.isArray(NewTemp.refined) &&
+            NewTemp.refined !== undefined
+          ) {
             NewTemp.refined = item.refined.split(',');
           }
-          if (!Array.isArray(NewTemp.area)) {
+          if (!Array.isArray(NewTemp.area) && NewTemp.area !== undefined) {
             NewTemp.area = item.area.split(',');
           }
-          if (!Array.isArray(NewTemp.country)) {
+          if (
+            !Array.isArray(NewTemp.country) &&
+            NewTemp.country !== undefined
+          ) {
             NewTemp.country = item.country.split(',');
           }
           this.updateProduct(NewTemp);
@@ -208,6 +223,9 @@ export default {
           }
           if (Array.isArray(NewTemp.country)) {
             NewTemp.country = item.country.toString();
+          }
+          if (Array.isArray(NewTemp.Variety)) {
+            NewTemp.Variety = item.Variety.toString();
           }
           this.updateProduct(NewTemp);
         }
