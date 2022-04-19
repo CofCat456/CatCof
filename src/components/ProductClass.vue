@@ -1,5 +1,5 @@
 <template>
-  <div class="container my-5 py-5">
+  <div class="container mt-5 mb-md-3">
     <div class="row d-flex justify-content-center px-5">
       <div class="col-12 my-1 px-4">
         <span class="d-flex align-items-end">

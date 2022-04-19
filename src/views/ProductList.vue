@@ -29,9 +29,11 @@
             <div class="wrap">
               <h1 class="text-start font-en">Online Store</h1>
               <div class="text ms-4">
-                <h1>產品列表</h1>
-                <h2>喝杯咖啡休息一下。</h2>
-                <h2>我很高興能過上平常的生活。</h2>
+                <h1 class="mb-5 pb-2">產品列表</h1>
+                <div class="my-2">
+                  <h2>喝杯咖啡休息一下。</h2>
+                  <h2>我很高興能過上平常的生活。</h2>
+                </div>
                 <span>
                   <p>我們將為您</p>
                   <p class="clrPink">
@@ -51,7 +53,6 @@
     </div>
   </section>
   <section
-    class="pt-4"
     data-aos="fade-up"
     data-aos-delay="200"
     data-aos-duration="800"
@@ -102,9 +103,6 @@
   .wrap > h1 {
     font-size: 1.2rem;
   }
-}
-.text h1 {
-  margin-bottom: 2rem;
 }
 
 .img-fluid {
