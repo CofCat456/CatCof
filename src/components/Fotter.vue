@@ -27,11 +27,10 @@
               <li>
                 <router-link to="/User/ProductList">關於我們</router-link>
               </li>
-              <li><router-link to="/User/ProductList">還在想</router-link></li>
               <li>
                 <router-link to="/User/ProductList">產品列表</router-link>
               </li>
-              <li><router-link to="">使用者登入</router-link></li>
+              <li><router-link to="">管理者登入</router-link></li>
               <li><router-link to="">購物車</router-link></li>
             </ul>
           </div>

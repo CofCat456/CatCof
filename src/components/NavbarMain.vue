@@ -29,13 +29,6 @@
           </li>
           <li>
             <router-link
-              to=""
-              class="nav-link nav-text mx-lg-3 my-lg-0 p-lg-0 my-1 p-3 fw-bold"
-              >還在想</router-link
-            >
-          </li>
-          <li>
-            <router-link
               to="/User/ProductList"
               class="nav-link nav-text mx-lg-3 my-lg-0 p-lg-0 my-1 p-3 fw-bold"
             >
@@ -47,7 +40,7 @@
               to="/Login"
               class="nav-link nav-text mx-lg-3 my-lg-0 p-lg-0 my-1 p-3 fw-bold"
             >
-              使用者登入
+              管理者登入
             </router-link>
           </li>
           <li>
