@@ -8,7 +8,7 @@
     </div>
   </Loading>
   <NavbarMain class="sticky-top"></NavbarMain>
-  <div class="d-flex justify-content-end my-2 me-5 pe-2">
+  <div class="d-flex justify-content-end mt-2 mb-4 me-5 pe-2">
     <p class="me-2 px-2 rounded-pill bgOrange">NEW</p>
     <p class="text-decoration-underline">
       結帳時輸入good coffee折扣碼即享有8折優惠！

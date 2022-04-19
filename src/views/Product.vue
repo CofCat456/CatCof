@@ -8,7 +8,7 @@
     </div>
   </Loading>
   <section>
-    <div class="container-fluid">
+    <div class="container">
       <div class="row d-flex justify-content-center">
         <div class="col-11 mx-5 mt-4 mb-md-5 mb-2">
           <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
@@ -400,7 +400,7 @@ input[type='number']::-webkit-inner-spin-button {
   margin: 0;
 }
 .productText h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 .productText h2 {
