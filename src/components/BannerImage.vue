@@ -38,9 +38,7 @@
 .swiper >>> .swiper-slide {
   max-width: 100%;
   height: 780px;
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
+  background: no-repeat center / cover;
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
   position: relative;
