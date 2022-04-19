@@ -113,7 +113,12 @@
         </div>
       </div>
     </div>
-    <div class="container mt-lg-5 mt-md-0 pt-5">
+    <div
+      :class="[
+        ['container mt-lg-5 mt-md-0 pt-5 animate__animated'],
+        this.Scroll >= 80 && 'animate__fadeIn'
+      ]"
+    >
       <div class="row justify-content-center px-4">
         <div class="col-lg-6 col-10 pt-1 productDescribe">
           <div class="stitle mb-4 px-1 pb-2">
@@ -387,6 +392,10 @@
 </template>
 
 <style scoped>
+.animate__animated.animate__fadeIn {
+  --animate-duration: 2.5s;
+}
+
 input[type='number']::-webkit-outer-spin-button,
 input[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -527,7 +536,8 @@ export default {
       productNumber: 1,
       isMove: false,
       is_collect: false,
-      isLoading: false
+      isLoading: false,
+      Scroll: 0
     };
   },
   watch: {
@@ -553,7 +563,8 @@ export default {
       this.$router.push(`/User/category/${unit}`);
     },
     handleScroll() {
-      if (window.pageYOffset > 480) {
+      this.Scroll = window.pageYOffset;
+      if (this.Scroll > 480) {
         return (this.isMove = true);
       }
       this.isMove = false;
@@ -644,9 +655,10 @@ export default {
   },
   created() {
     this.getProduct();
-    window.addEventListener('scroll', this.handleScroll, true);
   },
   mounted() {
+    window.addEventListener('scroll', this.handleScroll, true);
+
     this.emitter.on('update-product', (id) => {
       this.updateProduct(id);
     });

@@ -11,7 +11,7 @@
       disableOnInteraction: false
     }"
     :modules="modules"
-    class="mySwiper mt-4 mb-md-5 mb-0 mx-0"
+    class="mySwiper mt-1 mb-md-5 mb-0 mx-0"
   >
     <swiper-slide
       v-for="img in imgData"

@@ -31,11 +31,16 @@
     ChTitle="分類列表"
     :Product="Cproduct"
     :CategoryText="Category"
+    :class="['animate__animated animate__fadeIn']"
   ></Category>
   <aboutProduct></aboutProduct>
 </template>
 
 <style scoped>
+.animate__animated.animate__fadeIn {
+  --animate-delay: 1s;
+  --animate-duration: 3s;
+}
 .wrap .text h1 {
   margin-bottom: 7rem;
   font-size: 3rem;

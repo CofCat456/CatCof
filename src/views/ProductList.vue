@@ -50,16 +50,30 @@
       </div>
     </div>
   </section>
-  <ProductClass class="pt-4"></ProductClass>
+  <ProductClass
+    :class="[
+      ['pt-4 animate__animated'],
+      this.Scroll >= 150 && 'animate__fadeInLeft'
+    ]"
+  ></ProductClass>
   <Recommend
     EnTitle="Recommended"
     ChTitle="推薦商品"
     :Product="Rproduct"
+    :class="[
+      ['animate__animated'],
+      this.Scroll >= 690 && 'animate__fadeInRight'
+    ]"
   ></Recommend>
   <aboutProduct></aboutProduct>
 </template>
 
 <style scoped>
+.animate__animated.animate__fadeInLeft,
+.animate__animated.animate__fadeInRight {
+  --animate-duration: 1.4s;
+}
+
 .wrap > h1 {
   font-size: 1.2rem;
 }
@@ -110,10 +124,15 @@ export default {
     return {
       product: [],
       Rproduct: [],
-      isLoading: false
+      isLoading: false,
+      Scroll: '0'
     };
   },
   methods: {
+    handleScroll() {
+      this.Scroll = window.pageYOffset;
+      console.log(this.Scroll);
+    },
     getProducts() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
       this.isLoading = true;
@@ -128,6 +147,9 @@ export default {
   },
   created() {
     this.getProducts();
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll, true);
   }
 };
 </script>

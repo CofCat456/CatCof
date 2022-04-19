@@ -8,11 +8,24 @@
     </div>
   </Loading>
   <NavbarMain class="sticky-top"></NavbarMain>
+  <p class="my-2 px-2 text-end text-decoration-underline">
+    結帳時輸入good coffee折扣碼即享有8折優惠！
+  </p>
   <BannerImage></BannerImage>
   <section class="pt-md-5 pt-0">
-    <OnlintStore></OnlintStore>
+    <OnlintStore
+      :class="[
+        ['animate__animated'],
+        this.Scroll >= 400 && 'animate__fadeInUp'
+      ]"
+    ></OnlintStore>
   </section>
-  <HotProduct EnTitle="Hot Products" :Product="Hproduct" isFluid></HotProduct>
+  <HotProduct
+    EnTitle="Hot Products"
+    :Product="Hproduct"
+    isFluid
+    :class="[['animate__animated'], this.Scroll >= 1050 && 'animate__fadeInUp']"
+  ></HotProduct>
   <Introduce3></Introduce3>
   <Fotter></Fotter>
   <FixedButton></FixedButton>
@@ -21,6 +34,10 @@
 <style>
 @import '~swiper/swiper.min.css';
 @import '~swiper/swiper-bundle.min.css';
+
+.animate__animated.animate__fadeInUp {
+  --animate-duration: 1.5s;
+}
 
 .tag {
   display: inline-flex;
@@ -90,6 +107,7 @@ export default {
   methods: {
     handleScroll() {
       this.Scroll = window.pageYOffset;
+      console.log(this.Scroll);
     },
     getProducts() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
