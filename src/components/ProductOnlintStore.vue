@@ -6,7 +6,7 @@
           <h1 class="me-2 font-en">Online Store</h1>
         </span>
       </div>
-      <div class="col-lg-9 col-md-10 col-12 my-4 d-flex flex-wrap">
+      <div class="col-lg-9 col-md-10 col-12 my-4 pb-5 d-flex flex-wrap">
         <div
           v-for="item in productCategoryList"
           :key="item.title"

@@ -8,7 +8,7 @@
     </div>
   </Loading>
   <section>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row d-flex justify-content-center">
         <div class="col-11 mx-5 mt-4 mb-md-5 mb-2">
           <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
@@ -32,7 +32,7 @@
         </div>
         <div
           v-if="product"
-          class="col-lg-9 col-md-10 col-12 d-flex flex-wrap justify-content-center"
+          class="col-xxl-7 col-md-10 col-12 d-flex flex-wrap justify-content-center"
         >
           <div class="col-lg-6 col-md-12 mb-md-0 mb-3 px-3">
             <ProductImg :images="product.images"></ProductImg>

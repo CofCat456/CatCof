@@ -1,7 +1,7 @@
 <template>
-  <div class="container mt-5 mb-md-3">
+  <div class="container my-5 pb-3">
     <div class="row d-flex justify-content-center px-5">
-      <div class="col-12 my-1 px-4">
+      <div class="col-12 mt-1 mb-3 px-4">
         <span class="d-flex align-items-end">
           <h1 class="me-md-3 me-2 font-en">Category</h1>
           <p class="py-md-3 py-1 fs-6 fw-bold">類別一覽</p>

@@ -7,7 +7,7 @@
       </div>
     </div>
   </Loading>
-  <section class="mb-5">
+  <section class="mb-5 pb-5">
     <div class="container-fluid">
       <div class="row d-flex justify-content-center">
         <div class="col-11 mx-5 my-3">
@@ -29,10 +29,10 @@
             <div class="wrap">
               <h1 class="text-start font-en">Online Store</h1>
               <div class="text ms-4">
-                <h1 class="mb-5 pb-2">產品列表</h1>
-                <div class="my-2">
-                  <h2>喝杯咖啡休息一下。</h2>
-                  <h2>我很高興能過上平常的生活。</h2>
+                <h1 class="mb-5 pb-5">產品列表</h1>
+                <div class="my-4">
+                  <h2 class="font-bold">喝杯咖啡休息一下。</h2>
+                  <h2 class="font-bold">我很高興能過上平常的生活。</h2>
                 </div>
                 <span>
                   <p>我們將為您</p>
