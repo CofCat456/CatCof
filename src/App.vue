@@ -234,7 +234,7 @@ tbody p {
   background: #dee1e7 !important;
 }
 
-.bgcOrange {
+.bgOrange {
   background: #ff9800 !important;
 }
 

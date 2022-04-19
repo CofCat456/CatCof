@@ -8,9 +8,12 @@
     </div>
   </Loading>
   <NavbarMain class="sticky-top"></NavbarMain>
-  <p class="my-2 px-2 text-end text-decoration-underline">
-    結帳時輸入good coffee折扣碼即享有8折優惠！
-  </p>
+  <div class="d-flex justify-content-end my-2 px-3">
+    <p class="me-2 px-2 rounded-pill bgOrange">NEW</p>
+    <p class="text-decoration-underline">
+      結帳時輸入good coffee折扣碼即享有8折優惠！
+    </p>
+  </div>
   <BannerImage></BannerImage>
   <section
     data-aos="fade-up"
