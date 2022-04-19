@@ -8,7 +8,7 @@
     </div>
   </Loading>
   <NavbarMain class="sticky-top"></NavbarMain>
-  <div class="d-flex justify-content-end mt-2 mb-4 me-5 pe-2">
+  <div class="d-flex justify-content-end mt-2 mt-md-4 mb-4 me-5 pe-2">
     <p class="me-2 px-2 rounded-pill bgOrange">NEW</p>
     <p class="text-decoration-underline">
       結帳時輸入good coffee折扣碼即享有8折優惠！
@@ -29,7 +29,7 @@
     data-aos-delay="400"
     data-aos-duration="1000"
     data-aos-easing="ease-in-out"
-    data-aos-anchor-placement="center-bottom"
+    data-aos-anchor-placement="top-bottom"
   >
     <HotProduct EnTitle="Hot Products" :Product="Hproduct" isFluid></HotProduct>
   </section>
@@ -38,7 +38,7 @@
     data-aos-delay="500"
     data-aos-duration="1000"
     data-aos-easing="ease-in-out"
-    data-aos-anchor-placement="center-bottom"
+    data-aos-anchor-placement="top-bottom"
   >
     <Introduce3></Introduce3>
   </section>

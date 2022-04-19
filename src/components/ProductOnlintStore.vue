@@ -1,7 +1,7 @@
 <template>
-  <div class="container-fluid my-5 py-5">
+  <div class="container-fluid my-5 mt-md-3 py-5 pt-md-0">
     <div class="row d-flex justify-content-center">
-      <div class="col-md-10 col-11 mt-5 mb-2 px-md-5 px-4">
+      <div class="col-xxl-10 col-md-12 col-11 mt-5 mb-2 px-md-5 px-4">
         <span class="d-flex align-items-sm-end">
           <h1 class="me-2 font-en">Online Store</h1>
         </span>
@@ -10,7 +10,7 @@
         <div
           v-for="item in productCategoryList"
           :key="item.title"
-          class="item col-lg-4 col-12 mb-lg-0 mb-md-5 mb-3 px-xl-4 px-md-3 px-5"
+          class="item col-lg-4 col-12 mb-lg-0 mb-md-4 mb-3 px-xl-4 px-md-3 px-5"
           @click="this.getProductCategory(item.title)"
         >
           <div class="overflow-hidden imgBox">

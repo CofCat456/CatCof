@@ -4,7 +4,7 @@
       <div
         :class="[
           ['mt-1 mb-3 px-4'],
-          isFluid ? ['col-md-10 col-11 px-md-5'] : ['col-11']
+          isFluid ? ['col-xxl-10 col-md-12 col-11 px-md-5'] : ['col-11']
         ]"
       >
         <span class="d-flex align-items-center">
@@ -26,14 +26,14 @@
         :class="[
           ['mt-2 d-flex flex-wrap'],
           isFluid
-            ? ['col-lg-9 col-md-10 col-12 mb-4 px-4']
+            ? ['col-xxl-9 col-md-12 col-12 mb-4 px-4']
             : ['col-11 mb-lg-5 px-5 mb-md-2']
         ]"
       >
         <div
           v-for="item in Product"
           :key="item.title"
-          class="item col-lg-3 col-6 mb-5 pb-3 px-3"
+          class="item col-lg-3 col-6 mb-5 mb-md-3 pb-3 pb-md-0 px-3"
           @click="getProductId(item.id)"
         >
           <div class="overflow-hidden imgBox">

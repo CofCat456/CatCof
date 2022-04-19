@@ -7,7 +7,7 @@
       </div>
     </div>
   </Loading>
-  <section class="mb-5 pb-5">
+  <section class="mb-5 pb-xxl-5 pb-md-0">
     <div class="container-fluid">
       <div class="row d-flex justify-content-center">
         <div class="col-11 mx-5 my-3">
@@ -22,14 +22,14 @@
             </ol>
           </nav>
         </div>
-        <div class="row my-5 pb-5 px-0">
+        <div class="row my-5 pb-xxl-5 pb-md-0 px-0">
           <div
-            class="col-lg-5 col-12 offset-1 order-lg-1 order-2 d-flex flex-column justify-content-center align-items-center px-md-0 px-4"
+            class="col-xxl-5 col-12 offset-1 order-lg-1 order-2 d-flex flex-column justify-content-xxl-center align-items-xxl-center px-md-0 px-4"
           >
             <div class="wrap">
               <h1 class="text-start font-en">Online Store</h1>
               <div class="text ms-4">
-                <h1 class="mb-5 pb-5">產品列表</h1>
+                <h1 class="mb-5 pb-xxl-5 pb-md-0">產品列表</h1>
                 <div class="my-4">
                   <h2 class="font-bold">喝杯咖啡休息一下。</h2>
                   <h2 class="font-bold">我很高興能過上平常的生活。</h2>
