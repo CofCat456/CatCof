@@ -1,26 +1,36 @@
 <template>
-  <section>
-    <div class="container my-5">
-      <div class="row d-flex justify-content-center">
-        <div class="col-lg-11 col-12 d-flex flex-wrap my-2 px-md-5 px-4">
-          <div
-            class="col-md-6 col-12 mb-md-0 mb-3 px-lg-4 px-md-2 position-relative"
-          >
-            <div class="imgframe">
-              <img src="../assets/bg/bg-003.jpg" />
-            </div>
-            <p>關於咖啡</p>
+  <div class="container my-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-11 col-12 d-flex flex-wrap my-2 px-md-5 px-4">
+        <div
+          class="col-md-6 col-12 mb-md-0 mb-3 px-lg-4 px-md-2 position-relative"
+          data-aos="fade-right"
+          data-aos-delay="500"
+          data-aos-duration="700"
+          data-aos-easing="ease-in-out"
+          data-aos-anchor-placement="top-center"
+        >
+          <div class="imgframe">
+            <img src="../assets/bg/bg-003.jpg" />
           </div>
-          <div class="col-md-6 col-12 px-lg-4 px-md-2 position-relative">
-            <div class="imgframe">
-              <img src="../assets/bg/bg-003.jpg" />
-            </div>
-            <p>關於咖啡</p>
+          <p>關於咖啡</p>
+        </div>
+        <div
+          class="col-md-6 col-12 px-lg-4 px-md-2 position-relative"
+          data-aos="fade-left"
+          data-aos-delay="500"
+          data-aos-duration="700"
+          data-aos-easing="ease-in-out"
+          data-aos-anchor-placement="top-center"
+        >
+          <div class="imgframe">
+            <img src="../assets/bg/bg-003.jpg" />
           </div>
+          <p>關於咖啡</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <style scoped>

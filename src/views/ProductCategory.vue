@@ -26,21 +26,24 @@
       </div>
     </div>
   </div>
-  <Category
-    EnTitle="Category"
-    ChTitle="分類列表"
-    :Product="Cproduct"
-    :CategoryText="Category"
-    :class="['animate__animated animate__fadeIn']"
-  ></Category>
+  <section
+    data-aos="fade-up"
+    data-aos-delay="500"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out"
+    data-aos-anchor-placement="top-bottom"
+  >
+    <Category
+      EnTitle="Category"
+      ChTitle="分類列表"
+      :Product="Cproduct"
+      :CategoryText="Category"
+    ></Category>
+  </section>
   <aboutProduct></aboutProduct>
 </template>
 
 <style scoped>
-.animate__animated.animate__fadeIn {
-  --animate-delay: 1s;
-  --animate-duration: 3s;
-}
 .wrap .text h1 {
   margin-bottom: 7rem;
   font-size: 3rem;

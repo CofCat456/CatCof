@@ -2,7 +2,11 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 
-// animate.css
+// AOS.css
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+// Animate.cdd
 import 'animate.css';
 
 // 千分號
@@ -45,6 +49,11 @@ library.add(fas, fab);
 // 跳轉後回到頂端
 router.afterEach((to, from, next) => {
   window.scrollTo(0, 0);
+});
+
+// AOS init
+AOS.init({
+  once: false
 });
 
 // 全域註冊
@@ -99,6 +108,7 @@ app.config.globalProperties.$filters = {
 
 app.config.globalProperties.$httpMessageState = $httpMessageState;
 
+app.use(AOS);
 app.use(VueAxios, axios);
 app.use(router);
 app.use(VueSweetalert2);

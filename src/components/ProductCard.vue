@@ -1,81 +1,76 @@
 <template>
-  <section>
-    <div :class="[['my-5 py-5'], isFluid ? 'container-fluid' : 'container']">
-      <div class="row d-flex justify-content-center">
-        <div
-          :class="[
-            ['mt-1 mb-3 px-4'],
-            isFluid ? ['col-md-10 col-11 px-md-5'] : ['col-11']
-          ]"
-        >
-          <span class="d-flex align-items-center">
-            <h1 class="me-md-3 me-2 font-en">{{ EnTitle }}</h1>
-            <p
-              v-if="typeof CategoryText === 'undefined'"
-              class="py-md-3 py-1 fw-bold"
-            >
-              {{ ChTitle }}
-            </p>
-            <span v-else class="py-3 fw-bold d-flex">
-              <p>「</p>
-              <p class="clrPink">{{ CategoryText }}</p>
-              <p>」分類列表</p>
-            </span>
-          </span>
-        </div>
-        <div
-          :class="[
-            ['mt-2 d-flex flex-wrap'],
-            isFluid
-              ? ['col-lg-9 col-md-10 col-12 mb-4 px-4']
-              : ['col-11 mb-lg-5 px-5 mb-md-2']
-          ]"
-        >
-          <div
-            v-for="item in Product"
-            :key="item.title"
-            class="item col-lg-3 col-6 mb-5 pb-3 px-3"
-            @click="getProductId(item.id)"
+  <div :class="[['my-5 py-5'], isFluid ? 'container-fluid' : 'container']">
+    <div class="row d-flex justify-content-center">
+      <div
+        :class="[
+          ['mt-1 mb-3 px-4'],
+          isFluid ? ['col-md-10 col-11 px-md-5'] : ['col-11']
+        ]"
+      >
+        <span class="d-flex align-items-center">
+          <h1 class="me-md-3 me-2 font-en">{{ EnTitle }}</h1>
+          <p
+            v-if="typeof CategoryText === 'undefined'"
+            class="py-md-3 py-1 fw-bold"
           >
-            <div class="overflow-hidden imgBox">
-              <img :src="item.imageUrl" />
-            </div>
-            <div class="text mt-2">
-              <div
-                v-if="item.CategoryArray[0] != '無'"
-                class="d-flex mt-3 mb-2"
+            {{ ChTitle }}
+          </p>
+          <span v-else class="py-3 fw-bold d-flex">
+            <p>「</p>
+            <p class="clrPink">{{ CategoryText }}</p>
+            <p>」分類列表</p>
+          </span>
+        </span>
+      </div>
+      <div
+        :class="[
+          ['mt-2 d-flex flex-wrap'],
+          isFluid
+            ? ['col-lg-9 col-md-10 col-12 mb-4 px-4']
+            : ['col-11 mb-lg-5 px-5 mb-md-2']
+        ]"
+      >
+        <div
+          v-for="item in Product"
+          :key="item.title"
+          class="item col-lg-3 col-6 mb-5 pb-3 px-3"
+          @click="getProductId(item.id)"
+        >
+          <div class="overflow-hidden imgBox">
+            <img :src="item.imageUrl" />
+          </div>
+          <div class="text mt-2">
+            <div v-if="item.CategoryArray[0] != '無'" class="d-flex mt-3 mb-2">
+              <p
+                v-for="tag in item.CategoryArray"
+                :key="tag"
+                :class="[
+                  ['tag mx-1'],
+                  tag === '熱門' && 'blue',
+                  tag === '推薦' && 'brown',
+                  tag === '免運費' && 'pink'
+                ]"
               >
-                <p
-                  v-for="tag in item.CategoryArray"
-                  :key="tag"
-                  :class="[
-                    ['tag mx-1'],
-                    tag === '熱門' && 'blue',
-                    tag === '推薦' && 'brown',
-                    tag === '免運費' && 'pink'
-                  ]"
-                >
-                  {{ tag }}
-                </p>
-              </div>
-              <div v-else class="mb-3"></div>
-              <h6>{{ item.title }}</h6>
-              <h6>TWD {{ $filters.currency(item.price) }} 元</h6>
-              <p class="unit mt-2">#{{ item.unit }}</p>
+                {{ tag }}
+              </p>
             </div>
+            <div v-else class="mb-3"></div>
+            <h6>{{ item.title }}</h6>
+            <h6>TWD {{ $filters.currency(item.price) }} 元</h6>
+            <p class="unit mt-2">#{{ item.unit }}</p>
           </div>
         </div>
-        <div
-          v-if="spButton"
-          class="col-md-9 col-12 text-center mt-md-3 mt-3 px-4"
-        >
-          <router-link to="/User/ProductList" class="spButton">
-            <i class="bi bi-chevron-right px-1"></i>列表展示
-          </router-link>
-        </div>
+      </div>
+      <div
+        v-if="spButton"
+        class="col-md-9 col-12 text-center mt-md-3 mt-3 px-4"
+      >
+        <router-link to="/User/ProductList" class="spButton">
+          <i class="bi bi-chevron-right px-1"></i>列表展示
+        </router-link>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <style scoped>

@@ -12,21 +12,33 @@
     結帳時輸入good coffee折扣碼即享有8折優惠！
   </p>
   <BannerImage></BannerImage>
-  <section class="pt-md-5 pt-0">
-    <OnlintStore
-      :class="[
-        ['animate__animated'],
-        this.Scroll >= 400 && 'animate__fadeInUp'
-      ]"
-    ></OnlintStore>
+  <section
+    data-aos="fade-up"
+    data-aos-delay="300"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out"
+    data-aos-anchor-placement="top-bottom"
+  >
+    <OnlintStore></OnlintStore>
   </section>
-  <HotProduct
-    EnTitle="Hot Products"
-    :Product="Hproduct"
-    isFluid
-    :class="[['animate__animated'], this.Scroll >= 1050 && 'animate__fadeInUp']"
-  ></HotProduct>
-  <Introduce3></Introduce3>
+  <section
+    data-aos="fade-up"
+    data-aos-delay="400"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out"
+    data-aos-anchor-placement="center-bottom"
+  >
+    <HotProduct EnTitle="Hot Products" :Product="Hproduct" isFluid></HotProduct>
+  </section>
+  <section
+    data-aos="fade-up"
+    data-aos-delay="500"
+    data-aos-duration="1000"
+    data-aos-easing="ease-in-out"
+    data-aos-anchor-placement="center-bottom"
+  >
+    <Introduce3></Introduce3>
+  </section>
   <Fotter></Fotter>
   <FixedButton></FixedButton>
 </template>
@@ -34,10 +46,6 @@
 <style>
 @import '~swiper/swiper.min.css';
 @import '~swiper/swiper-bundle.min.css';
-
-.animate__animated.animate__fadeInUp {
-  --animate-duration: 1.5s;
-}
 
 .tag {
   display: inline-flex;
@@ -98,17 +106,12 @@ export default {
   },
   data() {
     return {
-      Scroll: 0,
       product: [],
       Hproduct: [],
       isLoading: false
     };
   },
   methods: {
-    handleScroll() {
-      this.Scroll = window.pageYOffset;
-      console.log(this.Scroll);
-    },
     getProducts() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
       this.isLoading = true;
@@ -123,9 +126,6 @@ export default {
   },
   created() {
     this.getProducts();
-  },
-  mounted() {
-    window.addEventListener('scroll', this.handleScroll, true);
   }
 };
 </script>

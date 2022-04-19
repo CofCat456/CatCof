@@ -1,33 +1,31 @@
 <template>
-  <section class="pt-4">
-    <div class="container-fluid my-4">
-      <div class="row d-flex justify-content-center">
-        <div class="col-md-10 col-11 my-2 px-md-5 px-4">
-          <span class="d-flex align-items-sm-end">
-            <h1 class="me-2 font-en">Online Store</h1>
-          </span>
-        </div>
-        <div class="col-lg-9 col-md-10 col-12 my-4 d-flex flex-wrap">
-          <div
-            v-for="item in productCategoryList"
-            :key="item.title"
-            class="item col-lg-4 col-12 mb-lg-0 mb-md-5 mb-3 px-xl-4 px-md-3 px-5"
-            @click="this.getProductCategory(item.title)"
-          >
-            <div class="overflow-hidden imgBox">
-              <img :src="item.src" />
-            </div>
-            <div class="text px-md-4 px-4 py-md-4 py-3">
-              <h5 class="fw-bold my-2 px-1">{{ item.title }}</h5>
-              <p class="pb-3">
-                {{ item.text }}
-              </p>
-            </div>
+  <div class="container-fluid my-4">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-10 col-11 my-2 px-md-5 px-4">
+        <span class="d-flex align-items-sm-end">
+          <h1 class="me-2 font-en">Online Store</h1>
+        </span>
+      </div>
+      <div class="col-lg-9 col-md-10 col-12 my-4 d-flex flex-wrap">
+        <div
+          v-for="item in productCategoryList"
+          :key="item.title"
+          class="item col-lg-4 col-12 mb-lg-0 mb-md-5 mb-3 px-xl-4 px-md-3 px-5"
+          @click="this.getProductCategory(item.title)"
+        >
+          <div class="overflow-hidden imgBox">
+            <img :src="item.src" />
+          </div>
+          <div class="text px-md-4 px-4 py-md-4 py-3">
+            <h5 class="fw-bold my-2 px-1">{{ item.title }}</h5>
+            <p class="pb-3">
+              {{ item.text }}
+            </p>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <style scoped>

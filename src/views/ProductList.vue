@@ -30,8 +30,8 @@
               <h1 class="text-start font-en">Online Store</h1>
               <div class="text ms-4">
                 <h1>產品列表</h1>
-                <h2 class="fw-bold">喝杯咖啡休息一下。</h2>
-                <h2 class="fw-bold mb-4">我很高興能過上平常的生活。</h2>
+                <h2>喝杯咖啡休息一下。</h2>
+                <h2>我很高興能過上平常的生活。</h2>
                 <span>
                   <p>我們將為您</p>
                   <p class="clrPink">
@@ -50,30 +50,35 @@
       </div>
     </div>
   </section>
-  <ProductClass
-    :class="[
-      ['pt-4 animate__animated'],
-      this.Scroll >= 150 && 'animate__fadeInLeft'
-    ]"
-  ></ProductClass>
-  <Recommend
-    EnTitle="Recommended"
-    ChTitle="推薦商品"
-    :Product="Rproduct"
-    :class="[
-      ['animate__animated'],
-      this.Scroll >= 690 && 'animate__fadeInRight'
-    ]"
-  ></Recommend>
-  <aboutProduct></aboutProduct>
+  <section
+    class="pt-4"
+    data-aos="fade-up"
+    data-aos-delay="200"
+    data-aos-duration="800"
+    data-aos-easing="ease-in-out"
+    data-aos-anchor-placement="center-bottom"
+  >
+    <ProductClass></ProductClass>
+  </section>
+  <section
+    data-aos="fade-up"
+    data-aos-delay="400"
+    data-aos-duration="800"
+    data-aos-easing="ease-in-out"
+    data-aos-anchor-placement="top-bottom"
+  >
+    <Recommend
+      EnTitle="Recommended"
+      ChTitle="推薦商品"
+      :Product="Rproduct"
+    ></Recommend>
+  </section>
+  <section>
+    <aboutProduct></aboutProduct>
+  </section>
 </template>
 
 <style scoped>
-.animate__animated.animate__fadeInLeft,
-.animate__animated.animate__fadeInRight {
-  --animate-duration: 1.4s;
-}
-
 .wrap > h1 {
   font-size: 1.2rem;
 }
@@ -124,15 +129,10 @@ export default {
     return {
       product: [],
       Rproduct: [],
-      isLoading: false,
-      Scroll: '0'
+      isLoading: false
     };
   },
   methods: {
-    handleScroll() {
-      this.Scroll = window.pageYOffset;
-      console.log(this.Scroll);
-    },
     getProducts() {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
       this.isLoading = true;
@@ -147,9 +147,6 @@ export default {
   },
   created() {
     this.getProducts();
-  },
-  mounted() {
-    window.addEventListener('scroll', this.handleScroll, true);
   }
 };
 </script>

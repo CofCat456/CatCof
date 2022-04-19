@@ -114,10 +114,12 @@
       </div>
     </div>
     <div
-      :class="[
-        ['container mt-lg-5 mt-md-0 pt-5 animate__animated'],
-        this.Scroll >= 80 && 'animate__fadeIn'
-      ]"
+      :class="['container mt-lg-5 mt-md-0 pt-5']"
+      data-aos="fade"
+      data-aos-delay="1000"
+      data-aos-duration="2000"
+      data-aos-easing="ease-in-out"
+      data-aos-anchor-placement="tpp-bottom"
     >
       <div class="row justify-content-center px-4">
         <div class="col-lg-6 col-10 pt-1 productDescribe">
@@ -392,10 +394,6 @@
 </template>
 
 <style scoped>
-.animate__animated.animate__fadeIn {
-  --animate-duration: 2.5s;
-}
-
 input[type='number']::-webkit-outer-spin-button,
 input[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -536,8 +534,7 @@ export default {
       productNumber: 1,
       isMove: false,
       is_collect: false,
-      isLoading: false,
-      Scroll: 0
+      isLoading: false
     };
   },
   watch: {
@@ -555,7 +552,6 @@ export default {
           this.product = res.data.product;
           this.product = dealCategory([res.data.product])[0];
           this.isCollect(this.product);
-          console.log(this.product);
         }
       });
     },
@@ -563,7 +559,6 @@ export default {
       this.$router.push(`/User/category/${unit}`);
     },
     handleScroll() {
-      this.Scroll = window.pageYOffset;
       if (this.Scroll > 480) {
         return (this.isMove = true);
       }
@@ -657,8 +652,6 @@ export default {
     this.getProduct();
   },
   mounted() {
-    window.addEventListener('scroll', this.handleScroll, true);
-
     this.emitter.on('update-product', (id) => {
       this.updateProduct(id);
     });

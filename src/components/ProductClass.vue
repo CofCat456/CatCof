@@ -1,27 +1,25 @@
 <template>
-  <section>
-    <div class="container my-5 py-5">
-      <div class="row d-flex justify-content-center px-5">
-        <div class="col-12 my-1 px-4">
-          <span class="d-flex align-items-end">
-            <h1 class="me-md-3 me-2 font-en">Category</h1>
-            <p class="py-md-3 py-1 fs-6 fw-bold">類別一覽</p>
-          </span>
-        </div>
-        <div class="col-11 mt-2 mb-lg-5 mb-md-2 px-1 d-flex flex-wrap">
-          <div
-            v-for="item in productCategoryList"
-            :key="item.title"
-            class="item col-lg-3 col-6 my-3 px-3"
-            @click="getProductCategory(item.title)"
-          >
-            <img :src="item.src" />
-            <p class="ps-4 py-3">{{ item.title }}</p>
-          </div>
+  <div class="container my-5 py-5">
+    <div class="row d-flex justify-content-center px-5">
+      <div class="col-12 my-1 px-4">
+        <span class="d-flex align-items-end">
+          <h1 class="me-md-3 me-2 font-en">Category</h1>
+          <p class="py-md-3 py-1 fs-6 fw-bold">類別一覽</p>
+        </span>
+      </div>
+      <div class="col-11 mt-2 mb-lg-5 mb-md-2 px-1 d-flex flex-wrap">
+        <div
+          v-for="item in productCategoryList"
+          :key="item.title"
+          class="item col-lg-3 col-6 my-3 px-3"
+          @click="getProductCategory(item.title)"
+        >
+          <img :src="item.src" />
+          <p class="ps-4 py-3">{{ item.title }}</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <style scoped>
