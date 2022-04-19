@@ -24,10 +24,10 @@
       </div>
       <div
         :class="[
-          ['mt-2 d-flex flex-wrap'],
+          ['mt-2 px-4 d-flex flex-wrap'],
           isFluid
-            ? ['col-xxl-9 col-md-12 col-12 mb-4 px-4']
-            : ['col-11 mb-lg-5 px-5 mb-md-2']
+            ? ['col-xxl-9 col-md-12 col-12 mb-4']
+            : ['col-xxl-11 col-md-12 mb-lg-5 mb-md-2']
         ]"
       >
         <div

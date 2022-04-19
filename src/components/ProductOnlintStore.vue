@@ -1,12 +1,14 @@
 <template>
-  <div class="container-fluid my-5 mt-md-3 py-5 pt-md-0">
+  <div class="container-fluid my-5 mt-md-3 mb-md-0 py-xxl-5 py-md-0 pt-md-0">
     <div class="row d-flex justify-content-center">
       <div class="col-xxl-10 col-md-12 col-11 mt-5 mb-2 px-md-5 px-4">
         <span class="d-flex align-items-sm-end">
           <h1 class="me-2 font-en">Online Store</h1>
         </span>
       </div>
-      <div class="col-lg-9 col-md-10 col-12 my-4 pb-5 d-flex flex-wrap">
+      <div
+        class="col-lg-9 col-md-10 col-12 my-4 mb-md-0 pb-xxl-5 pb-md-0 d-flex flex-wrap"
+      >
         <div
           v-for="item in productCategoryList"
           :key="item.title"

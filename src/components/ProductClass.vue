@@ -1,6 +1,6 @@
 <template>
   <div class="container my-5 pb-xxl-3 pb-md-0">
-    <div class="row d-flex justify-content-center px-5">
+    <div class="row d-flex justify-content-center px-xxl-5 px-md-0">
       <div class="col-12 mt-1 mb-xxl-3 mb-md-0 px-xxl-4 px-md-3">
         <span class="d-flex align-items-end">
           <h1 class="me-md-3 me-2 font-en">Category</h1>

@@ -3,7 +3,7 @@
     <div class="row d-flex justify-content-center">
       <div class="col-lg-11 col-12 d-flex flex-wrap my-2 px-xxl-5 px-md-3 px-4">
         <div
-          class="col-xxl-6 col-12 mb-md-0 mb-3 px-lg-4 px-md-2 position-relative"
+          class="col-xxl-6 col-12 mb-xxl-0 mb-md-3 mb-3 px-lg-4 px-md-2 position-relative"
           data-aos="fade-right"
           data-aos-delay="500"
           data-aos-duration="700"
