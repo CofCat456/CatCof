@@ -25,13 +25,13 @@
       <div
         :class="[
           isFluid ? ['col-xxl-9  mb-4'] : ['col-xxl-11  mb-lg-5 mb-md-2'],
-          ['mt-2 px-4 col-12 d-flex flex-wrap']
+          ['mt-2 px-md-4 px-3 col-12 d-flex flex-wrap']
         ]"
       >
         <div
           v-for="item in Product"
           :key="item.title"
-          class="item col-lg-3 col-6 mb-5 mb-md-3 pb-md-0 pb-3 px-md-3 px-2"
+          class="item col-lg-3 col-6 mb-md-3 mb-3 pb-0 px-md-3 px-1"
           @click="getProductId(item.id)"
         >
           <div class="overflow-hidden imgBox">
