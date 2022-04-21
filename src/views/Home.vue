@@ -8,9 +8,9 @@
     </div>
   </Loading>
   <NavbarMain class="sticky-top"></NavbarMain>
-  <div class="d-flex justify-content-end mt-2 mt-md-4 mb-4 me-5 pe-2">
+  <div class="d-flex justify-content-end mt-md-4 my-2 me-md-5 me-1 pe-md-2">
     <p class="me-2 px-2 rounded-pill bgOrange">NEW</p>
-    <p class="text-decoration-underline">
+    <p class="text-decoration-underline sTag">
       結帳時輸入good coffee折扣碼即享有8折優惠！
     </p>
   </div>
@@ -40,6 +40,10 @@
 <style>
 @import '~swiper/swiper.min.css';
 @import '~swiper/swiper-bundle.min.css';
+
+.sTag {
+  font-size: 0.6rem;
+}
 
 .tag {
   display: inline-flex;

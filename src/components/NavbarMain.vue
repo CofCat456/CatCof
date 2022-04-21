@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg w-100" :class="{ navBg: isScroll }">
-    <div class="container-fluid px-5">
+    <div class="container-fluid px-md-5 px-3">
       <router-link to="/" class="nav-link fs-5 title mt-md-1">
         <img src="../assets/Logo/CofShopLogo.png" alt="CoffeeShop Logo" />
       </router-link>

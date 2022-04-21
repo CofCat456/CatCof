@@ -24,11 +24,11 @@
         </div>
         <div class="row my-5 pb-xxl-5 pb-md-0 px-0">
           <div
-            class="col-xxl-5 col-12 offset-1 order-lg-1 order-2 d-flex flex-column justify-content-xxl-center align-items-xxl-center px-md-0 px-4"
+            class="col-xxl-5 col-12 offset-1 order-lg-1 order-2 d-flex flex-column justify-content-xxl-center align-items-xxl-center px-md-4 px-2"
           >
             <div class="wrap">
               <h1 class="text-start font-en">Online Store</h1>
-              <div class="text ms-4">
+              <div class="text ms-md-4 ms-2">
                 <h1 class="mb-5 pb-xxl-5 pb-md-0">產品列表</h1>
                 <div class="my-4">
                   <h2 class="font-bold">喝杯咖啡休息一下</h2>
@@ -100,6 +100,10 @@
 @media screen and (max-width: 414px) {
   .wrap > h1 {
     font-size: 1.2rem;
+  }
+
+  .text > h1 {
+    font-size: 2rem;
   }
 }
 

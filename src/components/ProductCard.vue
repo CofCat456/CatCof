@@ -3,8 +3,8 @@
     <div class="row d-flex justify-content-center">
       <div
         :class="[
-          ['mt-1 mb-3 px-xxl-4 px-md-2 col-md-12'],
-          isFluid ? ['col-xxl-10 px-md-5'] : ['col-xxl-11']
+          isFluid ? ['col-xxl-10 px-md-5'] : ['col-xxl-11'],
+          ['mt-1 mb-3 px-xxl-4 px-md-2 px-4 col-md-12 col-12']
         ]"
       >
         <span class="d-flex align-items-center">
@@ -24,16 +24,14 @@
       </div>
       <div
         :class="[
-          ['mt-2 px-4 d-flex flex-wrap'],
-          isFluid
-            ? ['col-xxl-9 col-md-12 col-12 mb-4']
-            : ['col-xxl-11 col-md-12 mb-lg-5 mb-md-2']
+          isFluid ? ['col-xxl-9  mb-4'] : ['col-xxl-11  mb-lg-5 mb-md-2'],
+          ['mt-2 px-4 col-12 d-flex flex-wrap']
         ]"
       >
         <div
           v-for="item in Product"
           :key="item.title"
-          class="item col-lg-3 col-6 mb-5 mb-md-3 pb-3 pb-md-0 px-3"
+          class="item col-lg-3 col-6 mb-5 mb-md-3 pb-3 pb-md-0 px-md-3 px-2"
           @click="getProductId(item.id)"
         >
           <div class="overflow-hidden imgBox">
@@ -82,7 +80,12 @@ h1 {
   h1 {
     font-size: 2.2rem;
   }
+
+  h6 {
+    font-size: 0.875rem;
+  }
 }
+
 .item {
   overflow: hidden;
   margin-bottom: 4rem;
