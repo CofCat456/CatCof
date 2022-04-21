@@ -166,7 +166,7 @@ ul {
 @media screen and (max-width: 414px) {
   .btn-custom-ul {
     right: 5%;
-    bottom: 22%;
+    bottom: 5%;
   }
 }
 
