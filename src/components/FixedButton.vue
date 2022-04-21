@@ -4,22 +4,6 @@
     class="btn-custom-ul position-fixed d-flex flex-column justify-content-around align-items-center"
   >
     <li class="my-1">
-      <router-link
-        v-if="is_Sign"
-        to="/administrator/products"
-        class="nav-link nav-text p-0"
-      >
-        <i class="bi bi-person-circle position-relative">
-          <i
-            class="bi bi-check2-circle position-absolute top-0 start-100 icon text-success"
-          ></i>
-        </i>
-      </router-link>
-      <router-link v-else to="/Login" class="nav-link nav-text p-0">
-        <i class="bi bi-person-circle position-relative"> </i>
-      </router-link>
-    </li>
-    <li class="my-1">
       <button
         type="button"
         class="love"
@@ -268,7 +252,6 @@ export default {
     return {
       collects: [],
       cartNumber: 0,
-      is_Sign: false,
       isLoading: false
     };
   },
@@ -337,19 +320,6 @@ export default {
           });
         });
     },
-    checkSign() {
-      const token = document.cookie.replace(
-        /(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/,
-        '$1'
-      );
-      this.$http.defaults.headers.common.Authorization = token;
-      const api = `${process.env.VUE_APP_API}api/user/check`;
-      this.$http.post(api, this.user).then((res) => {
-        if (res.data.success) {
-          this.is_Sign = true;
-        }
-      });
-    },
     getProducts(id) {
       this.emitter.emit('update-product', id);
       this.$router.push(`/User/product/${id}`);
@@ -375,7 +345,6 @@ export default {
   },
   mounted() {
     this.getCart();
-    this.checkSign();
     if (getLocalStorage('favoriteList') !== null) {
       this.collects = getLocalStorage('favoriteList');
     }

@@ -9,8 +9,8 @@
             </div>
             <div class="information ms-md-5 ms-0 my-3">
               <div class="addres mb-4">
-                <p>地址 : 新北市鶯歌區國慶街99號3樓</p>
-                <p>電話 : 02-8677-3851</p>
+                <p>地址 : 新北市鶯歌區</p>
+                <p>電話 : 02-8711-3351</p>
               </div>
               <p>營業時間 : 13:00-22:00</p>
               <p>營業日 : 週一 ～ 週六</p>
@@ -24,9 +24,6 @@
               </p>
             </div>
             <ul class="link d-md-block d-none">
-              <li>
-                <router-link to="/User/ProductList">關於我們</router-link>
-              </li>
               <li>
                 <router-link to="/User/ProductList">產品列表</router-link>
               </li>

@@ -33,15 +33,6 @@
   >
     <HotProduct EnTitle="Hot Products" :Product="Hproduct" isFluid></HotProduct>
   </section>
-  <section
-    data-aos="fade-up"
-    data-aos-delay="500"
-    data-aos-duration="1000"
-    data-aos-easing="ease-in-out"
-    data-aos-anchor-placement="top-bottom"
-  >
-    <Introduce3></Introduce3>
-  </section>
   <Fotter></Fotter>
   <FixedButton></FixedButton>
 </template>
@@ -91,7 +82,6 @@ import BannerImage from '../components/BannerImage.vue';
 import NavbarMain from '../components/NavbarMain.vue';
 import OnlintStore from '../components/ProductOnlintStore.vue';
 import HotProduct from '../components/ProductCard.vue';
-import Introduce3 from '../components/Introduce3.vue';
 import Fotter from '../components/Fotter.vue';
 import FixedButton from '../components/FixedButton.vue';
 import { dealCategory, filterCategory } from '@/methods/filters';
@@ -103,7 +93,6 @@ export default {
     NavbarMain,
     OnlintStore,
     HotProduct,
-    Introduce3,
     Fotter,
     FixedButton
   },

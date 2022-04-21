@@ -31,16 +31,15 @@
               <div class="text ms-4">
                 <h1 class="mb-5 pb-xxl-5 pb-md-0">產品列表</h1>
                 <div class="my-4">
-                  <h2 class="font-bold">喝杯咖啡休息一下。</h2>
-                  <h2 class="font-bold">我很高興能過上平常的生活。</h2>
+                  <h2 class="font-bold">喝杯咖啡休息一下</h2>
+                  <h2 class="font-bold">很高興能為您服務。</h2>
                 </div>
                 <span>
-                  <p>我們將為您</p>
+                  <p>我們將為您提供</p>
                   <p class="clrPink">
-                    購買 2,500
-                    日元或更多的點擊後航班（咖啡豆和滴水袋）免費送貨。
+                    購買指定商品或超過 6,000 商品享有免運費服務
                   </p>
-                  <p>如果你住的很遠，或者即使你在附近也不能來，請使用它！</p>
+                  <p>在家也想喝咖啡嗎，歡迎來挑選各式精品咖啡豆。</p>
                 </span>
               </div>
             </div>
@@ -75,9 +74,6 @@
       ChTitle="推薦商品"
       :Product="Rproduct"
     ></Recommend>
-  </section>
-  <section>
-    <aboutProduct></aboutProduct>
   </section>
 </template>
 
@@ -116,14 +112,12 @@
 <script>
 import ProductClass from '../components/ProductClass.vue';
 import Recommend from '../components/ProductCard.vue';
-import aboutProduct from '../components/AboutProduct.vue';
 import { dealCategory, filterCategory } from '@/methods/filters';
 
 export default {
   components: {
     ProductClass,
-    Recommend,
-    aboutProduct
+    Recommend
   },
   data() {
     return {

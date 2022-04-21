@@ -40,7 +40,6 @@
       :CategoryText="Category"
     ></Category>
   </section>
-  <aboutProduct></aboutProduct>
 </template>
 
 <style scoped>
@@ -58,13 +57,11 @@
 
 <script>
 import Category from '../components/ProductCard.vue';
-import aboutProduct from '../components/AboutProduct.vue';
 import { dealCategory } from '@/methods/filters';
 
 export default {
   components: {
-    Category,
-    aboutProduct
+    Category
   },
   data() {
     return {

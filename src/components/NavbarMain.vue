@@ -20,13 +20,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="mx-auto"></div>
         <ul class="navbar-nav">
-          <li>
+          <!-- <li>
             <router-link
               to=""
               class="nav-link nav-text mx-lg-3 my-lg-0 p-lg-0 my-1 p-3 fw-bold"
               >關於</router-link
             >
-          </li>
+          </li> -->
           <li>
             <router-link
               to="/User/ProductList"
