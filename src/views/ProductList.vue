@@ -24,7 +24,7 @@
         </div>
         <div class="row my-5 pb-xxl-5 pb-md-0 px-0">
           <div
-            class="col-xxl-5 col-12 offset-1 order-lg-1 order-2 d-flex flex-column justify-content-xxl-center align-items-xxl-center px-md-4 px-2"
+            class="col-xxl-5 col-11 offset-1 order-lg-1 order-2 d-flex flex-column justify-content-xxl-center align-items-xxl-center px-md-4 px-2"
           >
             <div class="wrap">
               <h1 class="text-start font-en">Online Store</h1>
