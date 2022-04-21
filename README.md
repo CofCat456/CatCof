@@ -106,4 +106,4 @@ Demo： [https://cofcat456.github.io/coffeeShop/dist/#/]
 
 <br><hr>
 
-更多資訊歡迎前往 **[貓咖啡](https://cofcat456.github.io/coffeeShop/dist/#/）**進一步觀看！
+更多資訊歡迎前往 **[貓咖啡](https://cofcat456.github.io/coffeeShop/dist/#/** 進一步觀看！
