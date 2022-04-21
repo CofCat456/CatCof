@@ -6,7 +6,7 @@ import router from './router';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-// Animate.cdd
+// Animate.css
 import 'animate.css';
 
 // 千分號

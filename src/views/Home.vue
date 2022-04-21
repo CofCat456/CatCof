@@ -41,8 +41,10 @@
 @import '~swiper/swiper.min.css';
 @import '~swiper/swiper-bundle.min.css';
 
-.sTag {
+@media screen and (max-width:414px){
+  .sTag {
   font-size: 0.6rem;
+}
 }
 
 .tag {
