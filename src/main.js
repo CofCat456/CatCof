@@ -25,8 +25,7 @@ import 'vue-loading-overlay/dist/vue-loading.css';
 
 // FontAwesome
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 // Bootstrap
@@ -44,7 +43,7 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 
 const app = createApp(App);
 
-library.add(fas, fab);
+library.add(faBars);
 
 // 跳轉後回到頂端
 router.afterEach((to, from, next) => {

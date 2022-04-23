@@ -15,40 +15,17 @@
         @click="hamburgerClick"
       >
         <font-awesome-icon icon="bars" class="hamburge" />
-        <!-- <span class="navbar-toggler-icon material-icons text-white"></span> -->
+        <span class="navbar-toggler-icon material-icons text-white"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="mx-auto"></div>
         <ul class="navbar-nav">
-          <!-- <li>
+          <li v-for="item in navData" :key="item.name">
             <router-link
-              to=""
-              class="nav-link nav-text mx-lg-3 my-lg-0 p-lg-0 my-1 p-3 fw-bold"
-              >關於</router-link
-            >
-          </li> -->
-          <li>
-            <router-link
-              to="/User/ProductList"
+              :to="item.link"
               class="nav-link nav-text mx-lg-3 my-lg-0 p-lg-0 my-1 p-3 fw-bold"
             >
-              商品列表
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="/Login"
-              class="nav-link nav-text mx-lg-3 my-lg-0 p-lg-0 my-1 p-3 fw-bold"
-            >
-              管理者登入
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="/User/cart"
-              class="nav-link nav-text mx-lg-3 my-lg-0 p-lg-0 my-1 p-3 fw-bold"
-            >
-              購物車
+              {{ item.name }}
             </router-link>
           </li>
         </ul>
@@ -164,7 +141,21 @@
 export default {
   data() {
     return {
-      isScroll: false
+      isScroll: false,
+      navData: [
+        {
+          name: '商品列表',
+          link: '/User/ProductList'
+        },
+        {
+          name: '管理者登入',
+          link: '/Login'
+        },
+        {
+          name: '購物車',
+          link: '/User/cart'
+        }
+      ]
     };
   },
   methods: {

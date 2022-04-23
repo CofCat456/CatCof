@@ -15,20 +15,22 @@
               <p>營業時間 : 13:00-22:00</p>
               <p>營業日 : 週一 ～ 週六</p>
               <div class="connectText fs-5 mt-md-4 mt-2">
-                <font-awesome-icon :icon="['fab', 'facebook']" />
-                <font-awesome-icon :icon="['fab', 'instagram']" />
-                <font-awesome-icon :icon="['fab', 'github']" />
+                <a
+                  v-for="item in infoData"
+                  :key="item.icon"
+                  :href="item.link"
+                  target="_blank"
+                  ><i :class="['bi', item.icon]"></i
+                ></a>
               </div>
               <p class="mt-lg-5 mt-3 pt-lg-5 pt-md-3">
                 Copyright © 2022 CofCat All right reserved
               </p>
             </div>
             <ul class="link d-md-block d-none">
-              <li>
-                <router-link to="/User/ProductList">產品列表</router-link>
+              <li v-for="item in routerData" :key="item.name">
+                <router-link :to="item.link">{{ item.name }}</router-link>
               </li>
-              <li><router-link to="">管理者登入</router-link></li>
-              <li><router-link to="">購物車</router-link></li>
             </ul>
           </div>
         </div>
@@ -100,14 +102,17 @@ img {
   }
 }
 
-.connectText svg {
+.connectText .bi {
   color: #24395b;
   margin: 0 0.5rem;
-  transition: all 0.6s;
   cursor: pointer;
 }
 
-.connectText svg:hover {
+.connectText .bi::before {
+  transition: all 0.6s;
+}
+
+.connectText .bi:hover::before {
   transform: rotateY(360deg);
 }
 
@@ -126,3 +131,40 @@ ul li a:hover {
   color: rgba(36, 57, 91, 0.6);
 }
 </style>
+
+<script>
+export default {
+  data() {
+    return {
+      routerData: [
+        {
+          name: '商品列表',
+          link: '/User/ProductList'
+        },
+        {
+          name: '管理者登入',
+          link: '/Login'
+        },
+        {
+          name: '購物車',
+          link: '/User/cart'
+        }
+      ],
+      infoData: [
+        {
+          icon: 'bi-facebook',
+          link: 'https://www.facebook.com/liao.xiaoan'
+        },
+        {
+          icon: 'bi-envelope',
+          link: 'mailto:a25690756@gmail.com'
+        },
+        {
+          icon: 'bi-github',
+          link: 'https://github.com/CofCat456'
+        }
+      ]
+    };
+  }
+};
+</script>
