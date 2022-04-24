@@ -93,7 +93,7 @@ img {
 }
 
 .information {
-  width: 24vw;
+  width: 26vw;
 }
 
 @media screen and (max-width: 414px) {

@@ -2,21 +2,7 @@
   <div class="container">
     <div class="mx-5 my-3"></div>
     <div class="row justify-content-center">
-      <div class="col-11 mx-5 my-3">
-        <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
-          <ol class="breadcrumb d-flex justify-content-end">
-            <li class="breadcrumb-item">
-              <router-link to="/">首頁</router-link>
-            </li>
-            <li class="breadcrumb-item">
-              <router-link to="/User/cart">購物車</router-link>
-            </li>
-            <li class="breadcrumb-item active colorBlue" aria-current="page">
-              填寫訂單資料
-            </li>
-          </ol>
-        </nav>
-      </div>
+      <breadcrumb :Breadcrumb="Breadcrumb"></breadcrumb>
       <shopProcess status="輸入"></shopProcess>
       <div class="col-10 my-5">
         <h1 class="fw-bold text-center mb-4">訂購人資訊</h1>
@@ -259,16 +245,28 @@ h3 {
 
 <script>
 import shopProcess from '../components/ShopProcess.vue';
+import breadcrumb from '../components/Breadcrumb.vue';
 import { filterFreight, checkFrieht } from '@/methods/order';
 
 export default {
   inject: ['emitter'],
   components: {
-    shopProcess
+    shopProcess,
+    breadcrumb
   },
   data() {
     return {
       cart: {},
+      Breadcrumb: [
+        {
+          title: '購物車',
+          link: '/User/cart'
+        },
+        {
+          title: '填寫訂單資源',
+          link: ''
+        }
+      ],
       form: {
         user: {}
       },

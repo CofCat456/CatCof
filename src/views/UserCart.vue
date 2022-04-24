@@ -10,18 +10,7 @@
   <div class="container">
     <div class="mx-5 my-3"></div>
     <div class="row justify-content-center">
-      <div class="col-11 mx-5 my-3">
-        <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
-          <ol class="breadcrumb d-flex justify-content-end">
-            <li class="breadcrumb-item">
-              <router-link to="/">首頁</router-link>
-            </li>
-            <li class="breadcrumb-item active colorBlue" aria-current="page">
-              購物車
-            </li>
-          </ol>
-        </nav>
-      </div>
+      <breadcrumb :Breadcrumb="Breadcrumb"></breadcrumb>
       <shopProcess status="確認"></shopProcess>
       <div class="col-lg-10 col-md-12 col-11 my-5">
         <h1 class="fw-bold text-center mb-4">購物車</h1>
@@ -227,13 +216,15 @@ main {
 
 <script>
 import shopProcess from '../components/ShopProcess.vue';
+import breadcrumb from '../components/Breadcrumb.vue';
 import { filterFreight, checkFrieht } from '@/methods/order';
 import { savaLocalStorage, getLocalStorage } from '@/methods/localStorage';
 
 export default {
   inject: ['emitter'],
   components: {
-    shopProcess
+    shopProcess,
+    breadcrumb
   },
   data() {
     return {
@@ -241,7 +232,13 @@ export default {
       freight: 300,
       code: '',
       is_UseCoupon: false,
-      isLoading: false
+      isLoading: false,
+      Breadcrumb: [
+        {
+          title: '購物車',
+          link: '/User/cart'
+        }
+      ]
     };
   },
   methods: {

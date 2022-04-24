@@ -205,11 +205,6 @@ tbody p {
   margin-left: 0;
 }
 
-.breadcrumb > * {
-  letter-spacing: 2px;
-  font-size: 0.875rem !important;
-}
-
 .clrPink {
   color: #ed1e79 !important;
 }

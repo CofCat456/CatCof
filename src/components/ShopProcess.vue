@@ -2,17 +2,13 @@
   <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center">
     <img src="../assets/Logo/CofShopLogo.png" alt="" />
     <div class="process mt-4 d-flex">
-      <div :class="[['enter d-flex mx-3'], this.status === '確認' && 'active']">
-        <p class="rounded-circle me-2">1</p>
-        <p>確認</p>
-      </div>
-      <div :class="[['sure d-flex mx-3'], this.status === '輸入' && 'active']">
-        <p class="rounded-circle me-2">2</p>
-        <p>輸入</p>
-      </div>
-      <div :class="[['done d-flex mx-3'], this.status === '送出' && 'active']">
-        <p class="rounded-circle me-2">3</p>
-        <p>送出</p>
+      <div
+        v-for="(item, index) in shopData"
+        :key="item"
+        :class="[['enter d-flex mx-3'], this.status === item && 'active']"
+      >
+        <p class="rounded-circle me-2">{{ index + 1 }}</p>
+        <p>{{ item }}</p>
       </div>
     </div>
   </div>
@@ -69,6 +65,11 @@ img {
 
 <script>
 export default {
-  props: ['status']
+  props: ['status'],
+  data() {
+    return {
+      shopData: ['確認', '輸入', '送出']
+    };
+  }
 };
 </script>

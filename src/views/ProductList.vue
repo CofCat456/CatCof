@@ -10,21 +10,10 @@
   <section class="mb-5 pb-xxl-5 pb-md-0">
     <div class="container-fluid">
       <div class="row d-flex justify-content-center">
-        <div class="col-11 mx-5 my-3">
-          <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
-            <ol class="breadcrumb d-flex justify-content-end">
-              <li class="breadcrumb-item">
-                <router-link to="/"><i class="bi bi-house"></i></router-link>
-              </li>
-              <li class="breadcrumb-item active colorBlue" aria-current="page">
-                產品列表
-              </li>
-            </ol>
-          </nav>
-        </div>
+        <breadcrumb :Breadcrumb="Breadcrumb"></breadcrumb>
         <div class="row my-5 pb-xxl-5 pb-md-0 px-0">
           <div
-            class="col-xxl-5 col-11 offset-1 order-lg-1 order-2 d-flex flex-column justify-content-xxl-center align-items-xxl-center px-md-4 px-2"
+            class="col-lg-5 col-11 offset-1 order-lg-1 order-2 d-flex flex-column justify-content-xxl-center align-items-xxl-center px-md-4 px-2"
           >
             <div class="wrap">
               <h1 class="text-start font-en">Online Store</h1>
@@ -116,18 +105,26 @@
 <script>
 import ProductClass from '../components/ProductClass.vue';
 import Recommend from '../components/ProductCard.vue';
+import breadcrumb from '../components/Breadcrumb.vue';
 import { dealCategory, filterCategory } from '@/methods/filters';
 
 export default {
   components: {
     ProductClass,
-    Recommend
+    Recommend,
+    breadcrumb
   },
   data() {
     return {
       product: [],
       Rproduct: [],
-      isLoading: false
+      isLoading: false,
+      Breadcrumb: [
+        {
+          title: '產品列表',
+          link: ''
+        }
+      ]
     };
   },
   methods: {

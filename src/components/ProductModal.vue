@@ -343,6 +343,7 @@
                   />
                 </div>
               </div>
+              <hr />
               <div class="mb-3">
                 <div class="form-check">
                   <input
@@ -422,7 +423,6 @@ export default {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/upload`;
       this.$http.post(url, formData).then((res) => {
         if (res.data) {
-          console.log(res.data.imageUrl);
           this.tempProduct.imageUrl = res.data.imageUrl;
         }
       });

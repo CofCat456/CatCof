@@ -10,26 +10,7 @@
   <section>
     <div class="container-fluid">
       <div class="row d-flex justify-content-center">
-        <div class="col-11 mx-5 mt-4 mb-md-5 mb-2">
-          <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
-            <ol class="breadcrumb d-flex justify-content-md-end">
-              <li class="breadcrumb-item">
-                <router-link to="/"><i class="bi bi-house"></i></router-link>
-              </li>
-              <li class="breadcrumb-item">
-                <router-link to="/User/ProductList">產品列表</router-link>
-              </li>
-              <li class="breadcrumb-item">
-                <router-link :to="returnProductCategory(product.unit)">{{
-                  product.unit
-                }}</router-link>
-              </li>
-              <li class="breadcrumb-item active colorBlue" aria-current="page">
-                {{ product.title }}
-              </li>
-            </ol>
-          </nav>
-        </div>
+        <breadcrumb :Breadcrumb="Breadcrumb"></breadcrumb>
         <div
           v-if="product"
           class="col-xxl-7 col-md-10 col-12 d-flex flex-wrap justify-content-center"
@@ -520,13 +501,15 @@ input[type='number']::-webkit-inner-spin-button {
 
 <script>
 import ProductImg from '../components/ProductImg.vue';
+import breadcrumb from '../components/Breadcrumb.vue';
 import { getLocalStorage } from '@/methods/localStorage';
 import { dealCategory } from '@/methods/filters';
 
 export default {
   inject: ['emitter'],
   components: {
-    ProductImg
+    ProductImg,
+    breadcrumb
   },
   data() {
     return {
@@ -534,6 +517,12 @@ export default {
       productNumber: 1,
       isMove: false,
       is_collect: false,
+      Breadcrumb: [
+        {
+          title: '產品列表',
+          link: '/User/ProductList'
+        }
+      ],
       isLoading: false
     };
   },
@@ -552,11 +541,16 @@ export default {
           this.product = res.data.product;
           this.product = dealCategory([res.data.product])[0];
           this.isCollect(this.product);
+          this.Breadcrumb.push({
+            title: this.product.unit,
+            link: `/User/category/${this.product.unit}`
+          });
+          this.Breadcrumb.push({
+            title: this.product.title,
+            link: ''
+          });
         }
       });
-    },
-    getProductCategory(unit) {
-      this.$router.push(`/User/category/${unit}`);
     },
     handleScroll() {
       if (this.Scroll > 480) {

@@ -9,21 +9,7 @@
   </Loading>
   <div class="container-fluid">
     <div class="row d-flex justify-content-center">
-      <div class="col-11 mx-5 my-3">
-        <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
-          <ol class="breadcrumb d-flex justify-content-end">
-            <li class="breadcrumb-item">
-              <router-link to="/"><i class="bi bi-house"></i></router-link>
-            </li>
-            <li class="breadcrumb-item">
-              <router-link to="/User/ProductList">產品列表</router-link>
-            </li>
-            <li class="breadcrumb-item active colorBlue" aria-current="page">
-              {{ Category }}
-            </li>
-          </ol>
-        </nav>
-      </div>
+      <breadcrumb :Breadcrumb="Breadcrumb"></breadcrumb>
     </div>
   </div>
   <section
@@ -57,17 +43,25 @@
 
 <script>
 import Category from '../components/ProductCard.vue';
+import breadcrumb from '../components/Breadcrumb.vue';
 import { dealCategory } from '@/methods/filters';
 
 export default {
   components: {
-    Category
+    Category,
+    breadcrumb
   },
   data() {
     return {
       Cproduct: [],
       Category: '',
-      isLoading: false
+      isLoading: false,
+      Breadcrumb: [
+        {
+          title: '產品列表',
+          link: '/User/ProductList'
+        }
+      ]
     };
   },
   methods: {
@@ -87,6 +81,7 @@ export default {
   },
   created() {
     this.Category = this.$route.params.id;
+    this.Breadcrumb.push({ title: this.Category, link: '' });
     this.getProducts();
   }
 };
