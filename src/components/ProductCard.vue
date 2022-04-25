@@ -31,7 +31,7 @@
         <div
           v-for="item in Product"
           :key="item.title"
-          class="item col-lg-3 col-6 mb-md-3 mb-3 pb-0 px-md-3 px-1"
+          class="item col-lg-3 col-6 mb-md-5 mb-3 pb-0 px-md-3 px-1"
           @click="getProductId(item.id)"
         >
           <div class="overflow-hidden imgBox">
