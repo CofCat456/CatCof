@@ -116,243 +116,76 @@
               {{ product.description }}
             </p>
           </div>
-          <div
-            v-if="
-              product.unit === '咖啡豆' ||
-              product.unit === '冷萃咖啡' ||
-              product.unit === '濾掛咖啡'
-            "
-            class="productDetail"
-          >
-            <h5 class="my-4 py-1 fw-bold">細節</h5>
-            <div v-if="product.detail">
-              <div v-for="(item, index) in product.detail" :key="item">
-                <div class="my-2">
-                  <router-link
-                    class="text-decoration-underline"
-                    :to="'/User/product/' + product.link[index]"
-                    >{{ product.detail[index] }}</router-link
-                  >
-                </div>
-                <img
-                  v-if="
-                    product.images && product.images[index + 1] !== 'undefined'
-                  "
-                  :src="product.images[index + 1]"
-                  :alt="item + '的照片'"
-                />
-                <div class="mt-4 mb-4 pt-2 pb-1">
-                  <p
-                    v-if="
-                      product.country[index] !== undefined &&
-                      product.country[index] !== '無'
-                    "
-                  >
-                    原產國 : {{ product.country[index] }}
-                  </p>
-                  <p
-                    v-if="
-                      product.area[index] !== undefined &&
-                      product.area[index] !== '無'
-                    "
-                  >
-                    產區 : {{ product.area[index] }}
-                  </p>
-                  <p
-                    v-if="
-                      product.altitude[index] !== undefined &&
-                      product.altitude[index] !== '無'
-                    "
-                  >
-                    海拔 : {{ product.altitude[index] }}
-                  </p>
-                  <p
-                    v-if="
-                      product.Variety[index] !== undefined &&
-                      product.Variety[index] !== '無'
-                    "
-                  >
-                    品種 : {{ product.Variety[index] }}
-                  </p>
-                  <p
-                    v-if="
-                      product.Soli[index] !== undefined &&
-                      product.Soli[index] !== '無'
-                    "
-                  >
-                    土壤種類 : {{ product.Soli[index] }}
-                  </p>
-                  <p
-                    v-if="
-                      product.refined[index] !== undefined &&
-                      product.refined[index] !== '無'
-                    "
-                  >
-                    處理法 : {{ product.refined[index] }}
-                  </p>
-                  <p
-                    v-if="
-                      product.roast[index] !== undefined &&
-                      product.roast[index] !== '無'
-                    "
-                  >
-                    烘烤程度 : {{ product.roast[index] }}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div v-else>
-              <div v-if="product.unit === '濾掛咖啡'">
-                <img
-                  v-if="product.images && product.images[0] !== undefined"
-                  :src="product.images[0]"
-                  :alt="product.title + '的照片'"
-                />
-              </div>
-              <div v-else>
-                <img
-                  v-if="product.images && product.images[1] !== undefined"
-                  :src="product.images[1]"
-                  :alt="product.title + '的照片'"
-                />
-              </div>
-              <div class="mt-4 mb-4 pt-2 pb-1">
-                <p v-if="product.country !== undefined">
-                  原產國 : {{ product.country }}
-                </p>
-                <p v-if="product.area !== undefined">
-                  產區 : {{ product.area }}
-                </p>
-                <p v-if="product.altitude !== undefined">
-                  海拔 : {{ product.altitude }}
-                </p>
-                <p v-if="product.Variety !== undefined">
-                  品種 : {{ product.Variety }}
-                </p>
-                <p v-if="product.Soli !== undefined">
-                  土壤種類 : {{ product.Soli }}
-                </p>
-                <p v-if="product.refined !== undefined">
-                  處理法 : {{ product.refined }}
-                </p>
-                <p v-if="product.roast !== undefined">
-                  烘烤程度 : {{ product.roast }}
-                </p>
-              </div>
-              <div class="mb-4 pb-1">
-                <span v-if="product.bitter !== undefined">
-                  <p class="me-1">苦味</p>
-                  <i
-                    v-for="star in product.bitter"
-                    :key="star"
-                    class="bi bi-star-fill"
-                  ></i>
-                  <i
-                    v-for="star in 5 - product.bitter"
-                    :key="star"
-                    class="bi bi-star"
-                  ></i>
-                </span>
-                <span v-if="product.sour !== undefined">
-                  <p class="me-1">酸味</p>
-                  <i
-                    v-for="star in product.sour"
-                    :key="star"
-                    class="bi bi-star-fill"
-                  ></i>
-                  <i
-                    v-for="star in 5 - product.sour"
-                    :key="star"
-                    class="bi bi-star"
-                  ></i> </span
-                ><span v-if="product.sweet !== undefined">
-                  <p class="me-1">甜味</p>
-                  <i
-                    v-for="star in product.sweet"
-                    :key="star"
-                    class="bi bi-star-fill"
-                  ></i>
-                  <i
-                    v-for="star in 5 - product.sweet"
-                    :key="star"
-                    class="bi bi-star"
-                  ></i> </span
-                ><span v-if="product.rich !== undefined">
-                  <p class="me-1">濃郁</p>
-                  <i
-                    v-for="star in product.rich"
-                    :key="star"
-                    class="bi bi-star-fill"
-                  ></i>
-                  <i
-                    v-for="star in 5 - product.rich"
-                    :key="star"
-                    class="bi bi-star"
-                  ></i>
-                </span>
-              </div>
-              <div>
-                <p>
-                  {{ product.stext }}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div v-else class="productDetail">
-            <h5 class="my-4 py-1 fw-bold">禮盒內容</h5>
-            <div v-for="(item, index) in product.detail" :key="item">
-              <div class="my-2">
-                <router-link
-                  class="text-decoration-underline"
-                  :to="'/User/product/' + product.link[index]"
-                  >{{ product.detail[index] }}</router-link
-                >
-              </div>
-              <img
-                v-if="product.images && product.images[index + 1] !== undefined"
-                :src="product.images[index + 1]"
-                :alt="product.detail[index] + '的照片'"
-              />
-              <div class="mt-4 mb-4 pt-2 pb-1">
-                <p v-if="product.country !== undefined">
-                  原產國 : {{ product.country[index] }}
-                </p>
-                <p v-if="product.area !== undefined">
-                  產區 : {{ product.area[index] }}
-                </p>
-                <p v-if="product.altitude !== undefined">
-                  海拔 : {{ product.altitude[index] }}
-                </p>
-                <p v-if="product.Variety !== undefined">
-                  品種 : {{ product.Variety[index] }}
-                </p>
-                <p v-if="product.Soli !== undefined && !product.Soli === ''">
-                  土壤種類 : {{ product.Soli[index] }}
-                </p>
-                <p v-if="product.refined !== undefined">
-                  處理法 : {{ product.refined[index] }}
-                </p>
-                <p v-if="product.roast !== undefined">
-                  烘烤程度 : {{ product.roast[index] }}
-                </p>
-              </div>
-            </div>
-            <h5 class="my-4 py-1 fw-bold">關於禮盒</h5>
-            <div class="mb-2">
-              <img
-                v-if="product.images && product.images[3] !== undefined"
-                :src="product.images[3]"
-                :alt="product.title + '的照片'"
-              />
-              <p class="giftbox my-1">{{ product.giftbox }}</p>
-            </div>
+          <div class="productDetail">
+            <!-- 下方照片 -->
+            <h5 v-if="product.unit === '精品禮盒'" class="my-4 py-1 fw-bold">
+              關於禮盒
+            </h5>
+            <h5 v-else class="my-4 py-1 fw-bold">細節</h5>
             <img
-              v-if="product.images && product.images[4] !== undefined"
-              :src="product.images[4]"
-              :alt="product.title + '的照片'"
-              class="mb-2"
+              v-for="item in product.Detailimages"
+              :key="item"
+              :src="item"
+              class="img-fluid"
             />
-            <div class="my-4 py-1">
+            <p v-if="product.unit === '精品禮盒'" class="giftbox my-1">
+              {{ product.giftbox }}
+            </p>
+
+            <h5 v-if="product.unit === '精品禮盒'" class="my-4 py-1 fw-bold">
+              禮盒內容
+            </h5>
+            <!-- 咖啡資訊 -->
+            <div v-if="!product.products" class="mt-4 mb-4 pt-2 pb-1">
+              <div v-for="item in coffeeData" :key="item.title">
+                <p
+                  v-if="
+                    product[item.tag] !== undefined &&
+                    product[item.tag] !== '無'
+                  "
+                >
+                  {{ item.title }} : {{ product[item.tag] }}
+                </p>
+              </div>
+            </div>
+            <!-- 咖啡評價 -->
+            <div v-if="!product.products" class="mb-4 pb-1">
+              <span v-for="item in coffeeEvaluation" :key="item.title">
+                <div v-if="product[item.tag] !== undefined" class="d-flex">
+                  <p class="me-1">{{ item.title }}</p>
+                  <i
+                    v-for="star in product[item.tag]"
+                    :key="star"
+                    class="bi bi-star-fill"
+                  ></i>
+                  <i
+                    v-for="star in 5 - product[item.tag]"
+                    :key="star"
+                    class="bi bi-star"
+                  ></i>
+                </div>
+              </span>
+            </div>
+            <!-- 多種咖啡 -->
+            <div
+              v-for="products in product.products"
+              :key="products.title"
+              class="mb-4 pb-1"
+            >
+              <!-- 咖啡資訊 -->
+              <img :src="products.image" class="img-fluid mb-3" />
+              <div v-for="item in coffeeData" :key="item.title">
+                <p
+                  v-if="
+                    products[item.tag] !== undefined &&
+                    products[item.tag] !== '無'
+                  "
+                >
+                  {{ item.title }} : {{ products[item.tag] }}
+                </p>
+              </div>
+            </div>
+            <div>
               <p>
                 {{ product.stext }}
               </p>
@@ -523,7 +356,55 @@ export default {
           link: '/User/ProductList'
         }
       ],
-      isLoading: false
+      isLoading: false,
+      coffeeData: [
+        {
+          title: '原產國',
+          tag: 'country'
+        },
+        {
+          title: '產區',
+          tag: 'area'
+        },
+        {
+          title: '海拔',
+          tag: 'altitude'
+        },
+        {
+          title: '品種',
+          tag: 'Variety'
+        },
+        {
+          title: '土壤種類',
+          tag: 'Soli'
+        },
+        {
+          title: '處理法',
+          tag: 'refined'
+        },
+        {
+          title: '烘烤程度',
+          tag: 'roast'
+        }
+      ],
+      coffeeEvaluation: [
+        {
+          title: '苦味',
+          tag: 'bitter'
+        },
+        {
+          title: '酸味',
+          tag: 'sour'
+        },
+        {
+          title: '甜味',
+          tag: 'sweet'
+        },
+        {
+          title: '濃郁',
+          tag: 'rich'
+        }
+      ]
     };
   },
   watch: {
@@ -540,6 +421,7 @@ export default {
           this.isLoading = false;
           this.product = res.data.product;
           this.product = dealCategory([res.data.product])[0];
+          console.log(this.product);
           this.isCollect(this.product);
           this.Breadcrumb.push({
             title: this.product.unit,

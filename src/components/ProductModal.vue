@@ -47,8 +47,9 @@
                 />
               </div>
               <img class="img-fluid" alt="" />
-              <!-- 延伸技巧，多圖 -->
+              <!-- 產品所有圖片 -->
               <div class="mt-5" v-if="tempProduct.images">
+                <h5 class="mb-2">產品所有圖片</h5>
                 <div
                   v-for="(image, key) in tempProduct.images"
                   class="mb-3 input-group"
@@ -77,6 +78,43 @@
                   <button
                     class="btn btn-outline-primary btn-sm d-block w-100"
                     @click="tempProduct.images.push('')"
+                  >
+                    新增圖片
+                  </button>
+                </div>
+              </div>
+              <!-- 產品簡介圖片 -->
+              <div class="mt-5" v-if="tempProduct.Detailimages">
+                <h5 class="mb-2">產品簡介圖片</h5>
+                <div
+                  v-for="(image, key) in tempProduct.Detailimages"
+                  class="mb-3 input-group"
+                  :key="key"
+                >
+                  <input
+                    type="url"
+                    class="form-control form-control"
+                    v-model="tempProduct.Detailimages[key]"
+                    placeholder="請輸入連結"
+                  />
+                  <button
+                    type="button"
+                    class="btn btn-outline-danger"
+                    @click="tempProduct.Detailimages.splice(key, 1)"
+                  >
+                    移除
+                  </button>
+                </div>
+                <div
+                  v-if="
+                    tempProduct.Detailimages[
+                      tempProduct.Detailimages.length - 1
+                    ] || !tempProduct.Detailimages.length
+                  "
+                >
+                  <button
+                    class="btn btn-outline-primary btn-sm d-block w-100"
+                    @click="tempProduct.Detailimages.push('')"
                   >
                     新增圖片
                   </button>
@@ -343,7 +381,6 @@
                   />
                 </div>
               </div>
-              <hr />
               <div class="mb-3">
                 <div class="form-check">
                   <input
@@ -358,6 +395,131 @@
                   <label class="form-check-label" for="is_enabled">
                     是否啟用
                   </label>
+                </div>
+              </div>
+              <hr />
+              <!-- 多種咖啡模式 -->
+              <div class="mt-3" v-if="tempProduct.products">
+                <h5 class="form-label">多種咖啡</h5>
+                <div
+                  v-for="(item, key) in tempProduct.products"
+                  :key="item.title"
+                  class="mb-3"
+                >
+                  <h6 class="mb-2">第{{ key + 1 }}種</h6>
+                  <label class="form-label">產品名稱</label>
+                  <div class="input-group mb-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="item.title"
+                      :placeholder="'請輸入第 ' + (key + 1) + ' 種產品名稱'"
+                    />
+                    <button
+                      type="button"
+                      class="btn btn-outline-danger"
+                      @click="tempProduct.products.splice(key, 1)"
+                    >
+                      移除全部產品
+                    </button>
+                  </div>
+                  <label class="form-label">產品連結</label>
+                  <div class="input-group mb-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="item.links"
+                      :placeholder="'請輸入第 ' + (key + 1) + ' 種產品連結'"
+                    />
+                  </div>
+                  <label class="form-label">產品圖片</label>
+                  <div class="input-group mb-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="item.image"
+                      :placeholder="'請輸入第 ' + (key + 1) + ' 種產品圖片'"
+                    />
+                  </div>
+                  <label class="form-label">原產國</label>
+                  <div class="input-group mb-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="item.country"
+                      :placeholder="'請輸入第 ' + (key + 1) + ' 種原產國'"
+                    />
+                  </div>
+
+                  <label class="form-label">產區</label>
+                  <div class="input-group mb-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="item.area"
+                      :placeholder="'請輸入第 ' + (key + 1) + ' 種產區'"
+                    />
+                  </div>
+
+                  <label class="form-label">海拔</label>
+                  <div class="input-group mb-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="item.altitude"
+                      :placeholder="'請輸入第 ' + (key + 1) + ' 種海拔'"
+                    />
+                  </div>
+
+                  <label class="form-label">品種</label>
+                  <div class="input-group mb-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="item.Variety"
+                      :placeholder="'請輸入第 ' + (key + 1) + ' 種品種'"
+                    />
+                  </div>
+
+                  <label class="form-label">土壤種類</label>
+                  <div class="input-group mb-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="item.Soli"
+                      :placeholder="'請輸入第 ' + (key + 1) + ' 種土壤種類'"
+                    />
+                  </div>
+
+                  <label class="form-label">處理法</label>
+                  <div class="input-group mb-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="item.refined"
+                      :placeholder="'請輸入第 ' + (key + 1) + ' 種處理法'"
+                    />
+                  </div>
+
+                  <label class="form-label">烘烤程度</label>
+                  <div class="input-group mb-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="item.roast"
+                      :placeholder="'請輸入第 ' + (key + 1) + ' 種烘烤程度'"
+                    />
+                  </div>
+                  <div class="vr me-5"></div>
+                </div>
+
+                <div>
+                  <button
+                    class="btn btn-outline-primary btn-sm d-block w-100"
+                    @click="this.tempProduct.products.push({})"
+                  >
+                    新增產品
+                  </button>
                 </div>
               </div>
             </div>
@@ -431,9 +593,23 @@ export default {
   watch: {
     product() {
       this.tempProduct = this.product;
-      // 多圖範例
+
+      // 產品所有圖片
       if (!this.tempProduct.images) {
         this.tempProduct.images = [];
+      }
+
+      // 產品下方圖片
+      if (!this.tempProduct.Detailimages) {
+        this.tempProduct.Detailimages = [];
+      }
+
+      if (!this.tempProduct.Productsimage) {
+        this.tempProduct.Productsimage = [];
+      }
+
+      if (!this.tempProduct.products) {
+        this.tempProduct.products = [];
       }
     }
   },
