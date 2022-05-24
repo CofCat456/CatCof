@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg w-100" :class="{ navBg: isScroll }">
     <div class="container-fluid px-5">
       <router-link to="/" class="nav-link fs-5 title mt-1">
-        <img src="../assets/Logo/CofShopLogo.png" alt="CoffeeShop Logo" />
+        <img src="../assets/img/Logo/CofShopLogo.png" alt="貓咖啡 Logo" />
       </router-link>
       <button
         class="navbar-toggler"
@@ -55,6 +55,33 @@
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      isScroll: false
+    };
+  },
+  methods: {
+    logout() {
+      const api = `${process.env.VUE_APP_API}logout`;
+      this.$http.post(api, this.user).then((res) => {
+        this.$router.push('/Login');
+      });
+    },
+    handleScroll() {
+      if (window.pageYOffset > 20) {
+        return (this.isScroll = true);
+      }
+      this.isScroll = false;
+    }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll, true);
+  }
+};
+</script>
 
 <style scoped>
 .navbar {
@@ -151,30 +178,3 @@
   }
 }
 </style>
-
-<script>
-export default {
-  data() {
-    return {
-      isScroll: false
-    };
-  },
-  methods: {
-    logout() {
-      const api = `${process.env.VUE_APP_API}logout`;
-      this.$http.post(api, this.user).then((res) => {
-        this.$router.push('/Login');
-      });
-    },
-    handleScroll() {
-      if (window.pageYOffset > 20) {
-        return (this.isScroll = true);
-      }
-      this.isScroll = false;
-    }
-  },
-  mounted() {
-    window.addEventListener('scroll', this.handleScroll, true);
-  }
-};
-</script>

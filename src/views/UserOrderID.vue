@@ -2,8 +2,8 @@
   <div class="container">
     <div class="mx-5 my-3"></div>
     <div class="row justify-content-center">
-      <breadcrumb :Breadcrumb="Breadcrumb"></breadcrumb>
-      <shopProcess status="送出"></shopProcess>
+      <Breadcrumb :Breadcrumb="Breadcrumb" />
+      <ShopProcess status="送出" />
       <div class="col-10 my-5">
         <h1 class="fw-bold text-center mb-4">訂單成立</h1>
       </div>
@@ -15,11 +15,11 @@
             >
               <h3 class="h5 text-center fw-bold mt-3">訂單編號</h3>
               <p class="text-center text-danger fw-bold mb-4 pb-3 fs-5">
-                {{ this.order.id }}
+                {{ order.id }}
               </p>
               <p class="fs-5 text-center fw-bold mt-3 mb-2">訂購人資訊</p>
               <table
-                v-if="Object.keys(this.order).length !== 0"
+                v-if="Object.keys(order).length !== 0"
                 class="table table-borderless mb-5 text-break"
               >
                 <tbody>
@@ -32,7 +32,7 @@
                       姓名
                     </th>
                     <td class="px-3 border" width="70%">
-                      {{ this.order.user['name'] }}
+                      {{ order.user['name'] }}
                     </td>
                   </tr>
                   <tr>
@@ -44,7 +44,7 @@
                       電話
                     </th>
                     <td class="px-2 px-md-3 border" width="70%">
-                      {{ this.order.user['tel'] }}
+                      {{ order.user['tel'] }}
                     </td>
                   </tr>
                   <tr>
@@ -56,7 +56,7 @@
                       E-mail
                     </th>
                     <td class="px-3 border" width="70%">
-                      {{ this.order.user['email'] }}
+                      {{ order.user['email'] }}
                     </td>
                   </tr>
                   <tr>
@@ -68,7 +68,7 @@
                       地址
                     </th>
                     <td class="px-3 border" width="70%">
-                      {{ this.order.user['address'] }}
+                      {{ order.user['address'] }}
                     </td>
                   </tr>
                   <tr>
@@ -80,7 +80,7 @@
                       付款方式
                     </th>
                     <td class="px-3 border" width="70%">
-                      {{ this.order.user['payment'] }}
+                      {{ order.user['payment'] }}
                     </td>
                   </tr>
                   <tr>
@@ -96,7 +96,7 @@
                       class="px-3 border"
                       width="70%"
                     >
-                      {{ this.order.user['remark'] }}
+                      {{ order.user['remark'] }}
                     </td>
                     <td v-else class="px-2 px-md-3 border" width="70%">無</td>
                   </tr>
@@ -104,7 +104,7 @@
               </table>
               <p class="fs-5 text-center fw-bold mt-3 mb-2">商品項目</p>
               <table
-                v-if="Object.keys(this.order).length !== 0"
+                v-if="Object.keys(order).length !== 0"
                 class="table table-borderless mb-5 text-center text-break"
               >
                 <thead>
@@ -134,7 +134,7 @@
                 </thead>
                 <tbody>
                   <tr v-for="item in this.order.products" :key="item.id">
-                    <td scope="row" class="border ps-2 text-strat">
+                    <td scope="row" class="border ps-2 text-start">
                       {{ item.product.title }}
                     </td>
                     <td class="px-2 px-md-3 border">{{ item.qty }} 個</td>
@@ -143,16 +143,16 @@
                     </td>
                   </tr>
                   <tr v-if="this.order.isFreight">
-                    <td scope="row" class="border ps-2 text-strat">運費</td>
+                    <td scope="row" class="border ps-2 text-start">運費</td>
                     <td class="px-2 px-md-3 border">1 趟</td>
                     <td class="px-2 px-md-3 border">
-                      NT ${{ this.freight }}元
+                      NT ${{ freight }}元
                     </td>
                   </tr>
                 </tbody>
               </table>
               <p class="fs-5 text-center mb-3">
-                總金額NT ${{ $filters.currency(this.order.total) }}元
+                總金額NT ${{ $filters.currency(order.total) }}元
               </p>
             </section>
           </div>
@@ -169,32 +169,15 @@
   </div>
 </template>
 
-<style scoped>
-.btn {
-  font-weight: 700;
-  line-height: 1.7;
-}
-
-.btn-custom-Orange {
-  color: #fff;
-  background-color: #24395b;
-}
-
-.btn-custom-Orange:hover {
-  color: #000;
-  background-color: #ff9800;
-}
-</style>
-
 <script>
-import shopProcess from '../components/ShopProcess.vue';
-import breadcrumb from '../components/Breadcrumb.vue';
+import ShopProcess from '../components/ShopProcess.vue';
+import Breadcrumb from '../components/Breadcrumb.vue';
 import { checkFrieht, filterFreight } from '@/methods/order';
 
 export default {
   components: {
-    shopProcess,
-    breadcrumb
+    ShopProcess,
+    Breadcrumb
   },
   data() {
     return {
@@ -247,3 +230,20 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.btn {
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.btn-custom-Orange {
+  color: #fff;
+  background-color: #24395b;
+}
+
+.btn-custom-Orange:hover {
+  color: #000;
+  background-color: #ff9800;
+}
+</style>

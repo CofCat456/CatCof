@@ -1,6 +1,6 @@
 <template>
   <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center">
-    <img src="../assets/Logo/CofShopLogo.png" alt="" />
+    <img src="../assets/img/Logo/CofShopLogo.png" alt="貓咖啡 Logo" />
     <div class="process mt-4 d-flex">
       <div
         v-for="(item, index) in shopData"
@@ -13,6 +13,17 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ['status'],
+  data() {
+    return {
+      shopData: ['確認', '輸入', '送出']
+    };
+  }
+};
+</script>
 
 <style scoped>
 img {
@@ -62,14 +73,3 @@ img {
   color: #ff9800;
 }
 </style>
-
-<script>
-export default {
-  props: ['status'],
-  data() {
-    return {
-      shopData: ['確認', '輸入', '送出']
-    };
-  }
-};
-</script>

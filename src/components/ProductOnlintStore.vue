@@ -16,7 +16,7 @@
           @click="this.getProductCategory(item.title)"
         >
           <div class="overflow-hidden imgBox">
-            <img :src="item.src" />
+            <img :src="item.src" :alt="item.title + '的照片'" />
           </div>
           <div class="text px-md-4 px-4 py-md-4 py-3">
             <h5 class="fw-bold my-2 px-1">{{ item.title }}</h5>
@@ -29,6 +29,37 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      productCategoryList: [
+        {
+          title: '咖啡豆',
+          src: require('../assets/img/store/coffeeBeans.jpg'),
+          text: '職人親自挑選咖啡豆，提供客人最好的享受，讓我帶您走進手沖咖啡的世界吧！'
+        },
+        {
+          title: '冷萃咖啡',
+          src: require('../assets/img/store/ColdBrew.jpg'),
+          text: '炎熱的夏天，想喝點冰的嗎？試試冷萃咖啡吧！使用冷水浸泡過，喝上一口便可抵擋炎熱天氣！'
+        },
+        {
+          title: '精品禮盒',
+          src: require('../assets/img/store/BoutiqueGift.jpg'),
+          text: '精品咖啡豆禮盒，不論是各種場合送禮都適合，趕快購買價格甜美的精品咖啡豆禮盒吧！'
+        }
+      ]
+    };
+  },
+  methods: {
+    getProductCategory(id) {
+      this.$router.push(`/User/Category/${id}`);
+    }
+  }
+};
+</script>
 
 <style scoped>
 h1 {
@@ -72,34 +103,3 @@ h1 {
   border-bottom-right-radius: 10px;
 }
 </style>
-
-<script>
-export default {
-  data() {
-    return {
-      productCategoryList: [
-        {
-          title: '咖啡豆',
-          src: require('../assets/store/coffeeBeans.jpg'),
-          text: '職人親自挑選咖啡豆，提供客人最好的享受，讓我帶您走進手沖咖啡的世界吧！'
-        },
-        {
-          title: '冷萃咖啡',
-          src: require('../assets/store/ColdBrew.jpg'),
-          text: '炎熱的夏天，想喝點冰的嗎？試試冷萃咖啡吧！使用冷水浸泡過，喝上一口便可抵擋炎熱天氣！'
-        },
-        {
-          title: '精品禮盒',
-          src: require('../assets/store/BoutiqueGift.jpg'),
-          text: '精品咖啡豆禮盒，不論是各種場合送禮都適合，趕快購買價格甜美的精品咖啡豆禮盒吧！'
-        }
-      ]
-    };
-  },
-  methods: {
-    getProductCategory(id) {
-      this.$router.push(`/User/Category/${id}`);
-    }
-  }
-};
-</script>

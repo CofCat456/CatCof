@@ -14,13 +14,45 @@
           class="item col-lg-3 col-6 my-xxl-3 my-md-3 mb-3 px-xxl-3 px-2"
           @click="getProductCategory(item.title)"
         >
-          <img :src="item.src" />
+          <img :src="item.src" :alt="item.title + '的照片'"/>
           <p class="ps-4 py-3">{{ item.title }}</p>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      productCategoryList: [
+        {
+          title: '咖啡豆',
+          src: require('../assets/img/Class/coffeeBeans.jpg')
+        },
+        {
+          title: '濾掛咖啡',
+          src: require('../assets/img/Class/filtercoffee.jpg')
+        },
+        {
+          title: '冷萃咖啡',
+          src: require('../assets/img/Class/ColdBrew.jpg')
+        },
+        {
+          title: '精品禮盒',
+          src: require('../assets/img/Class/BoutiqueGift.jpg')
+        }
+      ]
+    };
+  },
+  methods: {
+    getProductCategory(id) {
+      this.$router.push(`/User/category/${id}`);
+    }
+  }
+};
+</script>
 
 <style scoped>
 h1 {
@@ -71,35 +103,3 @@ h1 {
   }
 }
 </style>
-
-<script>
-export default {
-  data() {
-    return {
-      productCategoryList: [
-        {
-          title: '咖啡豆',
-          src: require('../assets/Class/coffeeBeans.jpg')
-        },
-        {
-          title: '濾掛咖啡',
-          src: require('../assets/Class/filtercoffee.jpg')
-        },
-        {
-          title: '冷萃咖啡',
-          src: require('../assets/Class/ColdBrew.jpg')
-        },
-        {
-          title: '精品禮盒',
-          src: require('../assets/Class/BoutiqueGift.jpg')
-        }
-      ]
-    };
-  },
-  methods: {
-    getProductCategory(id) {
-      this.$router.push(`/User/category/${id}`);
-    }
-  }
-};
-</script>

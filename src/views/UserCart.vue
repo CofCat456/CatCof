@@ -1,17 +1,10 @@
 <template>
-  <Loading :active="isLoading">
-    <div class="loadingio-spinner-ripple-3xq5u6jldre">
-      <div class="ldio-dwik2dnj2i">
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-  </Loading>
+  <LoadingComponent :LoadingState='isLoading' />
   <div class="container">
     <div class="mx-5 my-3"></div>
     <div class="row justify-content-center">
-      <breadcrumb :Breadcrumb="Breadcrumb"></breadcrumb>
-      <shopProcess status="確認"></shopProcess>
+      <Breadcrumb :Breadcrumb="Breadcrumb" />
+      <ShopProcess status="確認" />
       <div class="col-lg-10 col-md-12 col-11 my-5">
         <h1 class="fw-bold text-center mb-4">購物車</h1>
         <main
@@ -172,6 +165,7 @@
           ><i class="bi bi-caret-left me-1"></i>繼 續 購 物</router-link
         >
         <button
+          type="button"
           class="btn btn-outline-danger px-md-4 py-2"
           @click="deleteAllCart()"
         >
@@ -185,46 +179,19 @@
   </div>
 </template>
 
-<style scoped>
-img {
-  cursor: pointer;
-}
-.btn {
-  font-weight: 700;
-  line-height: 1.7;
-}
-
-@media screen and (max-width: 414px) {
-  .btn {
-    padding: 0.5rem 0.2rem;
-  }
-}
-
-/* 表格內容 */
-main {
-  max-width: 900px;
-}
-
-.input-group span {
-  max-width: 80px;
-  font-size: 1rem;
-  border-width: 1px 0;
-  border-style: solid;
-  border-color: #ced4da;
-}
-</style>
-
 <script>
-import shopProcess from '../components/ShopProcess.vue';
-import breadcrumb from '../components/Breadcrumb.vue';
+import ShopProcess from '../components/ShopProcess.vue';
+import Breadcrumb from '../components/Breadcrumb.vue';
+import LoadingComponent from '../components/LoadingComponent.vue';
 import { filterFreight, checkFrieht } from '@/methods/order';
 import { savaLocalStorage, getLocalStorage } from '@/methods/localStorage';
 
 export default {
   inject: ['emitter'],
   components: {
-    shopProcess,
-    breadcrumb
+    ShopProcess,
+    Breadcrumb,
+    LoadingComponent
   },
   data() {
     return {
@@ -475,3 +442,32 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+img {
+  cursor: pointer;
+}
+.btn {
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+@media screen and (max-width: 414px) {
+  .btn {
+    padding: 0.5rem 0.2rem;
+  }
+}
+
+/* 表格內容 */
+main {
+  max-width: 900px;
+}
+
+.input-group span {
+  max-width: 80px;
+  font-size: 1rem;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #ced4da;
+}
+</style>

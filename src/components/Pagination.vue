@@ -35,27 +35,6 @@
   </nav>
 </template>
 
-<style scoped>
-ul li {
-  margin: 0 0.5rem;
-}
-
-ul li a {
-  border-radius: 5px;
-  color: #000;
-}
-
-ul li:hover a {
-  color: #fff;
-  background: #00c9ff;
-}
-
-.currentPage {
-  color: #fff;
-  background: #00c9ff;
-}
-</style>
-
 <script>
 // :pages="{ 頁碼資訊 }"
 // @emitPages="更新頁面事件"
@@ -97,3 +76,24 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+ul li {
+  margin: 0 0.5rem;
+}
+
+ul li a {
+  border-radius: 5px;
+  color: #000;
+}
+
+ul li:hover a {
+  color: #fff;
+  background: #00c9ff;
+}
+
+.currentPage {
+  color: #fff;
+  background: #00c9ff;
+}
+</style>

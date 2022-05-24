@@ -1,5 +1,5 @@
 <template>
-  <NavbarMain></NavbarMain>
+  <NavbarMain />
   <div class="container mt-5">
     <form class="row justify-content-center" @submit.prevent="signIn">
       <div class="col-md-6">

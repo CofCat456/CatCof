@@ -1,5 +1,4 @@
 <template>
-  <Loading :active="isLoading"></Loading>
   <ul
     class="btn-custom-ul position-fixed d-flex flex-column justify-content-around align-items-center"
   >
@@ -65,7 +64,7 @@
             data-bs-dismiss="offcanvas"
             aria-label="Close"
           >
-            <img :src="item.imageUrl" class="w-100" />
+            <img :src="item.imageUrl" class="w-100" :alt="item.title + '的照片'" />
           </div>
           <p class="col-5 m-0 px-1 py-0 text-center">
             {{ item.title }}
@@ -97,6 +96,7 @@
       <div class="row">
         <div class="col-6 px-2">
           <button
+            type="button"
             class="btn btn-custom-Blue w-100 px-1 px-md-4 py-2"
             @click="this.$router.push('/User/ProductList')"
             data-bs-dismiss="offcanvas"
@@ -107,6 +107,7 @@
         </div>
         <div class="col-6 px-2">
           <button
+            type="button"
             class="btn btn-custom-Orange w-100 px-1 px-sm-2 px-md-4 py-2"
             @click="this.$router.push('/User/cart')"
             data-bs-dismiss="offcanvas"
@@ -117,6 +118,7 @@
         </div>
         <div class="col-12 mt-2 px-2">
           <button
+            type="button"
             class="btn btn-outline-danger w-100 px-1 px-sm-2 px-md-4 py-2"
             @click="DeleteAllCollects()"
             :disabled="this.collects.length < 1"
@@ -128,120 +130,6 @@
     </div>
   </div>
 </template>
-
-<style scoped>
-ul {
-  padding-left: 0 !important;
-}
-.offcanvas-start {
-  width: 600px;
-}
-
-.offcanvas-body img {
-  cursor: pointer;
-  transition: all 0.4s linear;
-}
-
-.offcanvas-body img:hover {
-  transform: scale(1.2);
-}
-.btn-custom-ul {
-  width: 70px;
-  margin: 0px;
-  padding: 1rem 0rem;
-  right: 2%;
-  bottom: 5%;
-  background-color: rgba(36, 57, 91, 1);
-  border-radius: 20px;
-  z-index: 100000000000000;
-}
-
-@media screen and (max-width: 768px) {
-  .btn-custom-ul {
-    right: 3%;
-    bottom: 18%;
-  }
-}
-
-@media screen and (max-width: 414px) {
-  .btn-custom-ul {
-    right: 5%;
-    bottom: 5%;
-  }
-}
-
-.love {
-  background-color: transparent;
-  border: 0;
-}
-
-.btn-custom-ul * {
-  color: #fff;
-  cursor: pointer;
-}
-
-.btn-custom-ul a > i,
-.btn-custom-ul button > i {
-  font-size: 1.4rem;
-  transition: all 0.6s;
-}
-
-.icon {
-  font-size: 0.2rem;
-}
-
-.btn-custom-ul a:hover > i,
-.btn-custom-ul button:hover > i {
-  font-size: 1.6rem;
-}
-
-.btn-custom-ul span {
-  font-size: 0.4rem;
-}
-
-.btn {
-  font-weight: 700;
-  line-height: 1.7;
-}
-
-.input-group span {
-  max-width: 80px;
-  font-size: 1rem;
-  border-width: 1px 0;
-  border-style: solid;
-  border-color: #ced4da;
-}
-
-.btn-red {
-  padding: 5px;
-  color: rgba(220, 53, 69, 0.3);
-  transition: all 0.5s;
-}
-
-.btn-red:hover {
-  color: #dc3545;
-}
-
-.btn-custom-Blue {
-  border: 1px solid #24395b;
-  color: #24395b !important ;
-}
-
-.btn-custom-Blue:hover {
-  color: #fff !important;
-  background-color: #24395b;
-}
-
-.btn-custom-Orange {
-  color: #fff;
-  background-color: #24395b;
-}
-
-.btn-custom-Orange:hover {
-  color: #000;
-  background-color: #ff9800;
-}
-</style>
 
 <script>
 import { savaLocalStorage, getLocalStorage } from '@/methods/localStorage';
@@ -394,3 +282,117 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+ul {
+  padding-left: 0 !important;
+}
+.offcanvas-start {
+  width: 600px;
+}
+
+.offcanvas-body img {
+  cursor: pointer;
+  transition: all 0.4s linear;
+}
+
+.offcanvas-body img:hover {
+  transform: scale(1.2);
+}
+.btn-custom-ul {
+  width: 70px;
+  margin: 0px;
+  padding: 1rem 0rem;
+  right: 2%;
+  bottom: 5%;
+  background-color: rgba(36, 57, 91, 1);
+  border-radius: 20px;
+  z-index: 100000000000000;
+}
+
+@media screen and (max-width: 768px) {
+  .btn-custom-ul {
+    right: 3%;
+    bottom: 18%;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .btn-custom-ul {
+    right: 5%;
+    bottom: 5%;
+  }
+}
+
+.love {
+  background-color: transparent;
+  border: 0;
+}
+
+.btn-custom-ul * {
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn-custom-ul a > i,
+.btn-custom-ul button > i {
+  font-size: 1.4rem;
+  transition: all 0.6s;
+}
+
+.icon {
+  font-size: 0.2rem;
+}
+
+.btn-custom-ul a:hover > i,
+.btn-custom-ul button:hover > i {
+  font-size: 1.6rem;
+}
+
+.btn-custom-ul span {
+  font-size: 0.4rem;
+}
+
+.btn {
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.input-group span {
+  max-width: 80px;
+  font-size: 1rem;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #ced4da;
+}
+
+.btn-red {
+  padding: 5px;
+  color: rgba(220, 53, 69, 0.3);
+  transition: all 0.5s;
+}
+
+.btn-red:hover {
+  color: #dc3545;
+}
+
+.btn-custom-Blue {
+  border: 1px solid #24395b;
+  color: #24395b !important ;
+}
+
+.btn-custom-Blue:hover {
+  color: #fff !important;
+  background-color: #24395b;
+}
+
+.btn-custom-Orange {
+  color: #fff;
+  background-color: #24395b;
+}
+
+.btn-custom-Orange:hover {
+  color: #000;
+  background-color: #ff9800;
+}
+</style>

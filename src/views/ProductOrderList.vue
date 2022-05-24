@@ -1,13 +1,6 @@
 <template>
-  <ToastMessage></ToastMessage>
-  <Loading :active="isLoading">
-    <div class="loadingio-spinner-ripple-3xq5u6jldre">
-      <div class="ldio-dwik2dnj2i">
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-  </Loading>
+  <ToastMessage />
+  <LoadingComponent :LoadingState='isLoading' />
   <div class="text-end mt-3">
     <button class="btn btn-danger" type="button" @click="DeleteAllOrder()">
       刪除全部訂單
@@ -61,19 +54,16 @@
     :pages="pagination"
     @emit-Adpages="getOrderList"
     @emit-AdPrev="getOrderList"
-    @emit-AdNext="getOrderList"
-  ></Pagination>
+    @emit-AdNext="getOrderList" />
   <OrderModal
     ref="OrderModal"
     :Order="tempOrder"
-    @update-order="updateOrder"
-  ></OrderModal>
+    @update-order="updateOrder" />
   <DeleteModel
     ref="deleteModal"
     :item="OrderName(tempOrder.user.name)"
     :id="tempOrder.id"
-    @del-item="DeleteOrder"
-  ></DeleteModel>
+    @del-item="DeleteOrder" />
 </template>
 
 <script>
@@ -81,13 +71,15 @@ import OrderModal from '../components/OrderModal.vue';
 import DeleteModel from '../components/Delete.vue';
 import ToastMessage from '../components/ToastMessages.vue';
 import Pagination from '../components/Pagination.vue';
+import LoadingComponent from '../components/LoadingComponent.vue';
 
 export default {
   components: {
     OrderModal,
     DeleteModel,
     ToastMessage,
-    Pagination
+    Pagination,
+    LoadingComponent
   },
   inject: ['emitter'],
   data() {

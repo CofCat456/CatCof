@@ -1,16 +1,9 @@
 <template>
-  <Loading :active="isLoading">
-    <div class="loadingio-spinner-ripple-3xq5u6jldre">
-      <div class="ldio-dwik2dnj2i">
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-  </Loading>
+  <LoadingComponent :LoadingState='isLoading' />
   <section class="mb-5 pb-xxl-5 pb-md-0">
     <div class="container-fluid">
       <div class="row d-flex justify-content-center">
-        <breadcrumb :Breadcrumb="Breadcrumb"></breadcrumb>
+        <Breadcrumb :Breadcrumb="Breadcrumb" />
         <div class="row my-5 pb-xxl-5 pb-md-0 px-0">
           <div
             class="col-lg-5 col-11 offset-1 order-lg-1 order-2 d-flex flex-column justify-content-xxl-center align-items-xxl-center px-md-4 px-2"
@@ -34,7 +27,7 @@
             </div>
           </div>
           <div class="col-lg-5 col-11 offset-1 order-lg-1 order-1 mb-lg-0 mb-5">
-            <img src="../assets/bg/bg-004.jpeg" class="img-fluid" alt="..." />
+            <img src="../assets/img/bg/bg-004.jpeg" class="img-fluid" alt="產品列表的照片" />
           </div>
         </div>
       </div>
@@ -48,7 +41,7 @@
     data-aos-easing="ease-in-out"
     data-aos-anchor-placement="center-bottom"
   >
-    <ProductClass></ProductClass>
+    <ProductClass />
   </section>
   <section
     class="my-2"
@@ -61,10 +54,55 @@
     <Recommend
       EnTitle="Recommended"
       ChTitle="推薦商品"
-      :Product="Rproduct"
-    ></Recommend>
+      :Product="Rproduct" />
   </section>
 </template>
+
+<script>
+import ProductClass from '../components/ProductClass.vue';
+import Recommend from '../components/ProductCard.vue';
+import Breadcrumb from '../components/Breadcrumb.vue';
+import LoadingComponent from '../components/LoadingComponent.vue';
+import { dealCategory, filterCategory } from '@/methods/filters';
+
+export default {
+  components: {
+    ProductClass,
+    Recommend,
+    Breadcrumb,
+    LoadingComponent
+  },
+  data() {
+    return {
+      product: [],
+      Rproduct: [],
+      isLoading: false,
+      Breadcrumb: [
+        {
+          title: '產品列表',
+          link: ''
+        }
+      ]
+    };
+  },
+  methods: {
+    getProducts() {
+      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
+      this.isLoading = true;
+      this.$http.get(url).then((res) => {
+        if (res.data.success) {
+          this.isLoading = false;
+          this.product = dealCategory(Object.values(res.data.products));
+          this.Rproduct = filterCategory('推薦', this.product);
+        }
+      });
+    }
+  },
+  created() {
+    this.getProducts();
+  }
+};
+</script>
 
 <style scoped>
 .wrap > h1 {
@@ -101,47 +139,3 @@
   border-bottom-left-radius: 20px;
 }
 </style>
-
-<script>
-import ProductClass from '../components/ProductClass.vue';
-import Recommend from '../components/ProductCard.vue';
-import breadcrumb from '../components/Breadcrumb.vue';
-import { dealCategory, filterCategory } from '@/methods/filters';
-
-export default {
-  components: {
-    ProductClass,
-    Recommend,
-    breadcrumb
-  },
-  data() {
-    return {
-      product: [],
-      Rproduct: [],
-      isLoading: false,
-      Breadcrumb: [
-        {
-          title: '產品列表',
-          link: ''
-        }
-      ]
-    };
-  },
-  methods: {
-    getProducts() {
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/products/all`;
-      this.isLoading = true;
-      this.$http.get(url).then((res) => {
-        if (res.data.success) {
-          this.isLoading = false;
-          this.product = dealCategory(Object.values(res.data.products));
-          this.Rproduct = filterCategory('推薦', this.product);
-        }
-      });
-    }
-  },
-  created() {
-    this.getProducts();
-  }
-};
-</script>

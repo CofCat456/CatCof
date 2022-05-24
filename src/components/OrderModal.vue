@@ -172,18 +172,6 @@
   </div>
 </template>
 
-<style scoped>
-span {
-  color: white;
-}
-
-input[type='number']::-webkit-outer-spin-button,
-input[type='number']::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-</style>
-
 <script>
 import ModalMixin from '@/mixins/ModalMixin';
 
@@ -213,3 +201,15 @@ export default {
   mixins: [ModalMixin]
 };
 </script>
+
+<style scoped>
+span {
+  color: white;
+}
+
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+</style>

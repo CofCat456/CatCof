@@ -2,8 +2,8 @@
   <div class="container">
     <div class="mx-5 my-3"></div>
     <div class="row justify-content-center">
-      <breadcrumb :Breadcrumb="Breadcrumb"></breadcrumb>
-      <shopProcess status="輸入"></shopProcess>
+      <Breadcrumb :Breadcrumb="Breadcrumb" />
+      <ShopProcess status="輸入" />
       <div class="col-10 my-5">
         <h1 class="fw-bold text-center mb-4">訂購人資訊</h1>
       </div>
@@ -71,9 +71,8 @@
                 placeholder="請輸入姓名"
                 v-model="form.user.name"
                 rules="required"
-                :class="{ 'is-invalid': errors['姓名'] }"
-              ></Field>
-              <ErrorMessage name="姓名" class="invalid-feedback"></ErrorMessage>
+                :class="{ 'is-invalid': errors['姓名'] }" />
+              <ErrorMessage name="姓名" class="invalid-feedback" />
             </div>
 
             <div class="mb-3">
@@ -96,8 +95,7 @@
               </Field>
               <ErrorMessage
                 name="付款方式"
-                class="invalid-feedback"
-              ></ErrorMessage>
+                class="invalid-feedback" />
             </div>
 
             <!-- 電話 -->
@@ -132,11 +130,11 @@
                 placeholder="請輸入Email"
                 v-model="form.user.email"
                 :class="{ 'is-invalid': errors['email'] }"
-              ></Field>
+              />
               <ErrorMessage
                 name="email"
                 class="invalid-feedback"
-              ></ErrorMessage>
+              />
             </div>
 
             <div class="mb-3">
@@ -188,71 +186,16 @@
   </div>
 </template>
 
-<style scoped>
-label,
-option {
-  letter-spacing: 2px;
-  font-weight: 700;
-}
-
-input,
-textarea {
-  letter-spacing: 2px;
-}
-
-/* 左邊 */
-h3 {
-  letter-spacing: 2px;
-}
-
-.table > :not(caption) > * > * {
-  padding: 0.75rem 0.5rem;
-}
-
-.btn {
-  font-weight: 700;
-  line-height: 1.7;
-}
-
-.input-group span {
-  max-width: 80px;
-  font-size: 1rem;
-  border-width: 1px 0;
-  border-style: solid;
-  border-color: #ced4da;
-}
-
-.btn-custom-Blue {
-  border: 1px solid #24395b;
-  color: #24395b !important ;
-}
-
-.btn-custom-Blue:hover {
-  color: #fff !important;
-  background-color: #24395b;
-}
-
-.btn-custom-Orange {
-  color: #fff;
-  background-color: #24395b;
-}
-
-.btn-custom-Orange:hover {
-  color: #000;
-  background-color: #ff9800;
-}
-</style>
-
 <script>
-import shopProcess from '../components/ShopProcess.vue';
-import breadcrumb from '../components/Breadcrumb.vue';
+import ShopProcess from '../components/ShopProcess.vue';
+import Breadcrumb from '../components/Breadcrumb.vue';
 import { filterFreight, checkFrieht } from '@/methods/order';
 
 export default {
   inject: ['emitter'],
   components: {
-    shopProcess,
-    breadcrumb
+    ShopProcess,
+    Breadcrumb
   },
   data() {
     return {
@@ -313,3 +256,58 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+label,
+option {
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+input,
+textarea {
+  letter-spacing: 2px;
+}
+
+/* 左邊 */
+h3 {
+  letter-spacing: 2px;
+}
+
+.table > :not(caption) > * > * {
+  padding: 0.75rem 0.5rem;
+}
+
+.btn {
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.input-group span {
+  max-width: 80px;
+  font-size: 1rem;
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #ced4da;
+}
+
+.btn-custom-Blue {
+  border: 1px solid #24395b;
+  color: #24395b !important ;
+}
+
+.btn-custom-Blue:hover {
+  color: #fff !important;
+  background-color: #24395b;
+}
+
+.btn-custom-Orange {
+  color: #fff;
+  background-color: #24395b;
+}
+
+.btn-custom-Orange:hover {
+  color: #000;
+  background-color: #ff9800;
+}
+</style>

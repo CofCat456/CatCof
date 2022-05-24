@@ -1,22 +1,15 @@
 <template>
-  <Loading :active="isLoading">
-    <div class="loadingio-spinner-ripple-3xq5u6jldre">
-      <div class="ldio-dwik2dnj2i">
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-  </Loading>
+  <LoadingComponent :LoadingState='isLoading' />
   <section>
     <div class="container-fluid">
       <div class="row d-flex justify-content-center">
-        <breadcrumb :Breadcrumb="Breadcrumb"></breadcrumb>
+        <Breadcrumb :Breadcrumb="Breadcrumb" />
         <div
           v-if="product"
           class="col-xxl-7 col-md-10 col-12 d-flex flex-wrap justify-content-center"
         >
           <div class="col-lg-6 col-md-12 mb-md-0 mb-3 px-3">
-            <ProductImg :images="product.images"></ProductImg>
+            <ProductImg :images="product.images" />
           </div>
           <div
             class="col-lg-6 col-md-12 col-9 mt-lg-0 mt-md-3 px-md-4 productText"
@@ -126,6 +119,7 @@
               v-for="item in product.Detailimages"
               :key="item"
               :src="item"
+              :alt="product.title + '的照片'"
               class="img-fluid"
             />
             <p v-if="product.unit === '精品禮盒'" class="giftbox my-1">
@@ -173,7 +167,7 @@
               class="mb-4 pb-1"
             >
               <!-- 咖啡資訊 -->
-              <img :src="products.image" class="img-fluid mb-3" />
+              <img :src="products.image" class="img-fluid mb-3" :alt="products.title + '的照片'" />
               <div v-for="item in coffeeData" :key="item.title">
                 <p
                   v-if="
@@ -198,14 +192,224 @@
   <div :class="['productitem d-md-block d-none', isMove && 'move']">
     <p class="mb-1">{{ product.title }}</p>
     <p class="fs-5 text-center">{{ $filters.currency(product.price) }} 元</p>
-    <div
+    <button
+      type="button"
       class="btn btn-custom-contrary-Blue w-100 mt-3 mb-4 text-center"
       @click="addCart(product.id)"
     >
       添加到購物車
-    </div>
+    </button>
   </div>
 </template>
+
+<script>
+import ProductImg from '../components/ProductImg.vue';
+import Breadcrumb from '../components/Breadcrumb.vue';
+import LoadingComponent from '../components/LoadingComponent.vue';
+import { getLocalStorage } from '@/methods/localStorage';
+import { dealCategory } from '@/methods/filters';
+
+export default {
+  inject: ['emitter'],
+  components: {
+    ProductImg,
+    Breadcrumb,
+    LoadingComponent
+  },
+  data() {
+    return {
+      product: [],
+      productNumber: 1,
+      isMove: false,
+      is_collect: false,
+      Breadcrumb: [
+        {
+          title: '產品列表',
+          link: '/User/ProductList'
+        }
+      ],
+      isLoading: false,
+      coffeeData: [
+        {
+          title: '原產國',
+          tag: 'country'
+        },
+        {
+          title: '產區',
+          tag: 'area'
+        },
+        {
+          title: '海拔',
+          tag: 'altitude'
+        },
+        {
+          title: '品種',
+          tag: 'Variety'
+        },
+        {
+          title: '土壤種類',
+          tag: 'Soli'
+        },
+        {
+          title: '處理法',
+          tag: 'refined'
+        },
+        {
+          title: '烘烤程度',
+          tag: 'roast'
+        }
+      ],
+      coffeeEvaluation: [
+        {
+          title: '苦味',
+          tag: 'bitter'
+        },
+        {
+          title: '酸味',
+          tag: 'sour'
+        },
+        {
+          title: '甜味',
+          tag: 'sweet'
+        },
+        {
+          title: '濃郁',
+          tag: 'rich'
+        }
+      ]
+    };
+  },
+  watch: {
+    $route: function() {
+      this.getProduct();
+    }
+  },
+  methods: {
+    getProduct() {
+      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${this.$route.params.productId}`;
+      this.isLoading = true;
+      this.$http.get(url).then((res) => {
+        if (res.data.success) {
+          this.isLoading = false;
+          this.product = res.data.product;
+          this.product = dealCategory([res.data.product])[0];
+          this.isCollect(this.product);
+          this.Breadcrumb.push({
+            title: this.product.unit,
+            link: `/User/category/${this.product.unit}`
+          });
+          this.Breadcrumb.push({
+            title: this.product.title,
+            link: ''
+          });
+        }
+      });
+    },
+    handleScroll() {
+      if (window.pageYOffset > 480) {
+        return (this.isMove = true);
+      }
+      this.isMove = false;
+    },
+    addproductNumber() {
+      this.productNumber++;
+    },
+    subproductNumber() {
+      if (this.productNumber <= 1) return;
+      this.productNumber--;
+    },
+    addCart(id) {
+      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
+      this.isLoading = true;
+      const cart = {
+        product_id: id,
+        qty: this.productNumber
+      };
+
+      if (this.productNumber < 1) {
+        this.$swal({
+          showConfirmButton: true,
+          icon: 'error',
+          title: '數字型別錯誤',
+          Text: '請輸入數字唷!'
+        });
+        this.productNumber = 1;
+        return;
+      }
+
+      this.$http
+        .post(url, { data: cart })
+        .then((res) => {
+          if (res.data.success) {
+            this.isLoading = false;
+            this.$swal({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 1500,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', this.$swal.stopTimer);
+                toast.addEventListener('mouseleave', this.$swal.resumeTimer);
+              },
+              icon: 'success',
+              title: '加入購物車成功!'
+            });
+            this.emitter.emit('update-cartNumber');
+          }
+        })
+        .catch((err) => {
+          this.$swal({
+            showConfirmButton: true,
+            icon: 'error',
+            title: '加入失敗',
+            Text: err
+          });
+        });
+    },
+    returnProductCategory(unit) {
+      return `/User/category/${unit}`;
+    },
+    addCollectList(product) {
+      this.emitter.emit('add-product', product);
+      this.isCollect(product);
+    },
+    removeCollectList(product) {
+      this.emitter.emit('remove-product', product);
+      this.isCollect(product);
+    },
+    isCollect(product) {
+      const collects = getLocalStorage('favoriteList');
+      this.is_collect = Object.values(collects).some(
+        (item) => item.id === product.id
+      );
+    },
+    updateProduct(id) {
+      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${id}`;
+      this.isLoading = true;
+      this.$http.get(url).then((res) => {
+        if (res.data.success) {
+          this.isLoading = false;
+          this.product = res.data.product;
+        }
+      });
+    }
+  },
+  created() {
+    this.getProduct();
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll, true);
+    this.emitter.on('update-product', (id) => {
+      this.updateProduct(id);
+    });
+
+    this.emitter.on('update-collect', () => {
+      this.isCollect();
+    });
+  }
+};
+</script>
 
 <style scoped>
 input[type='number']::-webkit-outer-spin-button,
@@ -331,210 +535,3 @@ input[type='number']::-webkit-inner-spin-button {
   transform: translateY(-50%);
 }
 </style>
-
-<script>
-import ProductImg from '../components/ProductImg.vue';
-import breadcrumb from '../components/Breadcrumb.vue';
-import { getLocalStorage } from '@/methods/localStorage';
-import { dealCategory } from '@/methods/filters';
-
-export default {
-  inject: ['emitter'],
-  components: {
-    ProductImg,
-    breadcrumb
-  },
-  data() {
-    return {
-      product: [],
-      productNumber: 1,
-      isMove: false,
-      is_collect: false,
-      Breadcrumb: [
-        {
-          title: '產品列表',
-          link: '/User/ProductList'
-        }
-      ],
-      isLoading: false,
-      coffeeData: [
-        {
-          title: '原產國',
-          tag: 'country'
-        },
-        {
-          title: '產區',
-          tag: 'area'
-        },
-        {
-          title: '海拔',
-          tag: 'altitude'
-        },
-        {
-          title: '品種',
-          tag: 'Variety'
-        },
-        {
-          title: '土壤種類',
-          tag: 'Soli'
-        },
-        {
-          title: '處理法',
-          tag: 'refined'
-        },
-        {
-          title: '烘烤程度',
-          tag: 'roast'
-        }
-      ],
-      coffeeEvaluation: [
-        {
-          title: '苦味',
-          tag: 'bitter'
-        },
-        {
-          title: '酸味',
-          tag: 'sour'
-        },
-        {
-          title: '甜味',
-          tag: 'sweet'
-        },
-        {
-          title: '濃郁',
-          tag: 'rich'
-        }
-      ]
-    };
-  },
-  watch: {
-    $route: function() {
-      this.getProduct();
-    }
-  },
-  methods: {
-    getProduct() {
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${this.$route.params.productId}`;
-      this.isLoading = true;
-      this.$http.get(url).then((res) => {
-        if (res.data.success) {
-          this.isLoading = false;
-          this.product = res.data.product;
-          this.product = dealCategory([res.data.product])[0];
-          console.log(this.product);
-          this.isCollect(this.product);
-          this.Breadcrumb.push({
-            title: this.product.unit,
-            link: `/User/category/${this.product.unit}`
-          });
-          this.Breadcrumb.push({
-            title: this.product.title,
-            link: ''
-          });
-        }
-      });
-    },
-    handleScroll() {
-      if (this.Scroll > 480) {
-        return (this.isMove = true);
-      }
-      this.isMove = false;
-    },
-    addproductNumber() {
-      this.productNumber++;
-    },
-    subproductNumber() {
-      if (this.productNumber <= 1) return;
-      this.productNumber--;
-    },
-    addCart(id) {
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`;
-      this.isLoading = true;
-      const cart = {
-        product_id: id,
-        qty: this.productNumber
-      };
-
-      if (this.productNumber < 1) {
-        this.$swal({
-          showConfirmButton: true,
-          icon: 'error',
-          title: '數字型別錯誤',
-          Text: '請輸入數字唷!'
-        });
-        this.productNumber = 1;
-        return;
-      }
-
-      this.$http
-        .post(url, { data: cart })
-        .then((res) => {
-          if (res.data.success) {
-            this.isLoading = false;
-            this.$swal({
-              toast: true,
-              position: 'top-end',
-              showConfirmButton: false,
-              timer: 1500,
-              timerProgressBar: true,
-              didOpen: (toast) => {
-                toast.addEventListener('mouseenter', this.$swal.stopTimer);
-                toast.addEventListener('mouseleave', this.$swal.resumeTimer);
-              },
-              icon: 'success',
-              title: '加入購物車成功!'
-            });
-            this.emitter.emit('update-cartNumber');
-          }
-        })
-        .catch((err) => {
-          this.$swal({
-            showConfirmButton: true,
-            icon: 'error',
-            title: '加入失敗',
-            Text: err
-          });
-        });
-    },
-    returnProductCategory(unit) {
-      return `/User/category/${unit}`;
-    },
-    addCollectList(product) {
-      this.emitter.emit('add-product', product);
-      this.isCollect(product);
-    },
-    removeCollectList(product) {
-      this.emitter.emit('remove-product', product);
-      this.isCollect(product);
-    },
-    isCollect(product) {
-      const collects = getLocalStorage('favoriteList');
-      this.is_collect = Object.values(collects).some(
-        (item) => item.id === product.id
-      );
-    },
-    updateProduct(id) {
-      const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/product/${id}`;
-      this.isLoading = true;
-      this.$http.get(url).then((res) => {
-        if (res.data.success) {
-          this.isLoading = false;
-          this.product = res.data.product;
-        }
-      });
-    }
-  },
-  created() {
-    this.getProduct();
-  },
-  mounted() {
-    this.emitter.on('update-product', (id) => {
-      this.updateProduct(id);
-    });
-
-    this.emitter.on('update-collect', () => {
-      this.isCollect();
-    });
-  }
-};
-</script>

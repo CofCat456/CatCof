@@ -11,7 +11,7 @@
           data-aos-anchor-placement="top-center"
         >
           <div class="imgframe">
-            <img src="../assets/bg/bg-003.jpg" />
+            <img src="../assets/img/bg/bg-003.jpg" alt="關於咖啡的照片" />
           </div>
           <p>關於咖啡</p>
         </div>
@@ -24,7 +24,7 @@
           data-aos-anchor-placement="top-center"
         >
           <div class="imgframe">
-            <img src="../assets/bg/bg-003.jpg" />
+            <img src="../assets/img/bg/bg-003.jpg" alt="關於咖啡的照片" />
           </div>
           <p>關於咖啡</p>
         </div>

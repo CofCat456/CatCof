@@ -35,7 +35,7 @@
           @click="getProductId(item.id)"
         >
           <div class="overflow-hidden imgBox">
-            <img :src="item.imageUrl" />
+            <img :src="item.imageUrl" :alt="item.title + '的照片'"/>
           </div>
           <div class="text mt-2">
             <div v-if="item.CategoryArray[0] != '無'" class="d-flex mt-3 mb-2">
@@ -70,6 +70,43 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    isFluid: {
+      type: Boolean
+    },
+    EnTitle: {
+      type: String
+    },
+    ChTitle: {
+      type: String
+    },
+    Product: {
+      type: [Object, Array],
+      required: true
+    },
+    CategoryText: {
+      type: String
+    },
+    spButton: {
+      type: Boolean
+    }
+  },
+  // props: ['EnTitle', 'ChTitle', 'product', 'CategoryText', 'spButton'],
+  data() {
+    return {
+      productList: []
+    };
+  },
+  methods: {
+    getProductId(id) {
+      this.$router.push(`/User/product/${id}`);
+    }
+  }
+};
+</script>
 
 <style scoped>
 h1 {
@@ -115,40 +152,3 @@ h1 {
   color: #fff;
 }
 </style>
-
-<script>
-export default {
-  props: {
-    isFluid: {
-      type: Boolean
-    },
-    EnTitle: {
-      type: String
-    },
-    ChTitle: {
-      type: String
-    },
-    Product: {
-      type: [Object, Array],
-      required: true
-    },
-    CategoryText: {
-      type: String
-    },
-    spButton: {
-      type: Boolean
-    }
-  },
-  // props: ['EnTitle', 'ChTitle', 'product', 'CategoryText', 'spButton'],
-  data() {
-    return {
-      productList: []
-    };
-  },
-  methods: {
-    getProductId(id) {
-      this.$router.push(`/User/product/${id}`);
-    }
-  }
-};
-</script>

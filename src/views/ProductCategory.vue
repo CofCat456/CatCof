@@ -1,15 +1,8 @@
 <template>
-  <Loading :active="isLoading">
-    <div class="loadingio-spinner-ripple-3xq5u6jldre">
-      <div class="ldio-dwik2dnj2i">
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-  </Loading>
+  <LoadingComponent :LoadingState='isLoading' />
   <div class="container-fluid">
     <div class="row d-flex justify-content-center">
-      <breadcrumb :Breadcrumb="Breadcrumb"></breadcrumb>
+      <Breadcrumb :Breadcrumb="Breadcrumb" />
     </div>
   </div>
   <section
@@ -24,32 +17,22 @@
       ChTitle="分類列表"
       :Product="Cproduct"
       :CategoryText="Category"
-    ></Category>
+     />
   </section>
 </template>
 
-<style scoped>
-.wrap .text h1 {
-  margin-bottom: 7rem;
-  font-size: 3rem;
-  font-weight: 700;
-}
-
-.img-fluid {
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-}
-</style>
-
 <script>
 import Category from '../components/ProductCard.vue';
-import breadcrumb from '../components/Breadcrumb.vue';
+import Breadcrumb from '../components/Breadcrumb.vue';
+import LoadingComponent from '../components/LoadingComponent.vue';
+
 import { dealCategory } from '@/methods/filters';
 
 export default {
   components: {
     Category,
-    breadcrumb
+    Breadcrumb,
+    LoadingComponent
   },
   data() {
     return {
@@ -86,3 +69,16 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.wrap .text h1 {
+  margin-bottom: 7rem;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.img-fluid {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+</style>

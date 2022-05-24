@@ -5,7 +5,7 @@
         <div class="col-11">
           <div class="wrap d-md-flex d-block">
             <div class="logo me-lg-5 me-md-0">
-              <img src="../assets/Logo/CofShopLogo.png" alt="貓咖啡 Logo" />
+              <img src="../assets/img/Logo/CofShopLogo.png" alt="貓咖啡 Logo" />
             </div>
             <div class="information ms-md-5 ms-0 my-3">
               <div class="addres mb-4">
@@ -38,6 +38,47 @@
     </div>
   </footer>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      routerData: [
+        {
+          name: '商品列表',
+          link: '/User/ProductList'
+        },
+        {
+          name: '關於我們',
+          link: '/User/About'
+        },
+        {
+          name: '管理者登入',
+          link: '/Login'
+        },
+        {
+          name: '購物車',
+          link: '/User/cart'
+        }
+      ],
+      infoData: [
+        {
+          icon: 'bi-facebook',
+          link: 'https://www.facebook.com/liao.xiaoan'
+        },
+        {
+          icon: 'bi-envelope',
+          link: 'mailto:a25690756@gmail.com'
+        },
+        {
+          icon: 'bi-github',
+          link: 'https://github.com/CofCat456'
+        }
+      ]
+    };
+  }
+};
+</script>
 
 <style scoped>
 footer {
@@ -131,44 +172,3 @@ ul li a:hover {
   color: rgba(36, 57, 91, 0.6);
 }
 </style>
-
-<script>
-export default {
-  data() {
-    return {
-      routerData: [
-        {
-          name: '商品列表',
-          link: '/User/ProductList'
-        },
-        {
-          name: '關於我們',
-          link: '/User/About'
-        },
-        {
-          name: '管理者登入',
-          link: '/Login'
-        },
-        {
-          name: '購物車',
-          link: '/User/cart'
-        }
-      ],
-      infoData: [
-        {
-          icon: 'bi-facebook',
-          link: 'https://www.facebook.com/liao.xiaoan'
-        },
-        {
-          icon: 'bi-envelope',
-          link: 'mailto:a25690756@gmail.com'
-        },
-        {
-          icon: 'bi-github',
-          link: 'https://github.com/CofCat456'
-        }
-      ]
-    };
-  }
-};
-</script>

@@ -16,7 +16,7 @@
     <swiper-slide
       v-for="img in imgData"
       :key="img"
-      :style="{ backgroundImage: `url(${require('../assets/bg/' + img)})` }"
+      :style="{ backgroundImage: `url(${require('../assets/img/bg/' + img)})` }"
       class="mx-0"
     ></swiper-slide>
     <div class="bigText text-center">
@@ -24,6 +24,42 @@
     </div>
   </swiper>
 </template>
+
+<script>
+// Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue';
+// import required modules
+import { Autoplay, EffectFade } from 'swiper';
+
+export default {
+  components: {
+    Swiper,
+    SwiperSlide
+  },
+  setup() {
+    return {
+      modules: [Autoplay, EffectFade]
+    };
+  },
+  data() {
+    return {
+      imgData: ['bg-001.jpg', 'bg-002.jpg', 'bg-003.jpg']
+    };
+  },
+  methods: {
+    scroll(Name) {
+      const element = document.getElementById(Name);
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  },
+  mounted() {
+    window.onresize = () => {
+      window.screenWidth = document.body.clientWidth;
+      this.width = window.screenWidth;
+    };
+  }
+};
+</script>
 
 <style scoped>
 @import '~swiper/swiper.min.css';
@@ -86,39 +122,3 @@
   }
 }
 </style>
-
-<script>
-// Import Swiper Vue.js components
-import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue';
-// import required modules
-import { Autoplay, EffectFade } from 'swiper';
-
-export default {
-  components: {
-    Swiper,
-    SwiperSlide
-  },
-  setup() {
-    return {
-      modules: [Autoplay, EffectFade]
-    };
-  },
-  data() {
-    return {
-      imgData: ['bg-001.jpg', 'bg-002.jpg', 'bg-003.jpg']
-    };
-  },
-  methods: {
-    scroll(Name) {
-      const element = document.getElementById(Name);
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  },
-  mounted() {
-    window.onresize = () => {
-      window.screenWidth = document.body.clientWidth;
-      this.width = window.screenWidth;
-    };
-  }
-};
-</script>

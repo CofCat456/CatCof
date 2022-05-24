@@ -1,13 +1,6 @@
 <template>
-  <ToastMessage></ToastMessage>
-  <Loading :active="isLoading">
-    <div class="loadingio-spinner-ripple-3xq5u6jldre">
-      <div class="ldio-dwik2dnj2i">
-        <div></div>
-        <div></div>
-      </div>
-    </div>
-  </Loading>
+  <ToastMessage />
+  <LoadingComponent :LoadingState='isLoading' />
   <div class="text-end mt-3">
     <button class="btn btn-primary" type="button" @click="openModel(true)">
       增加一個產品
@@ -57,20 +50,17 @@
     :pages="pagination"
     @emit-Adpages="getProducts"
     @emit-AdPrev="getProducts"
-    @emit-AdNext="getProducts"
-  ></Pagination>
+    @emit-AdNext="getProducts" />
   <ProductModal
     ref="productModal"
     :product="tempProduct"
     @update-product="updateProduct"
-    @dealWith-product="dealWithProducts"
-  ></ProductModal>
+    @dealWith-product="dealWithProducts" />
   <DeleteModel
     ref="deleteModal"
     :item="tempProduct.title"
     :id="tempProduct.id"
-    @del-item="DeleteProduct"
-  ></DeleteModel>
+    @del-item="DeleteProduct" />
 </template>
 
 <script>
@@ -78,13 +68,15 @@ import ProductModal from '../components/ProductModal.vue';
 import DeleteModel from '../components/Delete.vue';
 import ToastMessage from '../components/ToastMessages.vue';
 import Pagination from '../components/Pagination.vue';
+import LoadingComponent from '../components/LoadingComponent.vue';
 
 export default {
   components: {
     ProductModal,
     DeleteModel,
     ToastMessage,
-    Pagination
+    Pagination,
+    LoadingComponent
   },
   inject: ['emitter'],
   data() {

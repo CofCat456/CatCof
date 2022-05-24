@@ -1,9 +1,24 @@
 <template>
-  <NavbarMain class="sticky-top"></NavbarMain>
-  <router-view></router-view>
-  <Fotter></Fotter>
-  <fixedButton></fixedButton>
+  <NavbarMain class="sticky-top" />
+  <router-view />
+  <Fotter />
+  <FixedButton />
 </template>
+
+<script>
+import NavbarMain from '../components/NavbarMain.vue';
+import Fotter from '../components/Fotter.vue';
+import FixedButton from '../components/FixedButton.vue';
+
+export default {
+  inject: ['emitter'],
+  components: {
+    NavbarMain,
+    Fotter,
+    FixedButton
+  }
+};
+</script>
 
 <style>
 .btn-red {
@@ -48,18 +63,3 @@
   background: #fff;
 }
 </style>
-
-<script>
-import NavbarMain from '../components/NavbarMain.vue';
-import Fotter from '../components/Fotter.vue';
-import fixedButton from '../components/FixedButton.vue';
-
-export default {
-  inject: ['emitter'],
-  components: {
-    NavbarMain,
-    Fotter,
-    fixedButton
-  }
-};
-</script>

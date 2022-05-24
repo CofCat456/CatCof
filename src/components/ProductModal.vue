@@ -46,7 +46,6 @@
                   @change="uploadFile"
                 />
               </div>
-              <img class="img-fluid" alt="" />
               <!-- 產品所有圖片 -->
               <div class="mt-5" v-if="tempProduct.images">
                 <h5 class="mb-2">產品所有圖片</h5>
@@ -553,12 +552,6 @@
   </div>
 </template>
 
-<style scoped>
-span {
-  color: white;
-}
-</style>
-
 <script>
 import ModalMixin from '@/mixins/ModalMixin';
 
@@ -616,3 +609,9 @@ export default {
   mixins: [ModalMixin]
 };
 </script>
+
+<style scoped>
+span {
+  color: white;
+}
+</style>

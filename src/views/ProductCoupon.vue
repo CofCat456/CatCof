@@ -1,5 +1,5 @@
 <template>
-  <ToastMessage></ToastMessage>
+  <ToastMessage />
   <Loading :active="isLoading">
     <div class="loadingio-spinner-ripple-3xq5u6jldre">
       <div class="ldio-dwik2dnj2i">
@@ -55,19 +55,16 @@
     :pages="pagination"
     @emit-Adpages="getCoupon"
     @emit-AdPrev="getCoupon"
-    @emit-AdNext="getCoupon"
-  ></Pagination>
+    @emit-AdNext="getCoupon" />
   <CouponModal
     ref="CouponModal"
     :Coupon="tempCoupon"
-    @update-coupon="updateCoupon"
-  ></CouponModal>
+    @update-coupon="updateCoupon" />
   <DeleteModel
     ref="deleteModal"
     :item="tempCoupon.title"
     :id="tempCoupon.id"
-    @del-item="DeleteCoupon"
-  ></DeleteModel>
+    @del-item="DeleteCoupon" />
 </template>
 
 <script>

@@ -19,10 +19,6 @@ import $httpMessageState from './methods/pushMessageState';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 
-// loading-overlay
-import Loading from 'vue-loading-overlay';
-import 'vue-loading-overlay/dist/vue-loading.css';
-
 // FontAwesome
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -57,8 +53,6 @@ AOS.init({
 
 // 全域註冊
 app.component('font-awesome-icon', FontAwesomeIcon);
-app.component('Loading', Loading);
-
 app.component('Form', Form);
 app.component('Field', Field);
 app.component('ErrorMessage', ErrorMessage);
