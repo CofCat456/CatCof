@@ -98,7 +98,7 @@ export default {
   },
   methods: {
     getProductCategory(id) {
-      this.$router.push(`/User/category/${id}`);
+      this.$router.push(`/User/Category/${id}`);
     }
   }
 };

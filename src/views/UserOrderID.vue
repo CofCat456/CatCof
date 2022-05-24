@@ -203,7 +203,7 @@ export default {
       Breadcrumb: [
         {
           title: '購物車',
-          link: '/User/cart'
+          link: '/User/Cart'
         },
         {
           title: '填寫訂單資源',

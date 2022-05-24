@@ -16,15 +16,15 @@ const routes = [
         component: () => import('../views/ProductList.vue')
       },
       {
-        path: 'category/:id',
+        path: 'Category/:id',
         component: () => import('../views/ProductCategory.vue')
       },
       {
-        path: 'product/:productId',
+        path: 'Product/:productId',
         component: () => import('../views/Product.vue')
       },
       {
-        path: 'cart',
+        path: 'Cart',
         component: () => import('../views/UserCart.vue')
       },
       {
@@ -34,6 +34,10 @@ const routes = [
       {
         path: 'Order/:id',
         component: () => import('../views/UserOrderID.vue')
+      },
+      {
+        path: 'About',
+        component: () => import('../views/AboutShop.vue')
       }
     ]
   },

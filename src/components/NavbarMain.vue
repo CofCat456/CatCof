@@ -148,12 +148,16 @@ export default {
           link: '/User/ProductList'
         },
         {
+          name: '關於我們',
+          link: '/User/About'
+        },
+        {
           name: '管理者登入',
           link: '/Login'
         },
         {
           name: '購物車',
-          link: '/User/cart'
+          link: '/User/Cart'
         }
       ]
     };
