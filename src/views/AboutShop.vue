@@ -26,9 +26,9 @@
             <img src="../assets/img/bg/bg-005.jpg" class="img-fluid" alt="關於我們的照片" />
           </div>
         </div>
-        <div v-for="(item, index) in AboutText" :key="item" class="col-lg-8 col-md-8 col-10 px-md-1 px-3 d-flex flex-wrap justify-content-center my-lg-5 py-lg-5 my-md-3 my-4">
+        <div v-for="(item, index) in AboutText" :key="item" class="col-lg-8 col-md-7 col-10 px-md-1 px-3 d-flex flex-wrap justify-content-center my-lg-5 py-lg-5 my-md-3 my-4">
           <div :class="[['col-lg-5 col-md-12 order-md-0'], index%2 === 0 ? 'order-lg-1' : 'order-lg-0']">
-            <img :src="item.img"  class="img-fluid round" :alt="item.title + '的照片'" />
+              <img :src="item.img"  class="img-fluid round" :alt="item.title + '的照片'" />
           </div>
           <div :class="[['col-lg-7 col-md-12 order-md-1 mt-4'],  index%2 === 0 ? 'order-lg-0 pe-lg-5' : 'order-lg-1 ps-lg-5']">
             <h2 class="fw-bold">{{item.title}}</h2>
