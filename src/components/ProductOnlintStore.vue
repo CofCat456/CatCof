@@ -43,7 +43,7 @@ export default {
         {
           title: '冷萃咖啡',
           src: require('../assets/img/store/ColdBrew.jpg'),
-          text: '炎熱的夏天，想喝點冰的嗎？試試冷萃咖啡吧！使用冷水浸泡過，喝上一口便可抵擋炎熱天氣！'
+          text: '炎熱的夏天，想喝點冰的嗎？試試冷萃咖啡吧！喝上一口便可抵擋炎熱天氣！'
         },
         {
           title: '精品禮盒',

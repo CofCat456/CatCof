@@ -12,6 +12,7 @@
         aria-controls="navbarSupportedContent"
         aria-expanded="false"
         aria-label="Toggle navigation"
+        ref="navbarBtn"
         @click="hamburgerClick"
       >
         <font-awesome-icon icon="bars" class="hamburge" />
@@ -23,6 +24,7 @@
           <li v-for="item in navData" :key="item.name">
             <router-link
               :to="item.link"
+              @click="closeBtn()"
               class="nav-link nav-text mx-lg-3 my-lg-0 p-lg-0 my-1 p-3 fw-bold"
             >
               {{ item.name }}
@@ -65,6 +67,9 @@ export default {
         return (this.isScroll = true);
       }
       this.isScroll = false;
+    },
+    closeBtn() {
+      this.$refs.navbarBtn.click();
     }
   },
   mounted() {

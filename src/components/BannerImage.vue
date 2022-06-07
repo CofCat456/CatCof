@@ -20,7 +20,19 @@
       class="mx-0"
     ></swiper-slide>
     <div class="bigText text-center">
-      <h1>來和貓咪一起快樂的過每一天吧!</h1>
+      <div class="mb-lg-5 mb-md-2">
+        <h1>歡迎來到貓咖啡商店！</h1>
+        <h1>今天想喝點什麼呢？</h1>
+      </div>
+      <div class="mt-5 d-lg-block d-none">
+        <p>貓咖啡店內販售來自世界各地精品咖啡</p>
+        <p>只要輕鬆點擊就能訊速購買</p>
+        <p>讓您在家中也能擁有咖啡的陪伴</p>
+      </div>
+      <router-link
+            to="/User/ProductList"
+            class="btn btn-custom-Brown mt-3 px-sm-5 px-3 py-1"
+            >前 往 購 物</router-link>
     </div>
   </swiper>
 </template>
@@ -103,14 +115,20 @@ export default {
 }
 
 .bigText h1 {
-  width: 500px;
   letter-spacing: 0.25rem;
   font-size: 3rem;
   font-weight: 600;
   color: #fff;
 }
 
-@media screen and (max-width: 768px) {
+.bigText p{
+  letter-spacing: 0.25rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #fff;
+}
+
+@media screen and (max-width: 991px) {
   .bigText h1 {
     font-size: 1.8rem;
   }
@@ -118,7 +136,12 @@ export default {
 
 @media screen and (max-width: 414px) {
   .bigText h1 {
-    font-size: 1.2rem;
+    letter-spacing: 2px;
+    font-size: 1rem;
+  }
+
+  .bigText a{
+    font-size: 0.875rem;
   }
 }
 </style>

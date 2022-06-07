@@ -174,7 +174,7 @@
 
           <button
             type="submit"
-            class="btn btn-custom-Orange px-lg-4 px-2 py-2"
+            class="btn btn-custom-Brown px-lg-4 px-2 py-2"
             :disabled="Object.keys(errors).length !== 0"
           >
             送 出 訂 單
@@ -278,36 +278,11 @@ h3 {
   padding: 0.75rem 0.5rem;
 }
 
-.btn {
-  font-weight: 700;
-  line-height: 1.7;
-}
-
 .input-group span {
   max-width: 80px;
   font-size: 1rem;
   border-width: 1px 0;
   border-style: solid;
   border-color: #ced4da;
-}
-
-.btn-custom-Blue {
-  border: 1px solid #24395b;
-  color: #24395b !important ;
-}
-
-.btn-custom-Blue:hover {
-  color: #fff !important;
-  background-color: #24395b;
-}
-
-.btn-custom-Orange {
-  color: #fff;
-  background-color: #24395b;
-}
-
-.btn-custom-Orange:hover {
-  color: #000;
-  background-color: #ff9800;
 }
 </style>

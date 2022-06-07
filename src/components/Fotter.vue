@@ -82,27 +82,27 @@ export default {
 
 <style scoped>
 footer {
-  margin-top: 150px;
+  margin-top: 250px;
   margin-right: 6.12vw;
   padding-left: 12.24vw;
   background: #dee1e7;
   border-radius: 0 30px 0 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
   footer {
-    margin-top: 100px;
+    margin-top: 200px;
   }
 }
 
 @media screen and (max-width: 414px) {
   footer {
-    margin-top: 0px;
+    margin-top: 120px;
   }
 }
 
 .wrap {
-  padding: 110px 0 70px;
+  padding: 50px 0 40px;
 }
 
 @media screen and (max-width: 414px) {

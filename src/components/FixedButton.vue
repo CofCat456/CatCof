@@ -12,7 +12,7 @@
       >
         <i class="bi bi-heart position-relative"
           ><span
-            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"
+            :class="[['position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary'], collects.length === 0 && 'd-none']"
             >+{{ collects.length }}
           </span></i
         >
@@ -22,7 +22,7 @@
       <router-link to="/User/cart"
         ><i class="bi bi-cart3 position-relative"
           ><span
-            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"
+           :class="[['position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary'], cartNumber === 0 && 'd-none']"
             >+{{ cartNumber }}</span
           ></i
         ></router-link
@@ -108,7 +108,7 @@
         <div class="col-6 px-2">
           <button
             type="button"
-            class="btn btn-custom-Orange w-100 px-1 px-sm-2 px-md-4 py-2"
+            class="btn btn-custom-Brown w-100 px-1 px-sm-2 px-md-4 py-2"
             @click="this.$router.push('/User/cart')"
             data-bs-dismiss="offcanvas"
             aria-label="Close"
@@ -189,8 +189,6 @@ export default {
               icon: 'success',
               title: '加入購物車成功!'
             });
-            // 刪除收藏
-            this.collects.splice(index, 1);
             // 更新LocalStorage
             savaLocalStorage('favoriteList', this.collects);
             // 更新fixedbutton 購物車數量
@@ -353,46 +351,11 @@ ul {
   font-size: 0.4rem;
 }
 
-.btn {
-  font-weight: 700;
-  line-height: 1.7;
-}
-
 .input-group span {
   max-width: 80px;
   font-size: 1rem;
   border-width: 1px 0;
   border-style: solid;
   border-color: #ced4da;
-}
-
-.btn-red {
-  padding: 5px;
-  color: rgba(220, 53, 69, 0.3);
-  transition: all 0.5s;
-}
-
-.btn-red:hover {
-  color: #dc3545;
-}
-
-.btn-custom-Blue {
-  border: 1px solid #24395b;
-  color: #24395b !important ;
-}
-
-.btn-custom-Blue:hover {
-  color: #fff !important;
-  background-color: #24395b;
-}
-
-.btn-custom-Orange {
-  color: #fff;
-  background-color: #24395b;
-}
-
-.btn-custom-Orange:hover {
-  color: #000;
-  background-color: #ff9800;
 }
 </style>

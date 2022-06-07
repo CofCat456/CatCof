@@ -2,7 +2,7 @@
   <LoadingComponent :LoadingState='isLoading' />
   <NavbarMain class="sticky-top" />
   <div class="d-flex justify-content-end mt-md-4 my-2 me-md-5 me-1 pe-md-2">
-    <p class="me-2 px-2 rounded-pill bgOrange">NEW</p>
+    <p class="me-2 px-2 rounded-pill bgBrown">NEW</p>
     <p class="text-decoration-underline sTag">
       結帳時輸入good coffee折扣碼即享有8折優惠！
     </p>
@@ -102,7 +102,7 @@ export default {
 }
 
 .tag.blue {
-  background-color: #00aaf5;
+  background-color: #24395b;
   box-shadow: 0 2px 4px rgb(0 170 245 / 30%);
 }
 
@@ -113,7 +113,7 @@ export default {
 }
 
 .tag.brown {
-  background: #998675;
+  background: #c6a37b;
   box-shadow: 0 2px 4px rgba(205, 97, 8, 0.3);
 }
 

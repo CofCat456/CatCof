@@ -159,7 +159,7 @@
           <div class="col-10 d-flex justify-content-center mb-5">
             <router-link
               to="/User/ProductList"
-              class="btn btn-custom-Orange px-3 py-1"
+              class="btn btn-custom-Brown px-3 py-1"
               >前 往 付 款</router-link
             >
           </div>
@@ -230,20 +230,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.btn {
-  font-weight: 700;
-  line-height: 1.7;
-}
-
-.btn-custom-Orange {
-  color: #fff;
-  background-color: #24395b;
-}
-
-.btn-custom-Orange:hover {
-  color: #000;
-  background-color: #ff9800;
-}
-</style>

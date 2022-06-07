@@ -41,7 +41,7 @@ img {
 .active {
   border-width: 0 0 1px;
   border-style: solid;
-  border-color: #ff9800;
+  border-color: #c6a37b;
 }
 
 .enter :first-child,
@@ -54,7 +54,7 @@ img {
 }
 
 .active :first-child {
-  background: #ff9800 !important;
+  background: #c6a37b !important;
 }
 
 .enter :first-child,
@@ -70,6 +70,6 @@ img {
 }
 
 .active :last-child {
-  color: #ff9800;
+  color: #c6a37b;
 }
 </style>

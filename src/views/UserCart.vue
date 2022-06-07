@@ -150,7 +150,7 @@
           <h3 class="mb-3">購物車內沒有商品</h3>
           <router-link
             to="/User/ProductList"
-            class="btn btn-custom-Orange px-5 py-1"
+            class="btn btn-custom-Brown px-5 py-1"
             >前 往 購 物</router-link
           >
         </main>
@@ -171,7 +171,7 @@
         >
           清 空 購 物 車
         </button>
-        <router-link to="/User/Order" class="btn btn-custom-Orange px-md-4 py-2"
+        <router-link to="/User/Order" class="btn btn-custom-Brown px-md-4 py-2"
           >填 寫 訂 單<i class="bi bi-caret-right ms-1"></i
         ></router-link>
       </div>
@@ -446,10 +446,6 @@ export default {
 <style scoped>
 img {
   cursor: pointer;
-}
-.btn {
-  font-weight: 700;
-  line-height: 1.7;
 }
 
 @media screen and (max-width: 414px) {

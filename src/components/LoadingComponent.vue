@@ -56,7 +56,7 @@ export default {
   animation-delay: 0s;
 }
 .ldio-dwik2dnj2i div:nth-child(2) {
-  border-color: #774023;
+  border-color: #c6a37b;
   animation-delay: -1.25s;
 }
 .loadingio-spinner-ripple-3xq5u6jldre {

@@ -213,10 +213,6 @@ tbody p {
   color: #24395b !important;
 }
 
-.colorOrange {
-  color: #ff9800 !important;
-}
-
 .bgPink {
   background: #ed1e79 !important;
 }
@@ -229,8 +225,51 @@ tbody p {
   background: #dee1e7 !important;
 }
 
-.bgOrange {
-  background: #ff9800 !important;
+.btn {
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.btn-red {
+  padding: 5px;
+  color: rgba(220, 53, 69, 0.3);
+  transition: all 0.5s;
+}
+
+.btn-red:hover {
+  color: #dc3545;
+}
+
+.btn-custom-Blue {
+  border: 1px solid #24395b;
+  color: #24395b !important ;
+  background: #fff;
+}
+
+.btn-custom-Blue:hover {
+  color: #fff !important;
+  background-color: #24395b;
+}
+
+.btn-custom-Brown {
+  color: #fff;
+  background-color: #24395b;
+}
+
+.btn-custom-Brown:hover {
+  color: #000;
+  background-color: #c6a37b;
+}
+
+.btn-custom-contrary-Blue {
+  border: 1px solid #24395b;
+  color: #fff !important;
+  background-color: #24395b;
+}
+
+.btn-custom-contrary-Blue:hover {
+  color: #24395b !important ;
+  background: #fff;
 }
 
 .router-link {

@@ -527,13 +527,6 @@
         <div class="modal-footer">
           <button
             type="button"
-            class="btn btn-info"
-            @click="$emit('dealWith-product', tempProduct)"
-          >
-            多種咖啡模式
-          </button>
-          <button
-            type="button"
             class="btn btn-outline-secondary"
             data-bs-dismiss="modal"
           >
@@ -578,6 +571,7 @@ export default {
       const url = `${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/admin/upload`;
       this.$http.post(url, formData).then((res) => {
         if (res.data) {
+          console.log(res.data);
           this.tempProduct.imageUrl = res.data.imageUrl;
         }
       });
