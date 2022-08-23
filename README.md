@@ -26,7 +26,7 @@ Demo： [https://cofcat456.github.io/coffeeShop]
 > * 使用 ` ESlint Standard ` 控管程式碼品質
 > * 使用 ` Git ` 版本控制
 
-###使用技術
+### **使用技術**
 * Vue 2
 * Vue Cli
 * Vue Single-File Components
